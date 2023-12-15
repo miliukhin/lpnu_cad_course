@@ -1,0 +1,28 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Дослідити на збіжність інтеграл 1-го роду
+$
+\int_0^\infty e^{-ax} \cos bx\, dx
+$
+}
+\Solution
+
+\begin{equation}
+	\int_0^\infty e^{-ax} \cos bx\, dx
+\end{equation}
+Проблема в
+\begin{equation}
+	\frac{1}{e^{ax}} \implies
+	\lim_{A\to\infty}\int_0^A e^{-ax}=
+	\lim_{A\to\infty}\frac{e^{-ax}}{-a}=
+	% \lim_{A\to\infty}\frac{1}{-ae^{ax}}=
+\end{equation}
+
+\Answer{
+	Збіжний
+}
+
+\end{document}
+end{document}

@@ -1,0 +1,45 @@
+\documentclass[../rgr1.tex]{subfiles}
+% <++>
+% sqrt(x+3)/(1+(x+3)^(1/3)
+\begin{document}
+
+\Problem{
+	Знайти інтеграл від ірраціональної функції
+	$
+	\int{\frac{\sqrt{x+3}}{1+\sqrt[{3}]{x+3}}}{\;\mathrm{d}x}
+	$
+}
+\Solution
+
+\begin{equation}
+	\frac{p_1}{q_1}=\frac{1}{2}, \frac{p_2}{q_2}=\frac{1}{3} \implies x+3 = t^6, dx = 6t^5\,dt
+\end{equation}
+\begin{dmath}
+	% \int{\frac{\sqrt{x+3}}{1+\sqrt[{3}]{x+3}}}{\;\mathrm{d}x}
+	6\int{\frac{t^8}{1+t^2}}{\;\mathrm{d}t}
+	=6\left(
+	\int t^6 dt
+	-\int t^4 dt
+	+\int t^2 dt
+	-\int 1 dt
+	+ \int \frac{1}{t^2+1} dt
+	\right)
+	=6\left(
+	-\frac{t^7}{7}
+	+\frac{t^5}{5}
+	-\frac{t^3}{3}
+	- t
+	+ \arctg t + C
+	\right)
+\end{dmath}
+
+Далі проводимо обернену заміну
+
+\Answer{
+	$
+	6\,\arctg\left(\sqrt[{6}]{x+3}\right)-\frac{6\,\sqrt[{6}]{\left({x+3}\right)^{5}}}{5}+2\,\sqrt{x+3}+\frac{\sqrt[{6}]{x+3}\,\left(30\,x-120\right)}{35}+C
+	$
+}
+
+\end{document}
+end{document}

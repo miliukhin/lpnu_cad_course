@@ -1,0 +1,34 @@
+\documentclass[../rgr1.tex]{subfiles}
+% (x-4)/(sqrt(2x^2-x+7) ??
+\begin{document}
+\Problem{
+	$\int \frac{x-4}{\sqrt{2x^2-x+7}} \, dx$
+}
+\Solution
+
+\begin{dmath}
+	\int \frac{x-4}{ \sqrt{2x^2-x+7} } \, dx
+	=  \frac{1}{\sqrt2}\int \frac{x-4}{\sqrt{x^2-x+7} } \, dx
+	=  \frac{1}{\sqrt2}\int \frac{\overbrace{x-\frac{1}{4}}^t-\frac{15}{4}}{\sqrt{\left(x-\frac{1}{4}\right)^2+\frac{55}{16}} } \, dx
+	=  \frac{1}{\sqrt2}\int \frac{t-\frac{15}{4}}{\sqrt{t^2+\frac{55}{16}} } \, dt
+	=  \frac{1}{2\sqrt2}\int \frac{\cancel t}{\cancel t\sqrt{t^2+\frac{55}{16}} } \, d\left(t^2+\frac{55}{16}\right)
+	- \frac{15}{4\sqrt2}\int \frac{1}{\sqrt{t^2+\frac{55}{16}} } \, dt
+	= \frac{1}{2\sqrt2}\sqrt{t^2+\frac{55}{16}}
+	- \frac{15}{4\sqrt2}\ln \left| t+\sqrt{t^2+\frac{55}{16}} \right|
+	= \frac{1}{2\sqrt2}\sqrt{\left(x-\frac{1}{4}\right)^2+\frac{55}{16}}
+	- \frac{15}{4\sqrt2}\ln \left| x-\frac{1}{4}+\sqrt{\left(x-\frac{1}{4}\right)^2+\frac{55}{16}} \right|
+	% = \frac{1}{2\sqrt2}\sqrt{x^2-\frac{x}{2}+\frac{1}{16}+\frac{55}{16}}
+	= \frac{1}{2\sqrt2}\sqrt{x^2-\frac{x}{2}+\frac{56}{16}}
+	% - \frac{15}{4\sqrt2}\ln \left| x^2-\frac{x}{2}+\frac{1}{16}+\sqrt{x^2-\frac{x}{2}+\frac{1}{16}+\frac{55}{16}} \right|
+	- \frac{15}{4\sqrt2}\ln \left| x^2-\frac{x}{2}+\frac{1}{16}+\sqrt{x^2-\frac{x}{2}+\frac{56}{16}} \right|
+\end{dmath}
+
+\Answer{
+	$
+	\frac{1}{2\sqrt2}\sqrt{x^2-\frac{x}{2}+\frac{56}{16}}
+	- \frac{15}{4\sqrt2}\ln \left| x^2-\frac{x}{2}+\frac{1}{16}+\sqrt{x^2-\frac{x}{2}+\frac{56}{16}} \right|
+	$
+}
+
+\end{document}
+end{document}

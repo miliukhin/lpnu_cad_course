@@ -1,0 +1,54 @@
+\documentclass[../rgr_2.tex]{subfiles}
+\usepackage{mathtools}
+
+\begin{document}
+
+\Problem{Знайти розв'язок задачі Коші для лінійного диференціального рівняння
+$
+y'-\frac{2xy}{1+x^2}=1+x^2,~y(1)=3
+$
+}
+\Solution
+
+\begin{align}
+	y'-\frac{2xy}{1+x^2}=1+x^2 \\
+	y = uv \\
+	\fbox{$u'v$}+uv'-\fbox{$\displaystyle\frac{2xuv}{1+x^2}$}=1+x^2 \\
+	u'v-\frac{2xuv}{1+x^2}=0 \\
+	v\left(u'-\frac{2xu}{1+x^2}\right)=0 \\ % v не може бути 0 бо тоді 1+x^2=0
+	\frac{du}{dx}=\frac{2xu}{1+x^2}~\Big|\vdots u \\
+	\int \frac{1}{u} du=\int \frac{2x}{1+x^2}\,dx
+	=\int\frac{1}{1+x^2}\,d(1+x^2) \\
+	\ln|u|=\ln|1+x^2| \\
+	u=1+x^2
+\end{align}
+тепер занулюємо обрані доданки та отримуємо:
+\begin{align}
+	(1+x^2)v'=1+x^2 \\
+	v'=1 \implies v = x+C
+\end{align}
+% блін як він там записав так
+\begin{align}
+	y=(1+x^2)(x+C) \\ % підставимо в мяу
+	y=x+C+x^3+Cx^2 \\ % підставимо в мяу
+	y'-\frac{2xy}{1+x^2}=1+x^2 \\
+	(x+C+x^3+Cx^2)'-\frac{2x(1+x^2)(x+C)}{1+x^2}=1+x^2 \\
+	1+3x^2+2Cx-2x(x+C)=1+x^2 \\
+	3x^2+2Cx-2x^2-2Cx=x^2 % усе зібралося
+\end{align}
+
+Підставмо значення та знайдімо розв'язок задачі Коші:
+
+\begin{equation}
+	3=C(1+1)+2
+	\implies 3=2C+2
+	\implies C=\frac{1}{2}
+\end{equation}
+
+\Answer{
+$
+	y=x^3+\frac{x^2}{2}+x+\frac{1}{2}
+$
+}
+
+\end{document}

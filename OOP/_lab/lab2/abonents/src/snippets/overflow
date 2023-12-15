@@ -1,0 +1,5 @@
+{
+std::cout << "\033[1mError: input data exceed maximum acceptable value. Returning to the editor menu.\033[0m" << std::endl;
+std::cin.clear();
+std::fflush(stdin);
+}

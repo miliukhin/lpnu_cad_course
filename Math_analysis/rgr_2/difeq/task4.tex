@@ -1,0 +1,41 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти розв'язок задачі Коші для дирфня з відок зм
+$
+	2x=3yy', y(3)=2
+$
+}
+\Solution
+
+\begin{equation}
+	\begin{cases}
+		2x=3yy'=3y\frac{dy}{dx} \Big|\cdot dx \implies \int 2x\,dx=\int 3y\,dy \\
+		y(3)=2
+	\end{cases}
+\end{equation}
+
+\begin{align}
+	\int y\,dy=\frac{2}{3}\int x\,dx
+	\implies
+	\frac{y^2}{2}=\frac{2x^2}{2*3}+C
+	\implies
+	\fbox{
+		$y^2=2\left(\frac{x^2}{3}+C\right)$
+	}
+	\\
+	4=2\left(\frac{3^2}{3}+C\right)
+	\implies
+	4=2\left(3+C\right)
+	\implies
+	\underline{C=-1}
+\end{align}
+
+\Answer{
+	$
+	y=\pm\sqrt{2\left(\frac{x^2}{3}-1\right)}
+	$
+}
+
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass[../rgr_2.tex]{subfiles}
+%shell-escape
+
+\begin{document}
+
+\Problem{
+	Обчислити подвійний інтеграл
+	$
+	\iint_D x^2y\,dx\,dy
+	$ за областю D:
+	$
+	y\geq0, (x-1)^2+y^2\leq1
+	$
+}
+\Solution
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+			axis lines = middle,
+			axis equal,
+			width=7cm,
+			samples=5000,
+			% ymin=-10,
+			% ymax=10,
+			% xmin=-10,
+			% xmax=10
+			% domain=0:2*pi
+			]
+		\addplot [violet, name path=up] gnuplot {sqrt(1-(x-1)**2)};
+    		\path[name path=axis] (axis cs:0,0) -- (axis cs:4,0);
+
+	\addplot [
+		thick,
+		pattern color=purple,
+		pattern=vertical lines,
+	]
+	fill between[
+		of=axis and up,
+		% soft clip={domain=0:1},
+    	];
+
+	\end{axis}
+	\end{tikzpicture}
+	%\subfile{plot.tex}
+	\caption{Область D}
+\end{figure}
+
+\begin{dmath}
+	\int_0^2 dx \int_0^{\sqrt{1-(x-1)^2}} x^2y\,dy
+	=
+	\int_0^2 dx \frac{x^2y^2}{2}\Bigg|_0^{\sqrt{1-(x-1)^2}}
+	=
+	\int_0^2 dx \frac{x^2(1-(x-1)^2)}{2}
+	= \int_0^2 dx \frac{x^2(1-x^2-2x+1)}{2}
+	= \int_0^2 dx \frac{-x^4-2x^3}{2}
+	= -\frac{1}{2}\int_0^2 x^4 \,dx -\int_0^2 x^3\,dx
+	= -\frac{x^5}{10} - \frac{x^4}{4} \Bigg|_0^2
+	= -\frac{2^5}{10} - \frac{2^4}{4}
+	= -3.2 - 4 = -7.2
+\end{dmath}
+
+\Answer{
+-7.2
+}
+
+\end{document}

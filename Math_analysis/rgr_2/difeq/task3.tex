@@ -1,0 +1,25 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Розв'язати диференціальне рівняння
+$
+(4+e^x)y\,dy=e^x\,dx
+$
+з відокремлюваними змінними}
+\Solution
+
+\begin{align}
+	y\,dy=\frac{e^x\,dx}{(4+e^x)} \implies
+	\int y\,dy=\int \frac{e^x\,dx}{4+e^x} \\
+	\frac{y^2}{2}+C_1=\int \frac{e^x\cdot\frac{1}{e^x}}{4+e^x}\,d(e^x) \\
+	\frac{y^2}{2}+C_1=\ln\left({e}^{x}+4\right)+C_2
+\end{align}
+
+\Answer{
+	$
+	\frac{y^2}{2}-\ln\left({e}^{x}+4\right)+C=0
+	$
+}
+
+\end{document}

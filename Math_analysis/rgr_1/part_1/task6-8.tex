@@ -1,0 +1,82 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{ Обчислити границю функції
+$
+\lim_{x\to1}\frac{x^2-2x+1}{2x^2-x-1}
+$
+}
+\Solution
+
+\begin{equation}
+	\lim_{x\to1}\frac{x^2-2x+1}{2x^2-x-1} =
+	\lim_{x\to1}\frac{(x-1)^2}{2x^2-x-1}
+\end{equation}
+
+\newcommand{\dropsign}[1]{\smash{\llap{\raisebox{-.5\normalbaselineskip}{$#1$\hspace{2\arraycolsep}}}}}%
+
+\begin{equation}
+  \begin{array}{r|r}
+	\dropsign{-}
+	  	2x^2 - x - 1	& x - 1 \phantom{2} \\ \cline{2-2}
+		2x^2 - 2x \phantom{-1}	& 2x+1 \\ \cline{1-1} \\[\dimexpr-\normalbaselineskip+\jot]
+	\dropsign{-}
+		x-1\\
+		x-1 \\ \cline{1-1} \\[\dimexpr-\normalbaselineskip+\jot]
+		0
+  \end{array} \implies
+	\lim_{x\to1}\frac{x^2-2x+1}{2x^2-x-1} =
+	\lim_{x\to1}\frac{x-1}{2x+1} =
+	\frac{1-1}{2+1} = 0
+\end{equation}
+
+
+\Answer{
+	0
+}
+
+\Problem{ Обчислити границю функції
+	$
+	\lim_{x\to -8}\frac{ \sqrt{1-x}-3 }{ 2+\sqrt[3]{x} }
+	$
+}
+\Solution
+
+\begin{dmath}
+	\lim_{x\to -8}\frac{ \sqrt{1-x}-3 }{ 2+\sqrt[3]{x} }
+	= \left\{ \frac{0}{0} \right\} =
+	\lim_{x\to -8}\frac{ (1-x)-9 }{ (2+\sqrt[3]{x})(\sqrt{1-x}+3) } =
+	\lim_{x\to -8}\frac{ -\cancel{(x+8)}(4-2\sqrt[3]{x} +\sqrt[3]{x^2}) }{ \cancel{(x+8)}(\sqrt{1-x}+3) } =
+	\frac{2(-2) - 4 - 4}{3+3} = \frac{-12}{6} = -2
+\end{dmath}
+
+\Answer{
+	$-2$
+}
+
+\Problem{ Обчислити границю функції
+	$
+	\lim_{x\to 1}\frac{1-x^2}{\sin{\pi x} }
+	$
+}
+\Solution
+
+\begin{dmath}
+	\lim_{x\to 1}\frac{1-x^2}{\sin{\pi x} } =
+	\left\{ \frac{0}{0} \right\}
+\end{dmath}
+
+Застосую правило Лопіталя:
+
+\begin{dmath}
+	\lim_{x\to 1}\frac{1-x^2}{\sin{\pi x} } =
+	\lim_{x\to 1}\frac{-2x}{\pi\cos{\pi x} } =
+	\frac{-2}{-\pi}
+\end{dmath}
+
+\Answer{
+$	\frac{2}{\pi}$
+}
+
+\end{document}

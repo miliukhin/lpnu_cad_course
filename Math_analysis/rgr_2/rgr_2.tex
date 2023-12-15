@@ -1,0 +1,130 @@
+\documentclass[a4paper, 12pt]{extreport}
+
+\input{$HOME/Templates/lpnu_doc_templates/settings/preamble}
+%shell-escape
+%multline, split, align*, eqnarray
+\usepackage{etoolbox} % пакунок для розширеного програмування
+\usepackage{amssymb} % розширені математичні символи
+\usepackage{gnuplottex}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest,
+	xlabel={$x$},
+    	ylabel={$y$},
+	axis lines = middle,
+	axis equal
+}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\usetikzlibrary{patterns.meta}
+\usepackage{tikz-3dplot}
+\tdplotsetmaincoords{60}{115} %to set up a desired angle of visualization
+
+\usepackage{boxedminipage}
+\usepackage{varwidth}
+\fboxrule=1pt
+
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{10pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+%	TODO:	REFACTORING	%
+\newtoggle{Report}
+\togglefalse{Report}
+
+\newtoggle{RGR}
+\toggletrue{RGR}
+\renewcommand\Department{ОМП}
+
+\newcommand\Type{\RGR}
+\newcommand\Number{№2}
+\newcommand\Discipline{Математичний аналіз та диференціальні рівняння}
+
+\newcommand\Class{студент групи \Group}
+\newcommand\Author{\Lname~\Initials}
+\newcommand\Position{доцент}
+\newcommand\Instructor{Пахолок Б. Б.}
+\newcommand\Variant{11}
+
+% зміни в лічильниках підсекцій
+\renewcommand{\thesubsection}{\thechapter .\arabic{subsection}}
+
+% \usepackage{macrolist}
+% \macronewlist{Answers}
+
+% ЗАВДАННЯ
+\newcommand{\Problem}{\subsection}
+% РОЗВ'ЯЗОК
+\newcommand{\Solution}{\subsubsection*{\centering \scshape Розв'язок:}}
+% ВІДПОВІДЬ
+\newcommand{\Answer}[1]{
+\medskip
+\null\hfill
+\begin{boxedminipage}{\textwidth}
+	\paragraph{Відповідь: }{#1}
+	% \macrolistadd{Answers}{#1}
+\end{boxedminipage}
+}
+
+\setcounter{secnumdepth}{2}
+
+\newenvironment{compactlist}{
+\begin{list}{{$\bullet$}}{
+\setlength\partopsep{0pt}
+\setlength\parskip{0pt}
+\setlength\parsep{0pt}
+\setlength\topsep{0pt}
+\setlength\itemsep{0pt}
+}
+}{
+\end{list}
+}
+
+\usepackage{paralist}
+
+\begin{document}
+
+\input{$HOME/Templates/lpnu_doc_templates/parts/titlepage.tex}
+
+\chapter{Ряди}
+
+\subfile{series/task1.tex}
+\subfile{series/task2.tex}
+\subfile{series/task3.tex}
+\subfile{series/task4.tex}
+\subfile{series/task5.tex}
+\subfile{series/task6.tex}
+\setcounter{subsection}{7}
+\subfile{series/task8.tex}
+\chapter{Кратні інтеграли}
+\setcounter{subsection}{9}
+
+\subfile{n-fold_integrals/task10.tex}
+\subfile{n-fold_integrals/task11.tex}
+\subfile{n-fold_integrals/task12.tex}
+\subfile{n-fold_integrals/task13.tex}
+\setcounter{subsection}{14}
+\subfile{n-fold_integrals/task15.tex}
+
+\chapter{Диференціальні рівняння}
+
+\setcounter{subsection}{2}
+\subfile{difeq/task3.tex}
+\subfile{difeq/task4.tex}
+\subfile{difeq/task5.tex}
+\setcounter{subsection}{7}
+\subfile{difeq/task8.tex}
+\setcounter{subsection}{19}
+\subfile{difeq/task20.tex}
+\subfile{difeq/task21.tex}
+
+% \macrolistforeach{Answers}{\element}{We’re printing out \textbf{\element}. }
+% \macrolistjoin{Answers}{, }
+
+\end{document}

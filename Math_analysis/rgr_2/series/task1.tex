@@ -1,0 +1,34 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти суму числового ряду
+$
+	\sum_{n=1}^\infty \frac{2^n}{5^n}
+$
+}
+\Solution
+
+% \begin{equation}
+% 	\sum_{n=1}^\infty \frac{2^n}{5^n}
+% 	= \lim_{n\to\infty}\frac{2^n}{5^n}
+% 	= 0, \text{ряд збіжний, знайдімо суму}
+% \end{equation}
+
+Цей ряд можна подати як геометричну прогресію
+зі знаменником $q=\frac{2}{5}$, $n$-й член якої прямує
+до нуля:
+\begin{equation}
+	S=\frac{b}{1-q}=\frac
+	{\frac{2}{5}}
+	{1-\frac{2}{5}}
+	= \frac{2}{3}
+	% S=\frac{b(q-1)}{(q-1)^2}
+\end{equation}
+
+\Answer{
+	$\frac{2}{3}$
+}
+
+\end{document}
+end{document}

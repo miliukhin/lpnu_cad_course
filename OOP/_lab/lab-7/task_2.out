@@ -1,0 +1,12 @@
+locked by square_negatives
+-2^2
+-4^2
+-5^2
+1	4	3	16	5	6	
+1	2	3	4	5	6	
+1	2	3	4	25	6	
+locked by non_negative_rows
+rows with no negative numbers: 3
+1	4	3	16	5	6	
+1	2	3	4	5	6	
+1	2	3	4	25	6	

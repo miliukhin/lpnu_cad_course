@@ -1,0 +1,66 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+
+\Problem{
+	Обчислити довжину дуги кривої
+$x=a(t-\sin t), y=a(1-\cos t), y=0, 0\leq t\leq2\pi$
+}
+\Solution
+
+Зображення кривої наведене на рис. \ref{cycloid}
+
+\begin{equation}
+	x'(t) = a(1-\cos t),~
+	y'(t) = a\sin t
+\end{equation}
+
+\begin{equation}
+	1-\cos(t) = 2\sin^2\frac{t}{2}
+\end{equation}
+
+\begin{dmath}
+	l = \int_\alpha^\beta \sqrt{(x'(t))^2+(y'(t))^2}\,dt
+	= \int_0^{2\pi} \sqrt{a^2(1-\cos t)^2 + a^2\sin^2t}
+	= a\int_0^{2\pi} \sqrt{(1-\cos t)^2 + \sin^2t}
+	= a\int_0^{2\pi} \sqrt{1-2\cos t +\cos^2t + \sin^2t}
+	= a\int_0^{2\pi} \sqrt{2-2\cos t}
+	% = a\int_0^{2\pi} 2\sqrt{\sin^2\frac{t}{2}}
+	\\
+	% a\sqrt{2-2\cos t}
+	% https://www.wolframalpha.com/input?i=a%5Cint_0%5E%7B2%5Cpi%7D+%5Csqrt%7B2-2%5Ccos+t%7D
+\end{dmath}
+
+\paragraph{Універсальна триг. підстановка}
+\begin{varwidth}{1in}
+	\fbox
+{
+	$
+	\def\arraystretch{2}\begin{array}{c|c}x=\tg\left(\frac{t}{2}\right)&\cos\left(t\right)=\dfrac{1-{x}^{2}}{{x}^{2}+1}\\\mathrm{d}x=\dfrac{1}{2\,\cos^{2}\left(\frac{t}{2}\right)}\,\mathrm{d}t&\cos^{2}\left(\frac{t}{2}\right)=\dfrac{1}{{x}^{2}+1}\end{array}
+		$
+	% $\def\arraystretch{2}\begin{array}{c|c}t=\tg\frac{x}{2}&\sin x=\frac{2\,t}{{t}^{2}+1}\\\mathrm{d}t=\frac{1}{2\,\cos^{2}\frac{x}{2}}\,\mathrm{d}x&\cos^{2}\frac{x}{2}=\frac{1}{{t}^{2}+1}\end{array}$
+}
+\end{varwidth}
+
+\begin{dmath}
+	\int{\dfrac{4\,\left|x\right|}{\left({{x}^{2}+1}\right)^{\frac{3}{2}}}}{\;\mathrm{d}x} =
+	% \int{\dfrac{4\,\left|x\right|}{\left({{x}^{2}+1}\right)^{\frac{3}{2}}}}{\;\mathrm{d}(x^2+1)} \\
+	\int{\dfrac{2}{\left({{x}^{2}+1}\right)^{\frac{3}{2}}}}{\;\mathrm{d}(x^2+1)}
+	=2\int{\dfrac{1}{\left({{x}^{2}+1}\right)^{\frac{3}{2}}}}{\;\mathrm{d}(x^2+1)}
+	=2*\frac{2}{\sqrt{x^2+1}}+C
+\end{dmath}
+\begin{dmath}
+	a\int_0^{2\pi} \sqrt{2-2\cos t}=
+	2a\int_\pi^{2\pi} \sqrt{2-2\cos t}=
+	2a*2*\frac{2}{\sqrt{x^2+1}}=
+	4a*\frac{2}{\sqrt{\tg^2\frac{2\pi}{2}+1}}=
+	-\underbrace{4a*\frac{2}{\sqrt{\tg^2\frac{\pi}{2}+1}}}_{\to 0} = 8a
+\end{dmath}
+
+
+\Answer{
+	8a
+}
+
+\end{document}

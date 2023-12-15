@@ -1,0 +1,26 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти невизначений інтеграл
+	$\int\sqrt{5-4x} \,dx$
+}
+\Solution
+
+% $$
+% 	\int x^{\alpha}dx = \frac{ x^{\alpha + 1} }{ \alpha + 1 } + C, \alpha \neq -1
+% $$
+
+\begin{dmath}
+	\int\sqrt{5-4x} \,dx =
+	-\frac{1}{4}\int (5-4x)^{\frac{1}{2}} \,d(5-4x) = -\frac{1}{4} \cdot \frac{ 2\sqrt{(5-4x)^3} }{3} + C
+\end{dmath}
+
+\Answer{
+	$
+	% \int\sqrt{5-4x} \,dx =
+	-\frac{1}{6} \sqrt{(5-4x)^3} + C
+	$
+}
+
+\end{document}

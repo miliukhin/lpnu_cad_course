@@ -1,0 +1,67 @@
+\documentclass[../rgr_2.tex]{subfiles}
+%shell-escape
+
+\begin{document}
+
+\Problem{
+	За допомогою подвійного інтеграла обчислити площу фігури, обмеженої лініями
+	$y=\sqrt{6x-x^2}, y=x$
+}
+\Solution
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		\addplot [violet, name path=sqi, samples=500] {sqrt(x*6-x^2)};
+		\addplot [violet, name path=yx] {x};
+
+	\addplot [
+		thick,
+		pattern color=purple,
+		pattern=north west lines,
+	]
+	fill between[
+		of=sqi and yx,
+		soft clip={domain=0:3},
+    	];
+
+	\end{axis}
+	\end{tikzpicture}
+	%\subfile{plot.tex}
+	\caption{}
+\end{figure}
+
+\begin{equation}
+	6x-x^2 \geq 0 \implies x \in [0;6]
+\end{equation}
+\begin{equation}
+	x=\sqrt{6x-x^2}
+	\implies x^2=6x-x^2
+	\implies 2x^2=6x
+	\implies x=3
+\end{equation}
+
+% шо тут мало бути?
+
+\begin{dmath}
+	\iint_D dx\, dy
+	= \int_0^3\left(\int_x^{\sqrt{6x-x^2}}\, dy \right)\,dx
+	= \int_0^3\left(\sqrt{6x-x^2}-x \right)\,dx
+	= \int_0^3\sqrt{6x-x^2}\,dx -\int_0^3 x \,dx
+	= \int_0^3\sqrt{9-(x-3)^2}\,d(x-3) -\frac{x^2}{2}\Bigg|_0^3
+	= \frac{x-3}{2}\sqrt{9-(x-3)^2}+\frac{9}{2}\arcsin\frac{x-3}{3}\Bigg|_0^3 -\frac{x^2}{2}\Bigg|_0^3
+	= 0-\left(
+	\frac{0-3}{2}\sqrt{9-(0-3)^2}+\frac{9}{2}\arcsin\frac{0-3}{3}
+	\right)
+	-\frac{9}{2}
+	=
+	-\frac{9}{2}-0-\frac{9}{2}\arcsin-1
+	= \frac{9}{2}(\pi-1)
+\end{dmath}
+
+\Answer{
+	$\frac{9}{2}(\pi-1)$
+}
+
+\end{document}

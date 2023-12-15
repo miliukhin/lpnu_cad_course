@@ -1,0 +1,86 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Дослідити функцію на неперервність \label{continuity}
+}
+
+\paragraph{
+	а) $y = \ln |\ctg \frac{x}{2}|$
+}
+
+\Solution
+
+Щоб дослідити функцію на неперервність, потрібно з'ясувати
+її ОДЗ та в разі розриву з'ясувати його рід.
+
+\paragraph{ОДЗ $\ctg \frac{x}{2}$:} $\frac{x}{2} \in \mathbb R~|~
+\frac{x}{2} \neq 0 \pm n\pi, n \in \mathbb Z$.
+\paragraph{ОДЗ $\ln x:$} $(0; +\infty)$
+
+Оскільки $\ctg \frac{x}{2}$ береться за модулем, пропонована функція перетворює
+всі можливі значення $\frac{x}{2}$ на множині $\mathbb R,$ окрім точок, де
+$\ctg \frac{x}{2} = 0$ та $\ctg \frac{x}{2}$ невизначена. Множину цих точок можна записати так: $\frac{x}{2} \neq \frac{\pi}{2} \pm n\pi, \frac{x}{2} \neq 0 \pm n\pi, n \in \mathbb Z.$ %<++>
+
+% ЛІМІТИ для -0 або ні
+
+\begin{equation}
+	\lim_{x\to\pi+0}\ln\ctg\frac{x}{2} =
+	\lim_{x\to{\pi}}{\ln\left(
+		\frac{\cos\frac{\pi+0}{2}}
+		{\sin\frac{\pi+0}{2}}
+	\right)}
+	=\ln 0
+	=-\infty
+\end{equation}
+
+\begin{equation}
+	\lim_{x\to+0}\ln\ctg\frac{x}{2} =
+	\lim_{x\to{\pi}}{\ln\left(
+		\frac{\cos(0+0)}
+		{\sin(0+0)}
+	\right)}
+	=\ln \frac{1}{0}
+	=+\infty
+\end{equation}
+
+У цих точках розриви другого роду.
+
+\paragraph{
+	б) $y =
+	\begin{cases}
+		x, & x < \pi/2 \\
+		\sin x, & x \geq \pi/2
+	\end{cases}
+	$
+}
+
+\Solution
+
+Функція $y=x$ неперервна за всіх значень $x$.
+
+\paragraph{ОДЗ $\sin x$:} $x \in \mathbb R%~|~
+$.
+
+Знайдімо границі
+функції в точці $\frac{\pi}{2}$, аби визначити рід розриву.
+
+\begin{equation}
+	\lim_{x\to\frac{\pi}{2}+0}\frac{\pi}{2}\sin{x} =
+	\sin\left(\frac{\pi}{2}+0\right) = 1-0
+\end{equation}
+
+\begin{equation}
+	\lim_{x\to\frac{\pi}{2}-0}x =
+	\frac{\pi}{2}-0
+\end{equation}
+
+У точці $\{\frac{\pi}{2}\}$ --- розрив 1-го роду. Стрибок функції: $1-\frac{\pi}{2}$
+
+\Answer{
+	\paragraph{а)} $x=0, x=\pi$ --- розриви 2-го роду
+	% $x \in \mathbb R |$ $x \neq \frac{\pi}{2} \pm n\pi, n \in \mathbb Z.$
+	\paragraph{б)} функція неперервна на множині $\mathbb R$,
+	окрім точки $x=\frac{\pi}{2},$ де присутній розрив 1-го роду.
+}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Розв'язати лінійне однорідне диференціальне рівняння зі сталими коефіцієнтами
+$
+	4y''+4y'+y=0
+$
+}
+\Solution
+
+\begin{align}
+	4\,\lambda^{2}+4\,\lambda+1=0 \\
+	\left({2\,\lambda+1}\right)^{2}=0 \\
+	\lambda_{1,2}=-\dfrac{1}{2}, \text{~кратність~} 2 \\ %,~{\tau\,\text{:}\;\dfrac{C_{1}\,x+C}{{e}^{\frac{x}{2}}}} \\
+	\varphi_1(x)=e^{\lambda_1 x}=e^{\frac{x}{2}} \\
+	\varphi_2(x)=x e^{\lambda_2 x}=xe^{\frac{x}{2}} \\
+	y(x) = \frac{C_1}{e^{\frac{x}{2}}}
+	+\frac{C_2}{xe^{\frac{x}{2}}} =
+	\frac{C_1x+C_2}{e^{\frac{x}{2}}}
+\end{align}
+
+\Answer{
+	$
+	\frac{C_1+C_2x}{e^{\frac{x}{2}}}
+	$
+}
+
+\end{document}

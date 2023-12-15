@@ -1,0 +1,56 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+% (sqrt((n^3+1)(n^2+3))-sqrt(n(n^4+2)))/(2sqrt(n))
+\Problem{Довести, що $\lim_{n\to\infty} a_n = a$ (вказати N(є)). $a_n = \frac{1-2n^2}{n^2+3}, a = -2$}
+\Solution
+\begin{equation}
+	\lim_{n\to\infty}\frac{1-2n^2}{n^2+3}
+	= \left\{ \frac{-\infty}{\infty} \right\}
+	= \frac{ \frac{1}{n^2} -2 }{ 1 + \frac{3}{n^2} } = -2.
+\end{equation}
+
+\Answer{$\lim_{n\to\infty}\frac{1-2n^2}{n^2+3} = -2$}
+
+\Problem{Обчислити границю числової послідовності
+$\frac{ \small n\sqrt[4]{11n} + \sqrt{25n^4-81} }{ (n-7\sqrt{n}) \sqrt{n^2-n+1} }$
+}
+
+\Solution
+
+\begin{dmath}
+	\lim_{n\to\infty}\frac{ n\sqrt[4]{11n} + \sqrt{25n^4-81} }{ (n-7\sqrt{n}) \sqrt{n^2-n+1} } =
+	\left\{ \frac{\infty}{\infty} \right\} |:n % <++>
+	= \lim_{n\to\infty}\frac{ \sqrt[4]{\frac{11}{n^3}} + \sqrt{25-\frac{81}{n^2} } }{ (\frac{n}{n}-7\sqrt{n/n^2}) \sqrt{1-\frac{1}{n}+\frac{1}{n^2}} }
+	= \frac{ 0 + \sqrt{25-0} }{ (1-0) \sqrt{1} }
+	= 5
+\end{dmath}
+
+\Answer{
+	5
+}
+
+\Problem{Обчислити границю числової послідовності
+$
+	\lim_{n\to\infty}\frac{ \sqrt{(n^3+1)(n^2+3)} - \sqrt{n(n^4+2)} }{ 2\sqrt n }
+$
+}
+
+\Solution
+
+	\begin{dmath}
+	\lim_{n\to\infty}\frac{ \sqrt{(n^3+1)(n^2+3)} - \sqrt{n(n^4+2)} }{ 2\sqrt n } =
+	\dfrac{1}{2}\,\lim_{n\to{\infty}}{\dfrac{\sqrt{n^{2}+3}\,\sqrt{n^{3}+1}-\sqrt{n^{5}+2\,n}}{\sqrt{n}}}=
+		\left\{\frac{\infty - \infty }{\infty}\right\} =
+\dfrac{1}{2}\,\lim_{n\to{\infty}}{\dfrac{3\,n^{3}+n^{2}-2\,n+3}{\sqrt{n}\,\left(\sqrt{n^{5}+2\,n}+\sqrt{n^{2}+3}\,\sqrt{n^{3}+1}\right)}}\Big| :n^3 \\ =
+\dfrac{1}{2}\,\lim_{n\to{\infty}}{\dfrac{\dfrac{1}{n}-\dfrac{2}{n^{2}}+\dfrac{3}{n^{3}}+3}{\sqrt{\dfrac{1}{n^{3}}+1}\,\sqrt{\dfrac{3}{n^{2}}+1}+\sqrt{\dfrac{2}{n^{4}}+1}}} =
+\dfrac{1}{2}\,\lim_{n\to{\infty}}{\dfrac{{\cancel{\dfrac{1}{n}}^{\,\Large{^{0}}}}-2\cdot {\cancel{\dfrac{1}{n^{2}}}^{\,\Large{^{0}}}}+3\cdot {\cancel{\dfrac{1}{n^{3}}}^{\,\Large{^{0}}}}+3}{\sqrt{{\cancel{\dfrac{1}{n^{3}}}^{\,\Large{^{0}}}}+1}\,\sqrt{3\cdot {\cancel{\dfrac{1}{n^{2}}}^{\,\Large{^{0}}}}+1}+\sqrt{2\cdot {\cancel{\dfrac{1}{n^{4}}}^{\,\Large{^{0}}}}+1}}}=\dfrac{1}{2}\,\lim_{n\to{\infty}}{\dfrac{3}{2}}
+	\end{dmath}
+
+\Answer{
+	$
+	\frac{3}{4}
+	$
+}
+
+\end{document}

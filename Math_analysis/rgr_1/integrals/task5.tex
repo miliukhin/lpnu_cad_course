@@ -1,0 +1,29 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	$
+	\int \frac{x-1}{5-x^2} \, dx
+	$
+}
+\Solution
+
+\begin{dmath}
+	\int \frac{x-1}{5-x^2} \, dx =
+	\int \frac{x}{5-x^2} \, dx -
+	\int \frac{1}{5-x^2} \, dx =
+	-\frac{1}{2}\int\frac{\cancel x}{\cancel x (5-x^2)} \, dx -
+	\int \frac{1}{5-x^2} \, dx =
+	-\frac{1}{2}\ln\left|5-x^2\right| -
+	\frac{1}{2\sqrt5}\ln\left|\frac{\sqrt5+x}{\sqrt5-x}\right|
+\end{dmath}
+
+\Answer{
+	$
+	-\frac{1}{2}\ln\left|5-x^2\right| -
+	\frac{1}{2\sqrt5}\ln\left|\sqrt5+x\right| +\frac{1}{2\sqrt5}\ln\left|\sqrt5-x\right|
+	$
+}
+
+\end{document}

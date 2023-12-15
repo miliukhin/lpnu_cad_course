@@ -1,0 +1,69 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Використовуючи диференціал, знайти $\cos32^\circ$
+}
+
+\Solution
+
+\begin{align}
+f(x_0+\Delta x) \approx f(x_0) + f'(x_0)\Delta  x\\
+	f(x) = \cos x,~
+	x_0 = 30^\circ, \Delta x = 0.2^\circ \\
+	f'(\cos x) = -\sin x \\
+	f'(x_0) = -\sin 30^\circ = -\frac{1}{2} \\
+	cos(32^\circ) = \frac{\sqrt{3}}{2} - \frac{1}{2} * 0.2
+	= \frac{5\sqrt{3} - 1}{10}
+\end{align}
+
+\Answer{$\frac{5\sqrt{3} - 1}{10}$}
+
+\Problem{
+	Написати рівняння дотичної і нормалі до графіка функції
+	$
+	\left( \frac{x}{a} \right)^n +
+	\left( \frac{y}{b} \right)^n = 2,
+	n \in \mathbb N
+	$ у точці $M(a,b)$
+}
+
+\Solution
+
+\paragraph{Виразимо $y$ через $x$}
+\begin{equation}
+	\frac{y^n}{b^n} = 2-\frac{x^n}{a^n} \implies
+	y^n = b^n\left(2-\frac{x^n}{a^n}\right) \implies
+	y = b^n\left(2-\frac{x^n}{a^n}\right)^{\frac{1}{n}}
+\end{equation}
+\paragraph{Знайдімо похідну функції}
+\begin{dmath}
+	\left(b^{n}\,\left(2-\frac{x^{n}}{a^{n}}\right)^{\frac{1}{n}}\right)^'_{x} =
+	\dfrac{1}{n}\left({{b}^{n}\,\left(2-\dfrac{{x}^{n}}{{a}^{n}}\right)}\right)^{\frac{1}{n}-1}\cdot \left({b}^{n}\,\left(2-\dfrac{{x}^{n}}{{a}^{n}}\right)\right)^'_{x} =
+	\dfrac{{b}^{n}}{n}\,\left({{b}^{n}\,\left(2-\dfrac{{x}^{n}}{{a}^{n}}\right)}\right)^{\frac{1}{n}-1}\cdot \left(-\dfrac{1}{{a}^{n}}\cdot n\cdot {x}^{n-1}+0\right) =
+	-\dfrac{nx^{n-1}{b}^{n}}{n{a}^{n}}\,\left({{b}^{n}\,\left(2-\dfrac{{x}^{n}}{{a}^{n}}\right)}\right)^{\frac{1}{n}-1}
+\end{dmath}
+
+\paragraph{Рівняння дотичної:}
+\begin{equation}
+	y - y_0 = f'(x_0)(x - x_0),
+\end{equation}
+\begin{dmath}
+	y - b =
+	-\dfrac{a^{n-1}{b}^{n}}{a^n}\,\left({{b}^{n}\,\left(2-\dfrac{\cancel{{a}^{n}}}{\cancel{{a}^{n}}}\right)}\right)^{\frac{1}{n}-1}\cdot(x-a) =
+	-\dfrac{a^{n-1}{b}^{n}}{a^n}\,\left({{b}^{n}}\right)^{\frac{1}{n}-1}(x-a) =
+	-a^{-1}{b}^{n}{b}^{1-n}(x-a) =
+	-a^{-1}b(x-a)
+\end{dmath}
+
+\paragraph{Рівняння нормалі:}
+\begin{equation}
+	y - y_0 = -\frac{1}{f'(x_0)}(x - x_0) \implies
+	y - b = \frac{1}{a^{-1}b}(x-a)
+\end{equation}
+
+\Answer{
+	Дотична: $-a^{-1}b(x-a)$.
+	{Нормаль: $y - b = \frac{1}{a^{-1}b}(x-a)$}
+}
+\end{document}

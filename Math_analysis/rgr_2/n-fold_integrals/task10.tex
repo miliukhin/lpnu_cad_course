@@ -1,0 +1,80 @@
+\documentclass[../rgr_2.tex]{subfiles}
+%shell-escape
+
+\begin{document}
+
+\Problem{
+	Змінити порядок інтегрування у повторному інтегралі
+	$
+		\int_0^1dy\int_y^{2-y}f(x,y)dx
+	$
+}
+\Solution
+
+\begin{equation}
+	\begin{aligned}
+		x=g(y)=2-y \implies x+y=2 \\
+		x=h(y)=y
+	\end{aligned}
+\end{equation}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+			axis lines = middle,
+			samples=1000,
+			% ymin=-2.5
+			% domain=0:2*pi
+			]
+		% \addplot [violet, name path=a, domain = -1:1] gnuplot {0};
+		\addplot [violet, name path=f] gnuplot {-x+2};
+		% \node [rotate=24] at (axis cs:  .1,  .40) {$y=\sqrt{x}$};
+
+		\addplot [violet, name path=sqrt] gnuplot {x};
+		% \node [rotate=-24] at (axis cs:  .1,  1.70) {$y=x-2$};
+    		\path[name path=axis] (axis cs:0,0) -- (axis cs:4,0);
+
+	\addplot [
+		thick,
+		pattern color=purple,
+		pattern=north west lines,
+	]
+	fill between[
+		of=sqrt and axis,
+		soft clip={domain=0:1},
+    	];
+		\addplot [] coordinates { (1, 0) (1, 1) };
+	\addplot+[
+		teal,
+		% fill opacity=0.5,
+		pattern color=teal,
+		pattern=north east lines
+	]
+	fill between[
+		of=f and axis,
+		soft clip={domain=1:2},
+    	];
+
+	\end{axis}
+	\end{tikzpicture}
+	%\subfile{plot.tex}
+	\caption{}
+\end{figure}
+\begin{equation}
+		\int_0^1dy\int_y^{2-y}f(x,y)dx
+		= \int_0^1dx\int_0^xf(x,y)dy
+		+ \int_1^2dx\int_0^{2-x}f(x,y)dy
+\end{equation}
+
+\Answer{
+	$
+	\int_0^1dx\int_0^xf(x,y)dy +
+	\int_1^2dx\int_0^{2-x}f(x,y)dy
+	=
+	2\int_1^2dx\int_0^{2-x}f(x,y)dy
+	$
+}
+
+\end{document}

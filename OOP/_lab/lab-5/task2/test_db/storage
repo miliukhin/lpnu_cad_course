@@ -1,0 +1,12 @@
+{
+    "value0": {
+        "wares": [
+            {
+                "name": "ware",
+                "weight": 0,
+                "price": 0,
+                "quantity": 1
+            }
+        ]
+    }
+}

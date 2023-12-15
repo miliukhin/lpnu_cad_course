@@ -1,0 +1,30 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Дослідити на умовну й абсолютну збіжність знакозмінний ряд
+$
+	\sum_{n=1}^\infty \frac{\sin(3n)}{3^n}
+$
+}
+\Solution
+
+\begin{equation}
+	\begin{aligned}
+	-1\leq \sin(3n) \leq 1 \implies
+	-\underbrace{\frac{1}{3^n}}_{\to0}\leq \frac{\sin(3n)}{3^n} \leq \underbrace{\frac{1}{3^n}}_{\to0} \implies
+	\lim_{n\to\infty}\frac{\sin(3n)}{3^n} = 0
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	% \lim_{n\to\infty}\left|\frac{\sin(3n)}{3^n}\right| = 0
+	\lim_{n\to\infty}\left|\frac{\sin(3(n+1))3^n}{3^{n+1}\sin(3n)}\right|
+	= \lim_{n\to\infty}\left|\frac{\sin3(n+1)}{3\sin(3n)}\right|
+	= ???
+\end{equation}
+
+\Answer{
+	Ряд умовно збіжний
+}
+
+\end{document}

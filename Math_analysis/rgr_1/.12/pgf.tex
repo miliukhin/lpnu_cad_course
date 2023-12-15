@@ -1,0 +1,15 @@
+%% compile with 'pdflatex --shell-escape myfile.tex'
+\documentclass[rgr1.tex]{subfiles}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}
+	[
+		samples=1000,
+		grid=major
+		]
+	\addplot [violet] gnuplot {2*x-asin(x)};
+\end{axis}
+\end{tikzpicture}
+\end{document}

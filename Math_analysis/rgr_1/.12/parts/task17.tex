@@ -1,0 +1,160 @@
+%shell-escape
+\documentclass[../rgr1.tex]{subfiles}
+\usetikzlibrary{patterns}
+
+\begin{document}
+
+\Problem{
+	Дослідити методами диференціального числення функцію $y = 2x - \arcsin x$ та побудувати її графік
+}
+
+\Solution
+
+\paragraph{ОВ} $D(\arcsin): x \in [-1;1],~D(2x): x \in \mathbb{R} \to D(f) = [-1;1]$
+\paragraph{ОЗ $E(f)$} $f \in ( -1; 1 )$
+\paragraph{Парність}
+$
+	y(-x) = -2x - \arcsin (-x)
+	= - \big( 2x - \arcsin (x) \big)
+	%\neq
+	%2x - \arcsin x
+$, функція непарна.
+
+\paragraph{Періодичність $[f(x+T) = f(x)]?$}
+
+\begin{align}
+	2(x+T)-\arcsin(x+T) = 2(x)-\arcsin(x) \\
+	T = \arcsin(x+T) - \arcsin(x)
+\end{align}
+
+% $$ <++>
+% 	\arcsin(x) + \arcsin(y) = \arcsin( x * \sqrt{1 - y^2} + y * \sqrt{1 - x^2} )\\
+% 	T = \arcsin \left( (x+T)*\sqrt{1-x^2} + x*\sqrt{1-(x+T)^2} \right) \\
+% $$
+
+$T$ залежить від $x$, функція неперіодична
+
+\paragraph{Неперервність} Опис дослідження на неперервність наведено в завданні \ref{continuity}, тому тут лише обчислення
+
+Чииииииии функція неперервна на всій області визначення?
+
+\paragraph{Точки екстремуму}
+Знайдімо похідну функції.
+\begin{equation}
+	y = 2x - \arcsin x \to
+	f'(x) = 2 - \frac{1}{\sqrt{1-x^2}}
+\end{equation}
+
+Точки екстремуму знаходяться в місцях, де похідна функції змінює знак.
+$x \neq \pm1$
+\begin{equation}
+	\frac{1}{\sqrt{1-x^2}} = 2 \to \sqrt{1-x^2} = \frac{1}{2}
+	\to 1-x^2 = \frac{1}{4} \to x^2 = \frac{3}{4}
+	\to x = \pm \frac{\sqrt 3}{2}
+\end{equation}
+\begin{align}
+	x = 0 \to f'(x) = 1 > 0 \\
+	x = \pm \frac{\sqrt{3.5} }{2} \to f'(x)
+	= 2 - \frac{1}{\sqrt{1-\frac{3\frac{1}{2}}{4}}}
+	= 2 - \frac{1}{\sqrt{1-{\frac{7}{8}}}}
+	= 2 - \frac{1}{\sqrt {\frac{1}{8}} } \\
+	\sqrt{\frac{1}{8}} = 0.35,~
+	2 - \frac{100}{35} \approx -0.8 < 0.
+\end{align}
+
+Перенісши значення на числову пряму, матимемо:
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[
+		letter/.style={
+			circle, minimum size=3pt, inner sep=0,
+			outer sep=0, fill=black, label=below:#1
+		},
+		crossed/.style={
+			cross out, minimum size=3pt, inner sep=0,
+			outer sep=0, draw=black, label=below:#1
+		},
+		number/.style={fill=white, draw=red, pos=.5}
+	]
+		\draw (-1,0) --
+			node(A)[crossed=-1,pos=-2]{}
+			node(Al) [letter=$-\frac{\sqrt 3}{2}$, pos=-.7]{}
+			node(Bl) [letter=$\frac{\sqrt 3}{2}$, pos=.7]{}
+			node(B)[crossed=1,pos=2]{}
+			(1,0)
+		;
+		\draw (-5,0) -- (-1,0);
+		\draw (3,0) -- (1,0);
+		\draw[]
+			(Al) to[bend left=50] node[number]{+} (Bl)
+			(A) to[bend right=40] node[number]{-} (Al)
+			(B) to[bend left=40] node[number]{-} (Bl)
+		;
+	\end{tikzpicture}
+\end{figure}
+
+$x = \frac{\sqrt 3}{2}$ --- максимум,
+$x = -\frac{\sqrt 3}{2}$ --- мінімум.
+
+\paragraph{Проміжки монотонності}
+
+Поведінку функції на проміжку можна визначити за знаком похідної:
+\subparagraph{Зростання:} $x\in \left[ -\frac{\sqrt 3}{2}; \frac{\sqrt 3}{2} \right]$
+\subparagraph{Спадання:} $x\in \left( -1; -\frac{\sqrt 3}{2} \right] \bigcup \left[ \frac{\sqrt 3}{2}; +1 \right)$
+
+\paragraph{Опуклість ($f''$)}
+
+\begin{dmath}
+	f''(x) = \left( 2 - \frac{1}{\sqrt{1-x^2}} \right)'
+	= \left( - \frac{1}{ (1-x^2)^{\frac{1}{2}} } \right)'
+	= - \left( (1-x^2)^{-\frac{1}{2}} \right)' * 2x
+	= - \frac{1}{2}*(1-x^2)^{-\frac{3}{2}} * 2x
+	= - \frac{\overbrace{\sqrt{(1-x^2)^3}}^{> 0} * 2x}{2}
+\end{dmath}
+
+Опуклість визначає знак $-x$.
+Отже, функція опукла вгору, коли x > 0, та опукла вниз, коли x < 0.
+\paragraph{$\bigcup$} $x \in (-1; 0)$
+\paragraph{$\bigcap$} $x \in (0; +1)$
+
+\paragraph{Асимптоти}
+
+Похилих асимптот функція не має, а вертикальні знаходяться в точках,
+де $x$ набуває значення $1$ та $-1$.
+
+% \subparagraph{вертикальні:}
+
+% \subparagraph{похилі:}
+% $y = kx + b, k = \lim_{x\to\infty}\frac{f(x)}{x},$
+% $ b = \lim_{x\to\infty} ( f(x) - kx )$
+
+% \begin{equation}
+% 	k = \lim_{x\to\infty}\frac{2x - \arcsin x}{x} =
+% 	\lim_{x\to\infty}\frac{2x - \arcsin x}{x} =
+% \end{equation}
+
+\paragraph{Характерні точки (перетин із осями координат)}
+$O(0; 0)$ --- характерна точка.
+
+%-----------------------------------
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+			axis lines = middle,
+			samples=1000,
+			xmin = -1,
+			xmax = 1
+			]
+		\addplot [violet] gnuplot {2*x-asin(x)};
+		%\addplot [blue] gnuplot {asin(x)};
+	\end{axis}
+	\end{tikzpicture}
+	%\subfile{plot.tex}
+	\caption{графік функції $y = 2x - \arcsin x$}
+\end{figure}
+
+% \Answer{<++>}
+\end{document}

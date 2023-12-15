@@ -1,0 +1,62 @@
+#!/bin/sh
+
+dir="series"
+i=1
+max=18
+
+# while [ $i -lt $max ]
+# do
+# 	mkdir -p "$dir"
+# 	cp "task.tex" "$dir/task$i.tex"
+# 	true $(( i=i+1 ))
+# done
+
+# dir="n-fold_integrals"
+# i=10
+# max=15
+
+# while [ $i -le $max ]
+# do
+# 	mkdir -p "$dir"
+
+
+#         if [[ "$i" = "14" ]]; then
+#                 true $(( i=i+1 )) ;
+# 	else
+# 		cp "task.tex" "$dir/task$i.tex" ;
+# 		true $(( i=i+1 )) ;
+# 	fi
+# done
+
+dir="difeq"
+i=3
+max=21
+
+while [ $i -le $max ]
+do
+	mkdir -p "$dir"
+
+
+	if [[ "$i" = "6" ]]; then
+		true $(( i=i+2 )) ;
+		continue ;
+	elif [[ "$i" = "9" ]]; then
+		true $(( i=i+11 )) ;
+		continue ;
+	else
+		cp "task.tex" "$dir/task$i.tex" ;
+		true $(( i=i+1 )) ;
+	fi
+done
+
+# dir="def_int"
+
+i=1
+max=12
+
+# while [ $i -lt $max ]
+# do
+# 	mkdir -p "$dir"
+# 	cp "task.tex" "$dir/task$i.tex"
+# 	true $(( i=i+1 ))
+# done

@@ -1,0 +1,29 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти область збіжності функціонального ряду
+$
+	\sum_{n=1}^\infty \frac{1}{n(2+x)^n}
+$
+}
+\Solution
+% Ряд визначений для $x\in(-\infty; -2)\cup(-2;+\infty)$
+Застосуємо ознаку д'Аламбера:
+\begin{align}
+	\lim_{n\to\infty}\left| \frac{n(2+x)^n}{(n+1)(2+x)^{n+1}} \right|
+	= \lim_{n\to\infty} \left| \frac{n}{(n+1)(2+x)} \right|
+	% = \left| \frac{1}{2+x}\right| \lim_{n\to\infty}\frac{n}{n+1}
+	= \left| \frac{1}{2+x} \right|  \\
+	0<\left| \frac{1}{2+x} \right| < 1 \implies
+	0 < 1 < |2+x| \implies
+	2+x > 1,~ 2+x < -1
+\end{align}
+
+\Answer{
+$
+	x \in (-\infty;-3)\cup(-1; +\infty)
+$
+}
+
+\end{document}

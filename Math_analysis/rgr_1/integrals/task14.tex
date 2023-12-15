@@ -1,0 +1,34 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+% (3x^2+3x-24)/((x^2-x-2)(x-3))
+\Problem{
+	$
+	\int{\frac{3\,{x}^{2}+3\,x-24}{\left(x-3\right)\,\left({x}^{2}-x-2\right)}}{\;\mathrm{d}x}
+	$
+}
+\Solution
+
+\begin{equation}
+	\begin{aligned}
+	\dfrac{3\,{x}^{2}+3\,x-24}{\left(x-3\right)\,\left(x-2\right)\,\left(x+1\right)}=\dfrac{A}{x+1}+\dfrac{B}{x-2}+\dfrac{C}{x-3}\\
+	=\dfrac{\left(C+B+A\right)\,{x}^{2}+\left(-C-2\,B-5\,A\right)\,x-2\,C-3\,B+6\,A}{\left(x-3\right)\,\left(x-2\right)\,\left(x+1\right)}
+	\end{aligned}
+\end{equation}
+\begin{equation}
+\begin{gathered}x^{0}:\\x^{1}:\\x^{2}:\end{gathered}\left\{\begin{gathered}-2\,C-3\,B+6\,A=-24\\-C-2\,B-5\,A=3\\C+B+A=3\end{gathered}\right.=\left\{\begin{gathered}A=-2\\B=2\\C=3\end{gathered}\right.
+\end{equation}
+\begin{equation}
+	\int{-\dfrac{2}{x+1}+\dfrac{2}{x-2}+\dfrac{3}{x-3}}{\;\mathrm{d}x}
+	% =-2\int{\dfrac{1}{x+1}}{\;\mathrm{d}x}+2\int{\dfrac{1}{x-2}}{\;\mathrm{d}x}+3\int{\dfrac{1}{x-3}}{\;\mathrm{d}x}
+% =-2\,\ln\left(\left|x+1\right|\right)+2\,\ln\left(\left|x-2\right|\right)+3\,\ln\left(\left|x-3\right|\right)
+\end{equation}
+
+\Answer{
+	$
+	-2\,\ln\left(\left|x+1\right|\right)+2\,\ln\left(\left|x-2\right|\right)+3\,\ln\left(\left|x-3\right|\right)+C
+	$
+}
+
+\end{document}
+end{document}

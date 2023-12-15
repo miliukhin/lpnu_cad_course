@@ -1,0 +1,115 @@
+[sasha@honeypot ~d/uni/2-сем/OOP/lab2/abonents/src]$ make && ./task_2
+make: 'task_2' is up to date.
+  ___
+ -   -_, ,,                              ,  -_____    _-_ _,,
+(  ~/||  ||                             ||    ' | -,     -/  )
+(  / ||  ||/|,  /'\\ \\/\\  _-_  \\/\\ =||=  /| |  |`   ~||_<
+ \/==||  || || || || || || || \\ || ||  ||   || |==||    || \\
+ /_ _||  || |' || || || || ||/   || ||  ||  ~|| |  |,    ,/--||
+(  - \\, \\/   \\,/  \\ \\ \\,/  \\ \\  \\,  ~-____,    _--_-'
+                                            (          (
+Available commands:
+```````````````````
+help                    display this help message
+quit                    quit program
+add             add an abonent
+edit            edit an abonent
+delete          delete an abonent
+print all               print all abonents
+print negative          print abonents with negative balance
+$ add
+1
+Phone number
+Contract number
+call Rate
+Balance
+First name
+Last name
+l
+> Input data:
+> Abwqor
+> q
+$
+$ add
+2
+Phone number
+Contract number
+call Rate
+Balance
+First name
+Last name
+l
+> Input data:
+> Moqwrub
+> q
+$
+$ add
+3
+Phone number
+Contract number
+call Rate
+Balance
+First name
+Last name
+l
+> Input data:
+> Bqorwun
+> q
+$
+$ sort
+$ print all
+All abonents:
+`````````````
+Abonent #0
+Phone number:           0
+Contract number:        0
+Minute rate:            3
+Balance:                0
+First name:
+Last name:              Abwqor
+Abonent #1
+Phone number:           0
+Contract number:        0
+Minute rate:            3
+Balance:                0
+First name:
+Last name:              Bqorwun
+Abonent #2
+Phone number:           0
+Contract number:        0
+Minute rate:            3
+Balance:                0
+First name:
+Last name:              Moqwrub
+$ delete
+1
+Removing 0 (1)...
+Done.
+$
+$ print negative
+Abonents with negative balance:
+$ edit
+1
+2
+Phone number
+Contract number
+call Rate
+Balance
+First name
+Last name
+> b
+> Input data:
+> -310.32
+> q
+$
+$ print negative
+Abonents with negative balance:
+Abonent #1
+Phone number:           0
+Contract number:        0
+Minute rate:            3
+Balance:                -310.32
+First name:
+Last name:              Moqwrub
+$ quit
+Exiting...

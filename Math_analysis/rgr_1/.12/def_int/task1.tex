@@ -1,0 +1,36 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти похідну
+	$ \frac{d}{dx} \int_0^{x^2} \cos \pi t^3 \,dt $
+}
+
+\Solution
+
+$$
+	\frac{d}{dx} \int^{\psi}_{\varphi} =
+	f(\psi(x))\cdot\psi'(x) - f(\varphi(x)) \cdot \varphi'(x)
+$$
+
+% \begin{dmath}
+% 	\left( \int_0^{x^2} \cos \pi t^3 \,dt \right)' =
+% 	\left(
+% 	\int \cos \pi x^6 \,dx^2 - \int \cos\pi0 \,dx^2
+% 	\right)' =
+% 	\left(
+% 	2\int \cos \pi x^6 \,xdx - 2\int \cos\pi0 \,xdx
+% 	\right)' =
+% 	2 \cos \pi x^6 - 2
+% \end{dmath}
+
+\begin{dmath}
+	\left( \int_0^{x^2} \cos \pi t^3 \,dt \right)' =
+	\cos\pi x^6 * 2x - \cos 0 * 0 = 2x\cos\pi x^6
+\end{dmath}
+
+\Answer{
+	$2x\cos\pi x^6$
+}
+
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	$\int x\arctg x \, dx$
+}
+\Solution
+
+\subparagraph{підстановка}
+\noindent\begin{varwidth}{\linewidth}
+	\fbox{
+		$
+		\begin{array}{r|r}
+			u = \arctg x & du = \frac{1}{1+x^2}\, dx\\
+			dv =  xdx & v = \frac{x^2}{2}
+		\end{array}
+		$
+	}
+\end{varwidth}
+
+\begin{dmath}
+	\int x\arctg x \, dx
+	= \arctg x * \frac{x^2}{2} - \int \frac{x^2}{x}*\frac{1}{1+x^2}\, dx
+	= \frac{x^2}{2}\arctg x - \frac{1}{2}\int \frac{1+x^2-1}{1+x^2}\, dx
+	= \frac{x^2}{2}\arctg x -\frac{1}{2}\left(x-\int\frac{1}{1+x^2}\,dx\right)
+\end{dmath}
+
+\Answer{
+	$
+	\frac{x^2}{2}\arctg x - \frac{x}{2} + \arctg x + C
+	$
+}
+
+\end{document}
+end{document}

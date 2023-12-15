@@ -1,0 +1,98 @@
+%-shell-escape, якщо використовуєте minted
+\documentclass[a4paper, 12pt, oneside]{extarticle}
+\input{$HOME/Templates/lpnu_doc_templates/settings/preamble.tex}
+% якщо домахуються за Times New Roman, то
+% використовуєте xelatex і цей файл:
+\input{$HOME/Templates/lpnu_doc_templates/settings/font_styles.tex}
+\input{$HOME/Templates/lpnu_doc_templates/settings/minted_settings.tex}
+
+\newcommand\Variant{4}
+\newcommand\Date{1.05.\the\year}
+\newcommand\Discipline{Алгоритмізація та програмування, частина 2}
+\newcommand\Instructor{Кулешник Я. Ф.}
+
+\newcommand\Type{\Lab}
+\newcommand\Number{10}
+\newcommand\Topic{Алгоритми сортування}
+
+\begin{document}
+\Margins
+
+\input{$HOME/Templates/lpnu_doc_templates/parts/header.tex}
+Вивчення та практична реалізація алгоритмів сортування.
+
+\section*{Індивідуальне завдання}
+
+\begin{tabular}{c|c c c c}
+	4 & 4 & 8 & 12 & 16 \\
+	\hline
+	Сортування & Шелла & розрядами & підрахунком & бінарними вставками
+\end{tabular}
+
+\section*{Етапи розв'язку}
+
+Проаналізував та реалізував алгоритми, вказані
+в індивідуальному завданні.
+
+\section*{Програмні коди}
+
+\subsection*{Сортування Шелла}
+
+\inputminted{c++}{shell_sort.cpp}
+\subsection*{Результат виконання програми}
+\inputminted{c++}{shell_sort_out}
+
+\subsection*{Сортування розрядами}
+
+\inputminted{c++}{radix_sort.cpp}
+\subsection*{Результат виконання програми}
+\inputminted{c++}{radix_out}
+
+\subsection*{Сортування підрахунком}
+
+\inputminted{c++}{counting_sort.cpp}
+\subsection*{Результат виконання програми}
+\inputminted{c++}{counting_sort_out}
+
+\subsection*{Сортування бінарними вставками}
+\inputminted{c++}{bin_ins_sort.cpp}
+\subsection*{Результат виконання програми}
+\inputminted{c++}{bin_ins_sort_out}
+
+\section*{Висновок}
+
+Під час виконання цієї лабораторної роботи я краще
+зрозумів алгоритми сортування підрахунком, за розрядами,
+бінарними вставками та алгоритм Шелла.
+
+\section*{Відповіді на контрольні запитання}
+\begin{itemize}
+	\question Що таке алгоритм?
+	\answer послідовність дій для виконання певного завдання.
+
+	\question Що таке сортування?
+	\answer  Упорядковування елементів деякої структури даних за певними правилами
+
+	\question  Для чого використовуються алгоритми сортування?
+	\answer для приведення даних у зручний для аналізу вигляд.
+
+	\question Які основні характеристики алгоритмів сортування?
+		\answer \begin{itemize}
+				\item Стійкість
+				\item природність поведінки
+				\item часткова впорядкованість
+				\item використання операції порівняння
+			\end{itemize}
+	\question Що таке ефективність алгоритму сортування?
+	\answer Це оцінка того, наскільки швидко і ефективно алгоритм може відсортувати дані.
+
+	\question Прямі та швидкі методи сортування.
+	\answer Прямі методи сортування (також відомі як методи обміну) сортують масив шляхом порівнянь і обміну значень елементів, а швидкі зазвичай розділяють його на менші масиви і сортують їх окремо.
+
+	\question  Що таке швидкодія алгоритму?
+	\answer Міра продуктивності алгоритму, яка відображає, наскільки швидко він виконується
+\end{itemize}
+
+\end{document}
+Між елементами списку повинні існувати відносини, що допускають повне упорядкування
+(відношення порядку).

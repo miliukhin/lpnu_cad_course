@@ -1,0 +1,42 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти радіус та інтервал збіжності степеневого ряду
+$
+	\frac{(x+2)^n}{n\ln(n+2)}
+$
+}
+\Solution
+
+\begin{equation}
+	\lim_{n\to\infty} \left|
+		\frac
+		{n \cdot \ln(n+2)\cdot (x+2)^{n+1}}
+		{(n+1) \ln(n+3)(x+2)^n}
+		\right|
+	= \lim_{n\to\infty} \left|
+		\frac
+		{n \cdot \ln(n+2)}
+		{(n+1) \ln(n+3)}
+		\right|
+		\cdot |x+2|
+		% <++>
+	= |x+2| \neq 0, x\neq 0
+\end{equation}
+
+\begin{tabular}{lc}
+	Абсолютно збіжний: &
+	$|x+2| < 1 \implies x \in (-3;-1)$ \\
+
+	Розбіжний: &
+	$|x+2| > 1 \implies x \notin (-3;-1)$ \\
+\end{tabular}
+
+\Answer{
+	Ряд абсолютно збіжний на інтервалі
+	$x \in (-3;-1)$,
+	радіус його збіжності дорівнює 1
+}
+
+\end{document}

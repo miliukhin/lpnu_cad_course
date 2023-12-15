@@ -1,0 +1,16 @@
+graph {
+	rankdir=LR;
+	beautify=true;
+	Ka -- Dn [label=47];
+	Kr -- Dn [label="149"];
+	Kr -- Ka [label="125"];
+	Kr -- Ni [label="105"];
+	Ni -- Dn [label="122"];
+	Dn -- No [label=28];
+	Dn -- Pa  [label=76];
+	Dn -- Sy [label=50];
+	No -- Pa [label=50];
+	Sy -- Pa [label=38];
+	Ka -- No [label="73"];
+	Ni -- Sy [label="151"];
+}

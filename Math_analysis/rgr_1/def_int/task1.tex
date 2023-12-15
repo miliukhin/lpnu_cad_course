@@ -1,0 +1,27 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти похідну
+	$ \frac{d}{dx} \int_{x^2}^{x^3} \frac{1}{\sqrt{1+t^4}} \,dt $
+}
+
+\Solution
+
+$$
+	\frac{d}{dx} \int^{\psi}_{\varphi} =
+	f(\psi(x))\cdot\psi'(x) - f(\varphi(x)) \cdot \varphi'(x)
+$$
+
+\begin{dmath}
+	\left( \int_{x^2}^{x^3} \frac{1}{\sqrt{1+t^4}} \,dt \right)' =
+	\frac{3x^2}{\sqrt{1+x^{12}}}-\frac{2x}{\sqrt{1+x^8}}
+\end{dmath}
+
+\Answer{
+	$
+	\frac{3x^2}{\sqrt{1+x^{12}}}-\frac{2x}{\sqrt{1+x^8}}
+	$
+}
+
+\end{document}

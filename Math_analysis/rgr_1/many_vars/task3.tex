@@ -1,0 +1,22 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Знайти частинні похідні функції $u=x^{y^z}$}
+\Solution
+
+\begin{align}
+	u'_x = y^zx^{y^z-1} \\
+	u'_y = x^{y^z} \ln y^z \\ % ?? \\
+	u'_z = y^z \ln y \cdot x^{y^z} \cdot \ln y^z
+\end{align}
+
+\Answer{
+	$
+	u'_x = y^zx^{y^z-1},~
+	u'_y = x^{y^z} \ln y^z,~
+	u'_z = y^z \ln y \cdot x^{y^z} \cdot \ln y^z
+	$
+}
+
+\end{document}

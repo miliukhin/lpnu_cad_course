@@ -1,0 +1,42 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Розв'язати однорідне диференціальне рівняння}
+\Solution
+
+\begin{align}
+	xy'-y=(x+y)\ln\frac{x+y}{x} \\
+	x\frac{dy}{dx}-y=(x+y)\ln\frac{x+y}{x} \\
+	x\,dy-y\,dx=(x+y)\ln\frac{x+y}{x}\,dx \\
+	\frac{dy}{dx}=\frac{y}{x}+\frac{x+y}{x}\ln\frac{x+y}{x} \\
+	\fbox{
+		$
+			y=ux \implies y'=u'x+u
+		$
+	} \\
+	u'x+\cancel{u}=\cancel{\frac{ux}{x}}+\frac{x+ux}{x}\ln\frac{x+ux}{x} \\
+	u'x=(1+u)\ln(1+u) \\
+	x\frac{du}{dx}=(1+u)\ln(1+u) \\
+	x\,du=(1+u)\ln(1+u)\,dx ~\Big|\vdots (1+u)\ln(1+u)x \\
+	\frac{1}{(1+u)\ln(1+u)}\,du=\frac{1}{x}\,dx \\
+	\int\frac{1}{(1+u)\ln(1+u)}\,(1+u)d(\ln(1+u))=\int\frac{1}{x}\,dx \\
+	\ln(\ln(1+u))=\ln x+C \\
+	\ln(\ln(1+u))=\ln x+\ln e^C \\
+% чому
+% \ln\left(\frac{y}{x}+1\right)=C\,x
+	\ln(1+u)=x\cdot e^C \\
+	1+u=e^{x\cdot e^C} \\
+	1+\frac{y}{x}=e^{x\cdot e^C} \\
+	y=xe^{x\cdot e^C}-x %\\
+	% y=xe^{xC}-x
+% xy'-y=(x+y)\ln((x+y)/x)
+\end{align}
+
+\Answer{
+	$
+	y=xe^{xC}-x
+	$
+}
+
+\end{document}

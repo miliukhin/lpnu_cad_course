@@ -1,0 +1,33 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	Довести за допомогою формули Лагранжа
+	$
+	\frac{a-b}{a} \leq \ln \frac{a}{b} \leq \frac{a-b}{b}
+	$
+}
+
+\Solution
+
+Якщо функція диференційовна на проміжку $(a,b), \text{~то~} \exists c\in(a,b):$
+\begin{equation}
+	f(b)-f(a)=f'(c)(b-a)
+\end{equation}
+\begin{equation}
+	\ln\frac{a}{b}=
+	\ln a -\ln b=
+	-\big(\ln(c)\big)'(b-a)=
+	\frac{1}{c}(a-b)=
+	\frac{a-b}{c}
+\end{equation}
+Дійсно,
+\begin{equation}
+	\frac{a-b}{a} \leq
+	\frac{a-b}{c}
+	\leq \frac{a-b}{b}
+\end{equation}
+
+\Answer{Нерівність правильна}
+\end{document}

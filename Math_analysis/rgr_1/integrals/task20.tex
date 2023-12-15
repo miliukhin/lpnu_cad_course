@@ -1,0 +1,37 @@
+\documentclass[../rgr1.tex]{subfiles}
+% <++>
+\begin{document}
+
+\Problem{
+	Знайти інтеграл від тригонометричної функції
+	$
+	\int{\frac{1}{1+\sin^{2}x}}{\;\mathrm{d}x}
+	$
+}
+\Solution
+
+\paragraph{Універсальна триг. підстановка}
+\begin{varwidth}{1in}
+	\fbox
+{
+	$\def\arraystretch{2}\begin{array}{c|c}t=\tg\frac{x}{2}&\sin x=\frac{2\,t}{{t}^{2}+1}\\\mathrm{d}t=\frac{1}{2\,\cos^{2}\frac{x}{2}}\,\mathrm{d}x&\cos^{2}\frac{x}{2}=\frac{1}{{t}^{2}+1}\end{array}$
+}
+\end{varwidth}
+
+\begin{dmath}
+	\int{\frac{1}{1+\sin^{2}x}}{\;\mathrm{d}x}
+	=\int{\frac{2}{(t^2+1)\left(1+\frac{2t}{t^2+1}\right)}}{\;\mathrm{d}t}
+	=2\int{\frac{1}{t^2+2t+1}}{\;\mathrm{d}t}
+	=2\int{\frac{1}{(t+1)^2}}{\;\mathrm{d}t}
+	=2(t+1)^{-\frac{1}{2}+1}
+	=2\sqrt{\tg\frac{x}{2}+1}
+\end{dmath}
+
+\Answer{
+	$
+	% \frac{\arctg\left(\sqrt{2}\,\tg\left(x\right)\right)}{\sqrt{2}}+C
+	2\sqrt{\tg\frac{x}{2}+1}
+	$
+}
+
+\end{document}

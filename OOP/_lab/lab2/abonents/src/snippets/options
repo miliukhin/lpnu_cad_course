@@ -1,0 +1,6 @@
+		std::cout << "\033[1mP\033[0mhone number" << std::endl ;
+		std::cout << "\033[1mC\033[0montract number" << std::endl ;
+		std::cout << "call \033[1mR\033[0mate" << std::endl ;
+		std::cout << "\033[1mB\033[0malance" << std::endl ;
+		std::cout << "\033[1mF\033[0mirst name" << std::endl ;
+		std::cout << "\033[1mL\033[0mast name" << std::endl ;

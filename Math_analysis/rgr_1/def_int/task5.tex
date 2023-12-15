@@ -1,0 +1,42 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Обчислити довжину дуги кривої $y = \ln (x^2-1),
+	2\leq x\leq 5.$
+}
+\Solution
+
+\begin{equation}
+	l=\int_a^b\sqrt{1+(y'(x))^2\,dx}
+\end{equation}
+\begin{equation}
+	y' = (\ln(x^2-1))'(x^2-1)'
+	= \frac{1}{x^2-1}*2x
+\end{equation}
+\begin{equation}
+	(y')^2 = \frac{4x^2}{(x^2-1)^2}
+\end{equation}
+\begin{dmath}
+	\int_2^5\sqrt{1+\frac{4x^2}{(x^2-1)^2}}\,dx =
+	\int_2^5\sqrt{\frac{x^4-2x^2+1+4x^2}{(x^2-1)^2}}\,dx =
+	\int_2^5\sqrt{\frac{(x^2+1)^2}{(x^2-1)^2}}\,dx =
+	\int_2^5\frac{x^2+1}{x^2-1}\,dx =
+	\int_2^5\frac{(x^2-1)+2}{x^2-1}\,dx =
+	\int_2^5\frac{2}{x^2-1} + 1\,dx =
+	2\int_2^5\frac{1}{x^2-1}\,dx + \int 1\,dx =
+	\frac{2}{2}\ln\frac{x-1}{x+1}\Bigg|_2^5 + x\Bigg|_2^5 =
+	\ln\frac{5-1}{5+1} + 5 -
+	\ln\frac{2-1}{2+1} - 2 =
+	\ln4-\ln6 + 3 -
+	\ln1+\ln3
+\end{dmath}
+
+\Answer{
+	$
+	-\ln6+\ln4+\ln3+3
+	$
+}
+
+\end{document}
+end{document}

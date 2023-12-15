@@ -1,0 +1,63 @@
+\documentclass[../rgr_2.tex]{subfiles}
+% \usetikzlibrary{patterns.meta}
+
+\begin{document}
+
+\Problem{Обчислити потрійний інтеграл за областю V
+$
+	\iiint_V (x^2+y^2)\,dx\,dy\,dz,~V:x^2+y^2+z^2=R^2,~z\geq0
+$
+}
+\Solution
+
+\subfile{sphere}
+
+Сферична область інтегрування, зображена на рис. \ref{sphere},
+мотивує
+перейти до сферичної системи координат:
+
+$$
+	\begin{cases}
+		x &= r\sin\theta\cos\phi \\
+		y &= r\sin\theta\sin\phi \\
+		z &= r\cos\theta
+	\end{cases},\hspace{1cm}
+	\begin{cases}
+		0 \leq r \leq +\infty \\
+		0 \leq \phi \leq 2\pi \\
+		0 \leq \theta \leq \frac{\pi}{2} \\
+	\end{cases}
+$$
+
+\begin{dmath}
+	\iiint_V (x^2+y^2)\,dx\,dy\,dz %,~V:x^2+y^2+z^2=R^2,~z\geq0
+	% = \iint_D (x^2+y^2)\,dx\, dy \int_0^{\sqrt{R^2-x^2-y^2}} dz
+	% = \iint_{G_{r\varphi}} r^2(1) \sqrt{R^2-1}
+	% \,dr\,d\phi
+% ...
+	= \iiint_{W_{r\varphi\theta}}r^2\sin\theta
+	\cdot r^2\sin^2\theta(\cos^2\phi+\sin^2\phi)
+	\,dr\,d\phi\,d\theta
+	= \iiint_{W_{r\varphi\theta}}r^4\sin^3\theta
+	\,dr\,d\phi\,d\theta
+	= \int_0^{2\pi}\,d\phi
+		\int_0^Rr^4\,dr
+		\int_0^{\frac{\pi}{2}}\sin^3\theta \, d\theta
+	= \phi \Bigg|_0^{2\pi}
+		\frac{r^5}{5}\Bigg|_0^R
+		\left(\frac{\cos^3 x}{3}-\cos x \right)\Bigg|_0^{\frac{\pi}{2}}
+	=
+		2\pi \cdot
+		\frac{{R}^{5}}{5}
+		\left(0+\frac{2}{3} \right)
+	% = \frac{4\pi R^5}{15}
+\end{dmath}
+
+
+\Answer{
+	$
+	\frac{4\pi R^5}{15}
+	$
+}
+
+\end{document}

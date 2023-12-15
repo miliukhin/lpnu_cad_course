@@ -1,0 +1,39 @@
+\documentclass[../rgr1.tex]{subfiles}
+\begin{document}
+
+\Problem{
+	$
+	\int \ln(x+4)\, dx
+	$
+}
+\Solution
+
+\begin{equation}
+	\int \ln(\overbrace{x+4}^t)\, \overbrace{dx}^{dt} =
+\end{equation}
+
+\subparagraph{підстановка}
+\noindent\begin{varwidth}{\linewidth}
+	\fbox{
+		$
+		\begin{array}{r|r}
+			\ln t = u & du = d(\ln t) = \frac{1}{t}\, dt\\
+			dv = 1 * dt & v = \int 1\, dt = t
+		\end{array}
+		$
+	}
+\end{varwidth}
+\begin{equation}
+	t \ln t - \int \frac{t}{t}\, dt =
+	t\ln t - t + C =
+	(x+4)\ln (x+4) - x-4 + C
+\end{equation}
+
+\Answer{
+	$
+	x\ln(x+4)+4\ln (x+4) - x-4 + C
+	$
+}
+
+\end{document}
+end{document}

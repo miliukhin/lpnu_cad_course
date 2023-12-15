@@ -1,0 +1,46 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	Обчислити границю функції
+$
+\lim_{x\to 0}\frac{\cos x-1+\frac{x^2}{2}}{x^4}
+$
+	за допомогою формули Маклорена (\ref{maclaurin})
+}
+
+
+\Solution
+
+\begin{align}
+	\cos x
+	=\cos 0
+	-\frac{\sin 0}{1!}x
+	-\frac{\cos 0}{2!}x^2
+	+\frac{\sin 0}{3!}x^3
+	+\frac{\cos 0}{4!}x^4
+	= 1 -\frac{x^2}{2} + \frac{x^4}{24} %\\
+	% \frac{x^2}{2}
+	% = \frac{0}{2}
+	% + \frac{2*0}{2*1!}x
+	% + \frac{2}{2*2!}x^2
+	% + \frac{0}{2*3!}x^3 + ... \\
+	% x^4
+	% = 0
+	% +\frac{4*0^3}{1!}x
+	% +\frac{12*0^2}{2!}x^2
+	% +\frac{24*0^1}{3!}x^3
+	% +\frac{24}{4!}x^4
+	% +\frac{0}{5}x^5
+\end{align}
+\begin{equation}
+	\lim_{x\to 0}\frac{\cos x-1+\frac{x^2}{2}}{x^4}
+	=\lim_{x\to 0}\frac{1 -\frac{x^2}{2} + \frac{x^4}{24}-1+\frac{x^2}{2}}{x^4}
+	= \frac{1}{24}
+\end{equation}
+
+\Answer{
+	$\frac{1}{24}$
+}
+\end{document}

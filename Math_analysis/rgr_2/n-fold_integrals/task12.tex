@@ -1,0 +1,74 @@
+\documentclass[../rgr_2.tex]{subfiles}
+%shell-escape
+
+% \let\oldint\iint % Save the original \int command
+% \renewcommand{\iint}{\oldint\limits} % Redefine \int to include \limits
+
+\begin{document}
+
+\Problem{
+	Обчислити подвійний інтеграл, переходячи до полярної системи координат
+	$
+		\iint_D \ln(x^2+y^2)\, dx\, dy,
+		D: x^2+y^2\geq e^2,
+		x^2+y^2\leq e^4
+	$
+	}
+\Solution
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+    		\addplot [domain=0:2*pi, samples=100, name path=e2] ({exp(1)*cos(deg(x))}, {exp(1)*sin(deg(x))});
+    		\addplot [domain=0:2*pi, samples=100, name path=e4] ({exp(2)*cos(deg(x))}, {exp(2)*sin(deg(x))});
+	\addplot [
+		thick,
+		pattern color=purple,
+		pattern=north west lines,
+	]
+	fill between[
+		of=e2 and e4,
+    	];
+
+	\end{axis}
+	\end{tikzpicture}
+	\caption{}
+\end{figure}
+
+\begin{equation}
+	y^2 \geq e^2-x^2 \\
+	y=\pm\sqrt{e^2-x^2}
+	x^2 \leq e^2
+\end{equation}
+
+\begin{equation}
+	\begin{aligned}
+		x^2+y^2=e^2 \implies r^2=e^2 \implies r=e\\
+		x^2+y^2=e^4 \implies r=e^2
+	\end{aligned}
+\end{equation}
+\begin{equation}
+	\begin{aligned}
+		0\leq\phi\leq2\pi\\
+		e\leq r\leq e^2\\
+	\end{aligned}
+\end{equation}
+
+\begin{dmath}
+	\iint_D \ln(x^2+y^2)\, dx\, dy
+	= \iint_{G_{r\phi}} \ln(\overbrace{r^2\cos^2\phi+r^2\sin^2\phi}^{r^2})r\, dr\, d\phi
+	= \iint_{G_{r\phi}} \ln r^3\, dr\, d\phi
+	= \int_0^{2\pi}\,d\phi \int_e^{e^2} \ln r^3\, dr
+	= \int_0^{2\pi}\,d\phi\, 3\int_e^{e^2} \ln r\, dr
+	= \int_0^{2\pi}\,d\phi\, (3r\ln r-3r)\Bigg|_e^{e^2}
+	= \int_0^{2\pi}\,d\phi\, (3e^2\ln e^2-3e^2)-(3e\ln e-3e)
+	= \int_0^{2\pi}3e^2\,d\phi
+	= 3e^2\phi \Bigg|_0^{2\pi}
+	= 6\pi e^2
+\end{dmath}
+\Answer{
+	$6\pi e^2$
+}
+
+\end{document}

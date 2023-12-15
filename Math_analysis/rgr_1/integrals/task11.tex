@@ -1,0 +1,55 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	$\int x^2e^{-x} \, dx $
+}
+\Solution
+
+\subparagraph{підстановка}
+\noindent\begin{varwidth}{\linewidth}
+	\fbox{
+		$
+		\begin{array}{r|r}
+			u = x^2 & du = 2x\, dx\\
+			dv =  e^{-x} & v = e^{-x}
+		\end{array}
+		$
+	}
+\end{varwidth}
+\begin{equation}
+	\int x^2e^{-x} \, dx =
+	% =-x^2e^{-x}-\int -e^{-x}\, 2xdx
+	-\dfrac{{x}^{2}}{{e}^{x}}+\int{\dfrac{2\,x}{{e}^{x}}}{\;\mathrm{d}x}
+\end{equation}
+
+\subparagraph{підстановка}
+\noindent\begin{varwidth}{\linewidth}
+	\fbox{
+		$
+		\begin{array}{r|r}
+			u = x & du = 1\, dx\\
+			dv =  e^{-x} & v = -e^{-x}
+		\end{array}
+		$
+	}
+\end{varwidth}
+\begin{equation}
+	\int{\dfrac{2\,x}{{e}^{x}}}{\;\mathrm{d}x}=
+	2\left(-\dfrac{x}{{e}^{x}}+\int{\dfrac{1}{{e}^{x}}}{\;\mathrm{d}x}\right)=
+	-\dfrac{2\,x+2}{{e}^{x}}
+\end{equation}
+
+% $$
+% 	-\frac{x^2}{e^x}-2\int e^{-x}\, dx -\frac{2x}{e^x}
+% $$
+
+\Answer{
+	$
+	\frac{x^2+2+2x}{e^x}+C
+	$
+}
+
+\end{document}
+end{document}

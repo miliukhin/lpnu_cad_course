@@ -1,0 +1,36 @@
+\documentclass[../rgr1.tex]{subfiles}
+\newcommand{\podily}{\Big|\vdots}
+\begin{document}
+
+\Problem{
+	Обчислити за правилом Лопіталя
+	$
+	\lim_{x\to\infty}(x+2^x)^{\frac{1}{x}}
+	$
+}
+
+\paragraph{Правило Лопіталя:}
+Якщо $\frac{f(x)}{g(x)}=\left\{ \frac{\infty}{\infty} \right\} \text{або} \left\{\frac{0}{0} \right\}$ та $\exists \lim_{x\to x_0}\frac{f'(x)}{g'(x)}$, то
+$ \exists \lim_{x\to x_0}\frac{f(x)}{g(x)} = \lim_{x\to x_0}\frac{f'(x)}{g'(x)}.$
+
+\Solution
+
+Логарифмуємо вираз
+\begin{equation}
+	\ln(x+2^x)^{\frac{1}{x}} =
+	\frac{\ln(x+2^x)}{x}
+\end{equation}
+\begin{equation}
+	\lim_{x\to\infty} \frac{\ln(x+2^x)}{x} =
+	\lim_{x\to\infty} \frac{\frac{1+2^x\ln 2}{(x+2^x)}}{1} \Big|\vdots 2^x =
+	% \lim_{x\to\infty} \frac{1+2^x\ln 2}{(x+2^x)} =
+\lim_{x\to{\infty}}{\dfrac{{\cancel{\dfrac{1}{2^{x}}}^{\,{^{0}}}}+\ln2}{{\cancel{\frac{x}{2^{x}}}^{\,{^{0}}}}+1}}=\lim_{x\to{\infty}}{\frac{\ln2}{1}}=\ln2
+\end{equation}
+\begin{equation}
+	\lim_{x\to\infty}(x+2^x)^{\frac{1}{x}}
+	=
+	\lim_{x\to\infty}e^{\ln2} = 2
+\end{equation}
+
+\Answer{$2$}
+\end{document}

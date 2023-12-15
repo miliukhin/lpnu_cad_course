@@ -1,0 +1,126 @@
+\documentclass[../rgr1.tex]{subfiles}
+%shell-escape
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\begin{document}
+
+\Problem{Обчислити площу фігури, обмеженої лініями
+	$y = \arcsin x, y = \arccos x, y = 0.$
+}
+\Solution
+
+% \begin{picture}(100,100)(0,0)
+% \put( 5,50){\line( 1, 2){25}}
+% \put( 5,50){\line( 1,-2){25}}
+% \put( 5,50){\line( 1, 0){50}}
+% \put(55,50){\line(-1, 2){25}}
+% \put(55,50){\line(-1,-2){25}}
+% \put(30, 0){\line( 0, 1){100}}
+% \end{picture}
+\begin{equation}
+	\arcsin x = \arccos x \implies x = \frac{ \sqrt{2} }{ 2 }
+\end{equation}
+
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+			axis lines = middle,
+			samples=10000,
+			ytick={0,1.5708,3.14159,4.7123889},
+			yticklabels={$0$,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$},
+			extra x ticks ={0.7},
+			extra x tick labels={ {$\frac{\sqrt2}{2}$} }
+			% domain=0:2*pi
+			]
+		\addplot [violet, name path=a, domain = -1:1] gnuplot {0};
+		\addplot [violet, name path=f] gnuplot {asin(x)};
+			\node [rotate=24] at (axis cs:  .1,  .40) {$y=\arcsin x$};
+
+		\addplot [violet, name path=cos] gnuplot {acos(x)};
+			\node [rotate=-24] at (axis cs:  .1,  1.70) {$y=\arccos x$};
+    		\path[name path=axis] (axis cs:0,0) -- (axis cs:1,0);
+	\addplot [
+		thick,
+		pattern color=purple,
+		pattern=north west lines,
+	]
+	fill between[
+		of=f and axis,
+		soft clip={domain=0:.7},
+    	];
+
+	\addplot+[
+		teal,
+		% fill opacity=0.5,
+		pattern color=teal,
+		pattern=north east lines
+	]
+	fill between[
+		of=cos and axis,
+		soft clip={domain=.7:1},
+    	];
+		\addplot [] coordinates { (0.7, 0) (0.7, pi/4) };
+	\end{axis}
+	\end{tikzpicture}
+	%\subfile{plot.tex}
+	\caption{}
+\end{figure}
+
+\begin{dmath}
+	S = \int_0^{ \frac{ \sqrt{2} }{ 2 } } \arcsin x
+	- \int_{ \frac{ \sqrt{2} }{ 2 } }^1 \arccos x =
+	\left[
+	\left( \arcsin \frac{\sqrt2}{2} * \frac{\sqrt2}{2} + \sqrt{ \left( 1-\frac{\sqrt2}{2} \right)^2} \right) -
+	\left( 0 + \sqrt{ ( 1- 0)^2} \right)
+ 	\right]
+	-
+	\left[
+	% \left( \arccos 1 * 1 - \sqrt{(1-1)^2} \right) -
+	\left( 0 - 0 \right) -
+	\left( \arccos \frac{\sqrt2}{2} * \frac{\sqrt2}{2} - \sqrt{ \left( 1-\frac{\sqrt2}{2} \right)^2} \right)
+ 	\right] =
+	\left[
+		\left( \frac{\pi\sqrt2}{8} + \sqrt{ \left( 1-\frac{\sqrt2}{2} \right)^2} \right) -
+	1
+ 	\right]
+	+
+	\left[
+	\frac{\pi\sqrt2}{8} - \sqrt{ \left( 1-\frac{\sqrt2}{2} \right)^2}
+	\right] =
+	\left[
+		\frac{\pi\sqrt2}{8} + 1-\frac{\sqrt2}{2} -
+	1
+ 	\right]
+	+
+	\left[
+	\frac{\pi\sqrt2}{8} - 1+\frac{\sqrt2}{2}
+	\right] =
+	\frac{(\pi-4)\sqrt2}{8} +
+	\frac{(\pi+4)\sqrt2}{8} - 1 =
+	\frac{ \pi\sqrt{2} -4 }{ 4 }.
+\end{dmath}
+
+% \begin{dmath}
+% 	\int \underbrace{\cos^{-1}x}_u \, \underbrace{dx}_{dv} = \\
+% 	\Bigg] \begin{aligned}
+% 		& v = x, \\
+% 		& du = (\arccos x)' \,dx = - \frac{1}{\sqrt{1-x^2} } \,dx
+% 	\end{aligned} \Bigg[ \\
+% 	\arccos x * x + \int x * \frac{1}{\sqrt{ \underbrace{1-x^2}_t } } \,\underbrace{dx}_{\frac{dt}{-2x}} =
+% 	\arccos x * x + \int \cancel{x} * \frac{1}{\sqrt{t} } \,\frac{dt}{-2 \cancel{x} }  =
+% 	\arccos x * x - \frac{1}{2} \int t^{-\frac{1}{2} } \, dt =
+% 	\arccos x * x - \cancel{ \frac{1}{2} } \frac{ t^{1 - \frac{1}{2} } }{ \cancel{ 1 + ( - \frac{1}{2} ) } } =
+% 	\arccos x * x - \sqrt{t} =
+% 	\arccos x * x - \sqrt{1-x^2}
+% \end{dmath}
+
+\Answer{
+	$\frac{ \pi\sqrt{2} -4 }{ 4 }$
+}
+
+\end{document}
+end{document}

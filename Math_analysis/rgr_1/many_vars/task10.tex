@@ -1,0 +1,129 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+% перевірити чи подвійна похідна норм
+\Problem{Знайти екстремуми функції
+$
+	z = x^3y^2(6-x-y)
+$
+}
+\Solution
+
+\begin{dmath}
+	\frac{\partial z}{\partial x}
+	= y^2\Big(3x^2(6-x-y) + (0-1-0)\cdot x^3\Big)
+	= y^2(18x^2 -3x^3 - 3x^2y -x^3)
+	= -x^2y^2(4x+3y-18)
+\end{dmath}
+
+\begin{dmath}
+	\frac{\partial z}{\partial y}
+	= x^3 \Big( 2y(6-x-y) + (0-0-1)\cdot y^2 \Big)
+	= x^3 (12y-2xy-2y^2-y^2)
+	= -x^3y(3y+2x-12)
+\end{dmath}
+% ${\displaystyle \mathbf {H}_{f}={\begin{bmatrix}{\dfrac {\partial ^{2}f}{\partial x_{1}^{2}}}&{\dfrac {\partial ^{2}f}{\partial x_{1}\,\partial x_{2}}}&\cdots &{\dfrac {\partial ^{2}f}{\partial x_{1}\,\partial x_{n}}}\\[2.2ex]{\dfrac {\partial ^{2}f}{\partial x_{2}\,\partial x_{1}}}&{\dfrac {\partial ^{2}f}{\partial x_{2}^{2}}}&\cdots &{\dfrac {\partial ^{2}f}{\partial x_{2}\,\partial x_{n}}}\\[2.2ex]\vdots &\vdots &\ddots &\vdots \\[2.2ex]{\dfrac {\partial ^{2}f}{\partial x_{n}\,\partial x_{1}}}&{\dfrac {\partial ^{2}f}{\partial x_{n}\,\partial x_{2}}}&\cdots &{\dfrac {\partial ^{2}f}{\partial x_{n}^{2}}}\end{bmatrix}}}$
+\begin{dmath}
+	\begin{cases}
+		-x^2y^2(4x+3y-18) = 0 \\
+		-x^3y(3y+2x-12) = 0
+	\end{cases} \implies
+	\fbox{$x_1=y_1=0$} \implies
+	\begin{cases}
+		\left[
+		\begin{aligned}
+			-x^2y^2 = 0 \\
+			(4x+3y-18) = 0
+		\end{aligned} \right. \\
+\\
+		\left[
+		\begin{aligned}
+			-x^3y = 0 \\
+			(3y+2x-12) = 0
+		\end{aligned} \right. \\
+	\end{cases} \implies
+	-\begin{cases}
+		4x+3y-18 = 0 \\
+		3y+2x-12 = 0
+	\end{cases} \implies
+	\begin{cases}
+		x_2=3 \\
+		y_2=2
+	\end{cases}
+\end{dmath}
+
+\begin{equation}
+	\mathbf{G}(x,y) =
+	\begin{bmatrix}
+		\frac{\partial^2 z}{\partial x^2} & \frac{\partial^2 z}{\partial x\partial y} \\
+		\frac{\partial^2 z}{\partial y\partial x} & \frac{\partial^2 z}{\partial y}
+	\end{bmatrix}
+	% \left(
+	% \right)
+\end{equation}
+\begin{align}
+	\frac{\partial^2 z}{\partial x^2}
+	= \left(36\,{y}^{2}-6\,{y}^{3}\right)\,x-12\,{y}^{2}\,{x}^{2} \\
+	\frac{\partial^2 z}{\partial y^2}
+	= -6\,{x}^{3}\,y-2\,{x}^{4}+12\,{x}^{3} \\
+	\frac{\partial^2 z}{\partial x\partial y} =
+	\left(36\,y-9\,{y}^{2}\right)\,{x}^{2}-8\,y\,{x}^{3}
+\end{align}
+$$
+A_1(0,0), A_2(0,2), A_3(3,0), A_4(3,2)
+$$
+
+\begin{align}
+	\mathbf{G}(z) =
+	\begin{bmatrix}
+		\left(36\,{y}^{2}-6\,{y}^{3}\right)\,x-12\,{y}^{2}\,{x}^{2} & 	\left(36\,y-9\,{y}^{2}\right)\,{x}^{2}-8\,y\,{x}^{3} \\
+		\left(36\,y-9\,{y}^{2}\right)\,{x}^{2}-8\,y\,{x}^{3} & -6\,{x}^{3}\,y-2\,{x}^{4}+12\,{x}^{3} \\
+	\end{bmatrix}\\
+	\mathbf{G}(0,0) =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 0 \\
+	\end{bmatrix},
+	\mathbf{G}(0,2) =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 0 \\
+	\end{bmatrix},\\
+	\mathbf{G}(3,0) =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & -2\cdot 3^4+12\cdot 3^3 \\
+	\end{bmatrix} =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & -162+324=162 \\
+	\end{bmatrix}
+\end{align}
+\begin{dmath}
+	\mathbf{G}(3,2) =
+	\begin{bmatrix}
+		(36\cdot 2^2-6\cdot 2^3)\cdot 3-12\cdot 2^2\cdot 3^2 & (36\cdot 2-9\cdot 2^2)\cdot 3^2-8\cdot 2\cdot 3^3 \\
+		(36\cdot 2-9\cdot 2^2)\cdot 3^2-8\cdot 2\cdot 3^3 & -6\cdot 3^3\cdot 2-2\cdot 3^4+12\cdot 3^3 \\
+	\end{bmatrix} =
+	\begin{bmatrix}
+		(36\cdot 4-6\cdot 8)\cdot 3-12\cdot 4\cdot 9 & (72-9\cdot 4)\cdot 9-8\cdot 2\cdot 27 \\
+		(72-9\cdot 4)\cdot 9-8\cdot 2\cdot 27 & -6\cdot 27\cdot 2-2\cdot 81+12\cdot 27 \\
+		% \left(72-9\cdot 4\right)\cdot 9-8\cdot 2\cdot 81 & -6\cdot {3}^{3}\cdot 2-2\cdot {3}^{4}+12\cdot {3}^{3} \\
+	\end{bmatrix}
+\end{dmath}
+\begin{equation}
+	\Delta\mathbf{G}(3,2) =
+	\begin{bmatrix}
+		\overbrace{-144}^{<0, max} & -108 \\
+		-108 & -162 \\
+	\end{bmatrix}
+	144\cdot 162-108^2 > 0
+\end{equation}
+
+\Answer{
+У точці $A_4(3,2)$ --- максимум.
+Точки $A_1(0,0), A_2(0,2), A_3(3,0)$ потрібно досліджувати за допомогою
+похідних вищих порядків.
+}
+
+\end{document}

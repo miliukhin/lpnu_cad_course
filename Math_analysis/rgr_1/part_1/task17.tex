@@ -1,0 +1,214 @@
+%shell-escape
+\documentclass[../rgr1.tex]{subfiles}
+\usetikzlibrary{patterns}
+
+\begin{document}
+
+\Problem{
+	Дослідити методами диференціального числення функцію $
+	y = \frac{1}{x^2} - \frac{1}{(x-1)^2}
+	$ та побудувати її графік
+}
+
+\Solution
+
+\paragraph{ОВ}
+\subparagraph{$\frac{1}{x^2}:$} $x \in (-\infty;0)\cup(0;+\infty)$
+\subparagraph{$\frac{1}{(x-1)^2}:$} $x \in (-\infty;1)\cup(1;+\infty)$
+\subparagraph{$D(f):$} $x \in (-\infty;0)\cup(0;1)\cup(1;+\infty)$
+\paragraph{ОЗ $E(f)$} $f \in ( -\infty; +\infty )$
+\paragraph{Парність}
+$
+	y(-x) =
+	\frac{1}{x^2} - \frac{1}{(-x-1)^2}
+$, функція непарна.
+	%<++>
+\paragraph{Періодичність $[f(x+T) = f(x)]?$}
+
+\begin{align}
+	\frac{1}{(x+T)^2} - \frac{1}{(x+T-1)^2} =
+	\frac{1}{x^2} - \frac{1}{(x-1)^2}
+	%<++>
+\end{align}
+
+$T$ залежить від $x$, функція неперіодична
+
+\paragraph{Неперервність} розглянемо границі функції в сумнівних точках
+
+\begin{equation}
+	\lim_{x\to+0}\frac{1}{x^2} - \frac{1}{(x-1)^2}
+	= \lim_{x\to+0}\frac{-2x+1}{x^2(x-1)^2}
+	= \lim_{x\to+0}\frac{-0-0+1}{0^2(0+0-1)^2}
+	% = <++>
+	= +\infty
+\end{equation}
+так само $\lim_{x\to-0}\frac{1}{x^2} - \frac{1}{(x-1)^2} =+\infty$,
+в точці розрив 2-го роду.
+\begin{equation}
+	\lim_{x\to 1+0}\frac{-2x+1}{x^2(x-1)^2}
+	% = \lim_{x\to 1-0}\frac{-2x+1}{x^2(x-1)^2}
+	= \frac{-1}{1(1+0-1)^2}
+	= -\infty
+\end{equation}
+\begin{equation}
+	\lim_{x\to 1-0}\frac{-2x+1}{x^2(x-1)^2}
+	= \frac{-1}{1(1-0-1)^2}
+	= -\infty
+\end{equation}
+Тут теж розрив 2-го роду.
+
+\paragraph{Точки екстремуму}
+Знайдімо похідну функції.
+\begin{equation}
+	y = \frac{1}{x^2} - \frac{1}{(x-1)^2} \to
+	f'(x) = \frac{-2}{x^3} + \frac{2}{(x-1)^3}
+\end{equation}
+
+Точки екстремуму знаходяться в місцях, де похідна функції змінює знак.
+$x \neq \{1; 0\}$
+\begin{equation}
+	\frac{2}{x^3} = \frac{2}{(x-1)^3}
+\end{equation}
+	% бачимо, що
+	у критичних $x=\{1;0\}$ точках функція розривна
+% \begin{align}
+% 	x = 0 \to f'(x) = 1 > 0 \\
+% 	x = \pm \frac{\sqrt{3.5} }{2} \to f'(x)
+% 	= 2 - \frac{1}{\sqrt{1-\frac{3\frac{1}{2}}{4}}}
+% 	= 2 - \frac{1}{\sqrt{1-{\frac{7}{8}}}}
+% 	= 2 - \frac{1}{\sqrt {\frac{1}{8}} } \\
+% 	\sqrt{\frac{1}{8}} = 0.35,~
+% 	2 - \frac{100}{35} \approx -0.8 < 0.
+% \end{align}
+
+\begin{align}
+	-\frac{2}{\frac{1}{2^3}} + \frac{2}{(\frac{1}{2}-1)^3} = -32 < 0 \\
+	-\frac{2}{2^3} + \frac{2}{(2-1)^3} = -\frac{1}{4} + \frac{2}{1} > 0 \\
+	-\frac{2}{(-2)^3} + \frac{2}{(-2-1)^3} = \frac{1}{4} - \frac{2}{27} > 0
+\end{align}
+
+% Перенісши значення на числову пряму, матимемо:
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	[
+		letter/.style={
+			circle, minimum size=3pt, inner sep=0,
+			outer sep=0, fill=black, label=below:#1
+		},
+		crossed/.style={
+			cross out, minimum size=3pt, inner sep=0,
+			outer sep=0, draw=black, label=below:#1
+		},
+		number/.style={fill=white, draw=red, pos=.5}
+	]
+		\draw (-1,0) --
+			node(A)[crossed=$-\infty$,pos=-2]{}
+			node(Al) [crossed=$0$, pos=-.7]{}
+			node(Bl) [crossed=$1$, pos=.7]{}
+			node(B)[crossed=$+\infty$,pos=2]{}
+			(1,0)
+		;
+		\draw (-5,0) -- (-1,0);
+		\draw (3,0) -- (1,0);
+		\draw[]
+			(Al) to[bend left=50] node[number]{-} (Bl)
+			(A) to[bend right=40] node[number]{+} (Al)
+			(B) to[bend left=40] node[number]{+} (Bl)
+		;
+	\end{tikzpicture}
+	\caption{відображення похідної на числовій осі}
+\end{figure}
+
+% $x = \frac{\sqrt 3}{2}$ --- максимум,
+% $x = -\frac{\sqrt 3}{2}$ --- мінімум.
+
+\paragraph{Проміжки монотонності}
+
+Поведінку функції на проміжку можна визначити за знаком похідної:
+\subparagraph{Зростання:} $x\in \left( -\infty; 0 \right] \bigcup \left[ 1; +\infty \right)$
+\subparagraph{Спадання:} $x\in \left[ 0; 1 \right]$
+
+\paragraph{Опуклість ($f''$)}
+
+\begin{dmath}
+	f''(x)
+	= \frac{6}{x^4} - \frac{6}{(x-1)^4}
+	= \frac{6(x-1)^4 - 6x^4}{x^4(x-1)^4} \\
+	6(x-1)^4 - 6x^4 = 0 \implies x = \frac{1}{2} \\
+	(2-1)^4 - 2^4 < 0 \\
+	(-2-1)^4 - (-2)^4 > 0
+\end{dmath}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	[
+		letter/.style={
+			circle, minimum size=3pt, inner sep=0,
+			outer sep=0, fill=black, label=below:#1
+		},
+		crossed/.style={
+			cross out, minimum size=3pt, inner sep=0,
+			outer sep=0, draw=black, label=below:#1
+		},
+		number/.style={fill=white, draw=red, pos=.5}
+	]
+		\draw (-1,0) --
+			node(A)[crossed=$-\infty$,pos=-2]{}
+			node(Al) [letter=$\frac{1}{2}$, pos=-.5]{}
+			node(B)[crossed=$+\infty$,pos=2]{}
+			(1,0)
+		;
+		\draw (-5,0) -- (-1,0);
+		\draw (3,0) -- (1,0);
+		\draw[]
+			(Al) to[bend right=30] node[number]{+} (A)
+			(B) to[bend left=20] node[number]{-} (Al)
+		;
+	\end{tikzpicture}
+	\caption{відображення другої похідної на числовій осі}
+\end{figure}
+
+\paragraph{$\bigcup (f'' > 0)$} $x \in (-\infty; \frac{1}{2})$
+\paragraph{$\bigcap(f'' < 0)$} $x \in (\frac{1}{2}; +\infty)$
+
+\paragraph{Асимптоти}
+
+\subparagraph{вертикальні:}
+$x = 1, x = 0$
+
+\subparagraph{похилі:}
+$y = kx + b, k = \lim_{x\to\infty}\frac{f(x)}{x},$
+$ b = \lim_{x\to\infty} ( f(x) - kx )$
+
+\begin{equation}
+	k = \lim_{x\to\infty} \frac{ \frac{1}{x^2} - \frac{1}{(x-1)^2} }{x} =
+	\left\{
+		\frac{0-0}{\infty}
+	\right\} = 0 \implies \text{вісь Ox --- асимптота}
+\end{equation}
+
+\paragraph{Характерні точки (перетин із осями координат)}
+Характерні точки відсутні.
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}
+		[
+			axis lines = middle,
+			samples=1000,
+			xmin = -.5,
+			xmax = 1.5,
+		]
+		\addplot [violet] gnuplot {1/x**2 - 1/(x-1)**2};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{графік функції
+	$y = \frac{1}{x^2} - \frac{1}{(x-1)^2}$
+}
+\end{figure}
+
+% \Answer{<++>}
+\end{document}

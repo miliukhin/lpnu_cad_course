@@ -1,0 +1,63 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\usepackage{tikz-3dplot}
+\tdplotsetmaincoords{60}{115} %to set up a desired angle of visualization
+
+\usetikzlibrary{calc,3d,shapes, pgfplots.external}
+\pgfplotsset{compat=1.11}
+
+\begin{document}
+
+% \begin{figure}[h]
+% \centering
+% \begin{tikzpicture}
+%   \begin{axis}[width=.7\textwidth,
+%       samples=50,domain=0:360,y domain=0:90,
+%       xmin=-1.2,xmax=1.2,ymin=-1.2,ymax=1.2,zmin=0,zmax=1.2,
+%       xlabel={$x$},ylabel={$y$},zlabel={$z$},
+%     axis lines=center]
+%     \addplot3[surf,opacity=0.5]
+%     ({cos(x)*cos(y)}, {sin(x)*cos(y)}, {sin(y)});
+%   \end{axis}
+% \end{tikzpicture}
+% \caption{Область інтегрування}
+% \end{figure}
+
+\tdplotsetmaincoords{60}{110}
+
+
+%define polar coordinates for some vector
+%TODO: look into using 3d spherical coordinate system
+\pgfmathsetmacro{\radius}{1}
+\pgfmathsetmacro{\thetavec}{0}
+\pgfmathsetmacro{\phivec}{0}
+
+%start tikz picture, and use the tdplot_main_coords style to implement the display
+%coordinate transformation provided by 3dplot
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3,tdplot_main_coords]
+%draw the main coordinate system axes
+\draw[thick,->] (0,0,0) -- (1,0,0) node[below left, ]{$x$};
+\draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+\draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+
+\tdplotsetthetaplanecoords{\phivec}
+
+%draw some dashed arcs, demonstrating direct arc drawing
+\draw[dashed,tdplot_rotated_coords] (\radius,0,0) arc (0:90:\radius);
+\draw[dashed,tdplot_rotated_coords] (\radius,0,0) arc (0:-90:\radius);
+
+\draw[dashed] (\radius,0,0) arc (0:360:\radius);
+\shade[ball color=blue!10!white,opacity=0.2] (1cm,0) arc (0:-180:1cm and 5mm) arc (180:0:1cm and 1cm);
+% (-z x y)
+\draw (0, 1, 0) node [above] () {1};
+\draw (0, 0, 1) node [right] () {1};
+\draw (1, 0, 0) node [right] () {1};
+\end{tikzpicture}
+
+\caption{Область інтегрування}
+	\label{sphere}
+\end{figure}
+
+\end{document}

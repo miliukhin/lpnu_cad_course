@@ -1,0 +1,37 @@
+
+  \begin{tikzpicture}[
+      letter/.style={circle, minimum size=3pt, inner sep=0, outer sep=0, fill=black, label=below:#1},
+      number/.style={fill=white, pos=.5}
+  ]
+      \draw (0,0) --
+              node(A)[letter=A,pos=.2]{}
+              node(C)[letter=C,pos=.6]{}
+              node(B)[letter=B,pos=.8]{}
+            (8,0)
+      ;
+
+      \draw[dashed]
+          (A) to[bend left]      node[number]{2} (C)
+          (C) to[bend right=50]     node[number]{1} (B)
+          (A) to[bend left=50] node[number]{3} (B)
+      ;
+  \end{tikzpicture}
+
+ % \begin{tikzpicture}[thick]
+ %    \draw(0,0)--(12.5,0);
+ %    \foreach \x/\xtext in {0/0,3/1,6/2,9/3,12/4}
+ %      \draw(\x,0pt)--(\x,3pt) node[above] {\xtext};
+ %    \foreach \x in {0,1,...,12}
+ %      \draw(\x,0pt)--(\x,-3pt) node[below] {$\frac{\x}{3}$};
+ %  \end{tikzpicture}
+
+% \begin{tikzpicture}
+% 	\pattern[pattern=north east lines, pattern color=red]  (0,0) circle (3);
+% \end{tikzpicture}
+
+% \begin{tikzpicture}[mydrawstyle/.style={draw=black, thick}, x=1mm, y=1mm, z=1mm]
+%   \draw[mydrawstyle, ->](-2,30)--(66,30);
+%   \draw[mydrawstyle](0,29)--(0,31) node[below=10]{$a$};
+%   \draw[mydrawstyle](60,29)--(60,31) node[below=10]{$b$};
+%   \fill[pattern=north east lines] (0,33) rectangle (60,30);
+% \end{tikzpicture}

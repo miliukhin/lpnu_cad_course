@@ -1,0 +1,16 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{CS}]\begingroup вибір кристалу(Chip select); доступ до однієї з мікросхем, яка входить у пристрій.\nomeqref {0}\nompageref{1}
+  \item [{WE}]\begingroup вхід дозволу для запису (Write enable)\nomeqref {0}\nompageref{1}
+  \item [{ВІС}]\begingroup велика інтегральна мікросхема\nomeqref {0}\nompageref{1}
+  \item [{ЗП}]\begingroup запам'ятовувальний пристрій\nomeqref {0}\nompageref{1}
+  \item [{МПС}]\begingroup Мікропроцесорна система\nomeqref {0}\nompageref{1}
+  \item [{ОЗП}]\begingroup Оперативний запам'ятовувальний пристрій\nomeqref {0}\nompageref{1}
+  \item [{СДНФ}]\begingroup скорочена диз’юнктивна нормальна форма\nomeqref {0}\nompageref{1}
+  \item [{СКНФ}]\begingroup скорочена кон’юнктивна нормальна форма\nomeqref {0}\nompageref{1}
+  \item [{ША}]\begingroup шина адрес – призначена для пересилки кодів адресної інформації до оперативної пам’яті або електронних модулів комп’ютера, для доступу до комірок пам’яті або пристроїв вводу-виводу\nomeqref {0}\nompageref{1}
+  \item [{ШД}]\begingroup шина даних – призначена для передачі даних між електронними модулями комп’ютера\nomeqref {0}\nompageref{1}
+  \item [{ШК}]\begingroup шина керування – призначена для передачі сигналів керування, обліку, запитів на переривання, передачі керування, синхронізації і т. д. \nomeqref {0}\nompageref{1}
+
+\end{thenomenclature}

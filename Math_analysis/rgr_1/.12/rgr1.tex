@@ -1,0 +1,124 @@
+\documentclass[a4paper, 12pt, oneside]{extreport}
+
+\input{$HOME/Templates/lpnu_doc_templates/settings/preamble}
+%shell-escape
+%multline, split, align*, eqnarray
+\usepackage{etoolbox} % пакунок для розширеного програмування
+\usepackage{amssymb} % розширені математичні символи
+\usepackage{gnuplottex}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\usepackage{boxedminipage}
+\fboxrule=1pt
+
+%	TODO:	REFACTORING	%
+\newtoggle{Report}
+\togglefalse{Report}
+
+\newtoggle{RGR}
+\toggletrue{RGR}
+\renewcommand\Department{ОМП}
+
+\newcommand\Type{\RGR}
+\newcommand\Number{1}
+\newcommand\Discipline{Математичний аналіз та диференційні рівняння}
+
+\newcommand\Class{студент групи \Group}
+\newcommand\Author{\Lname~\Initials}
+\newcommand\Position{доцент}
+\newcommand\Instructor{Пахолок Б. Б.}
+\newcommand\Variant{12}
+
+% зміни в лічильниках підсекцій
+\renewcommand{\thesubsection}{\thechapter .\arabic{subsection}}
+
+% ЗАВДАННЯ
+\newcommand{\Problem}{\subsection}
+% РОЗВ'ЯЗОК
+\newcommand{\Solution}{\subsubsection*{\centering \scshape Розв'язок:}}
+% ВІДПОВІДЬ
+\newcommand{\Answer}[1]{
+\medskip
+\null\hfill
+\begin{boxedminipage}{\textwidth}
+	\paragraph{Відповідь: }{#1}
+\end{boxedminipage}
+}
+
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+
+\input{$HOME/Templates/lpnu_doc_templates/parts/titlepage.tex}
+
+\chapter{\underline{Границі, похідні та диференціали}}
+
+\subfile{parts/task1-3.tex}
+\subfile{parts/task4.tex} % ?
+\subfile{parts/task5.tex} %
+\subfile{parts/task6-8.tex} % 8
+\subfile{parts/task9.tex} %
+\subfile{parts/task10.tex}
+\subfile{parts/task11-12.tex}
+\subfile{parts/task13.tex} %
+\subfile{parts/task14.tex} %
+\subfile{parts/task15.tex} %
+\subfile{parts/task16.tex} %
+\subfile{parts/task17.tex}
+\subfile{parts/task18.tex} %
+
+\chapter{\underline{Невизначений інтеграл}}
+
+\section*{Знайти невизначені інтеграли}
+
+\subfile{integrals/task1.tex} %% похідна збігається, але це гак
+\subfile{integrals/task2.tex} % derive 1/sqrt(7) arcsin(x sqrt(7)/2)
+\subfile{integrals/task3.tex} % integrate sin(3x)/cos^2(3x)
+\subfile{integrals/task4.tex} % integrate e^(1-4x^2) x dx
+\subfile{integrals/task5.tex} % ??
+
+\section*{Знайти інтеграли від функцій, які містять квадратний тричлен}
+
+\subfile{integrals/task6.tex} % ??
+\subfile{integrals/task7.tex} %
+\subfile{integrals/task8.tex} %
+\subfile{integrals/task9.tex} %
+
+\section*{Методом інтегрування частинами знайти інтеграли}
+
+\subfile{integrals/task10.tex} %
+\subfile{integrals/task11.tex} %
+\subfile{integrals/task12.tex} %
+\setcounter{subsection}{13}
+
+\section*{Знайти інтеграли від дробово-раціональних функцій}
+
+\subfile{integrals/task14.tex} %
+\subfile{integrals/task15.tex} %
+\subfile{integrals/task16.tex} %
+\subfile{integrals/task17.tex} %
+\subfile{integrals/task18.tex} %
+\subfile{integrals/task19.tex} %
+\subfile{integrals/task20.tex} %
+\subfile{integrals/task21.tex} %
+
+\setcounter{chapter}{3}
+\chapter{Визначений інтеграл}
+
+\subfile{def_int/task1.tex} %ст. 10?
+\subfile{def_int/task2.tex}
+\subfile{def_int/task3.tex}
+\subfile{def_int/task4.tex}
+\subfile{def_int/task5.tex}
+\subfile{def_int/task6.tex}
+\subfile{def_int/task7.tex}
+\subfile{def_int/task8.tex}
+\subfile{def_int/task9.tex}
+\subfile{def_int/task10.tex}
+\subfile{def_int/task11.tex}
+
+\end{document}

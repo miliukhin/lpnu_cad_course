@@ -1,0 +1,35 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	Знайти інтеграл від тригонометричної функції
+	$
+\int{\frac{\sin^{3}\left(x\right)}{\sqrt[{5}]{\cos^{3}\left(x\right)}}}{\;\mathrm{d}x}
+	$
+}
+\Solution
+
+\begin{dmath}
+\int{\frac{\sin^{3}\left(x\right)}{\sqrt[{5}]{\cos^{3}\left(x\right)}}}{\;\mathrm{d}x}=
+\int{\dfrac{\left(1-\cos^{2}\left(x\right)\right)\,\sin\left(x\right)}{\sqrt[{5}]{\cos^{3}\left(x\right)}}}{\;\mathrm{d}x}
+\end{dmath}
+
+$$
+\;u=\cos\left(x\right)\;\mathrm{d}u=-\sin\left(x\right)\,\mathrm{d}x
+$$
+\begin{dmath}
+	\int{-\dfrac{1-{u}^{2}}{\sqrt[{5}]{{u}^{3}}}}{\;\mathrm{d}u}=
+-\int{\dfrac{1}{\sqrt[{5}]{{u}^{3}}}-{u}^{\frac{7}{5}}}{\;\mathrm{d}u}=
+-\left(\int{\dfrac{1}{\sqrt[{5}]{{u}^{3}}}}{\;\mathrm{d}u}-\int{{u}^{\frac{7}{5}}}{\;\mathrm{d}u}\right)=
+\dfrac{5\,\cos^{\frac{12}{5}}\left(x\right)}{12}-\dfrac{5\,\sqrt[{5}]{\cos^{2}\left(x\right)}}{2}
+\end{dmath}
+
+\Answer{
+	$
+\frac{5\,\cos^{\frac{12}{5}}\left(x\right)}{12}-\frac{5\,\sqrt[{5}]{\cos^{2}\left(x\right)}}{2}+C
+	$
+}
+
+\end{document}
+end{document}

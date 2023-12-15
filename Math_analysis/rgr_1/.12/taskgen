@@ -1,0 +1,35 @@
+#!/bin/sh
+
+dir="lim_diff"
+i=1
+max=18
+
+while [ $i -lt $max ]
+do
+	mkdir -p "$dir"
+	cp "task.tex" "$dir/task$i.tex"
+	true $(( i++ ))
+done
+
+dir="indef_int"
+i=1
+max=21
+
+while [ $i -lt $max ]
+do
+	mkdir -p "$dir"
+	cp "task.tex" "$dir/task$i.tex"
+	true $(( i++ ))
+done
+
+dir="def_int"
+
+i=1
+max=12
+
+while [ $i -lt $max ]
+do
+	mkdir -p "$dir"
+	cp "task.tex" "$dir/task$i.tex"
+	true $(( i++ ))
+done

@@ -1,0 +1,25 @@
+#  cmake -S path/to/myProject -B path/to/build
+
+cmake_minimum_required(VERSION 3.26.3)
+project(bruh)
+
+#[[
+    Commands are case insensitive,
+    variables are case sensitive,
+    Keywords are always written in upper case.
+]]
+
+message("Building bruh")
+
+message(STATUS "The compilation is finished.")
+
+# https://cmake.org/cmake/help/latest/command/message.html
+# to debug the script
+
+set(x hello)
+set(y "hello bruh")
+
+# Without quotations, spaces imply a list variable, explained in list section.
+
+set(a "hi")
+set(b ${a})

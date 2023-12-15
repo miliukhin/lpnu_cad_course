@@ -1,0 +1,36 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+% 1/(5+4sinx)
+\Problem{
+	Знайти інтеграл від тригонометричної функції
+	$
+	\int{\frac{1}{4\,\sin x+5}}{\;\mathrm{d}x}
+	$
+}
+\Solution
+
+\paragraph{Універсальна триг. підстановка}
+\begin{varwidth}{1in}
+	\fbox
+{
+	$\begin{array}{c|c}t=\tg\frac{x}{2}&\sin x=\frac{2\,t}{{t}^{2}+1}\\\mathrm{d}t=\frac{1}{2\,\cos^{2}\frac{x}{2}}\,\mathrm{d}x&\cos^{2}\frac{x}{2}=\frac{1}{{t}^{2}+1}\end{array}$
+}
+\end{varwidth}
+\begin{dmath}
+	\int{\frac{1}{4\,\sin x+5}}{\;\mathrm{d}x}
+	=\int{\dfrac{2}{5\,{t}^{2}+8\,t+5}}{\;\mathrm{d}t}
+	=2\int{\dfrac{1}{5\,\left({t}^{2}+\dfrac{8\,t}{5}+1\right)}}{\;\mathrm{d}t}
+	% =\dfrac{2}{5}\int{\dfrac{1}{\left({t+\dfrac{4}{5}}\right)^{2}+\dfrac{9}{25}}}{\;\mathrm{d}\left(\underbrace{t+\frac{4}{5}}_r\right)}
+	=\dfrac{2}{5}\int{\dfrac{1}{\left({t+\dfrac{4}{5}}\right)^{2}+\dfrac{9}{25}}}{\;\mathrm{d}\left(t+\frac{4}{5}\right)}
+	=\dfrac{2}{3}\arctg\frac{5t+4}{3}+C
+\end{dmath}
+
+\Answer{
+	$
+	\dfrac{2}{3}\arctg\frac{5\,\tg\frac{x}{2}+4}{3}+C
+	$
+}
+
+\end{document}
+end{document}

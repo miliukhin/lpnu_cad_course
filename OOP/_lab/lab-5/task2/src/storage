@@ -1,0 +1,10 @@
+{
+    "input_obj": {
+        "name": "sweet roll",
+        "weight": 12,
+        "price": 32,
+        "quantity": 32,
+        "sweetness": 100,
+        "is_stolen": true
+    }
+}

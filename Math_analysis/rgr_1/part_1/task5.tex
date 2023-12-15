@@ -1,0 +1,34 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Обчислити границю числової послідовності
+$ \lim_{n\to\infty}\left( \frac{n+5}{n+7} \right)^{\frac{n}{6}+1} $}
+\Solution
+
+\begin{equation}
+	\lim_{n\to\infty}\left( \frac{n+5}{n+7} \right)^{\frac{n}{6}+1} =
+	\left\{ \left( \frac{\infty}{\infty} \right)^{\infty} \right\} =
+	\lim_{n\to\infty}\left( \frac{n+7-2}{n+7} \right)^{\frac{n}{6}+1} =
+	\lim_{n\to{\infty}}{\left(1-\dfrac{2}{n+7}\right)^{\frac{n}{6}+1}}
+\end{equation}
+
+\begin{equation}
+	\dfrac{n}{6}+1=-\dfrac{n+7}{2}\,\left(-\dfrac{1}{3}\right)-\dfrac{1}{6}
+\end{equation}
+
+% $\lim_{n\to{\infty}}{(1+\frac{1}{n})^{n}}=e$
+\begin{equation}
+	\lim_{n\to{\infty}}{\left(1-\dfrac{2}{n+7}\right)^{-\frac{n+7}{2}\,\left(-\frac{1}{3}\right)-\frac{1}{6}}}
+	% \underset{\scriptsize\begin{gathered}-\frac{2}{n+7}\to{0}\end{gathered}}{=}\,
+		=
+		\dfrac{1}{\sqrt[{3}]{e}}
+\end{equation}
+
+\Answer{
+	$
+		\dfrac{1}{\sqrt[{3}]{e}}
+	$
+}
+
+\end{document}

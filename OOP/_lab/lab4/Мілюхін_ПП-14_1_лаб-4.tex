@@ -1,0 +1,98 @@
+%-shell-escape, якщо використовуєте minted
+\documentclass[a4paper, 12pt, oneside]{extarticle}
+\input{$HOME/Templates/lpnu_doc_templates/settings/preamble.tex}
+% якщо домахуються за Times New Roman, то
+% використовуєте xelatex і цей файл:
+\input{$HOME/Templates/lpnu_doc_templates/settings/font_styles.tex}
+\input{$HOME/Templates/lpnu_doc_templates/settings/minted_settings.tex}
+
+\newcommand\Variant{4}
+\newcommand\Date{22.04.\the\year}
+\newcommand\Discipline{Об'єктно-орієнтоване програмування}
+\newcommand\Instructor{Патерега Ю. І.}
+
+\newcommand\Type{\Lab}
+\newcommand\Number{4}
+\newcommand\Topic{Обробка виняткових ситуацій}
+
+\begin{document}
+\Margins
+
+\input{$HOME/Templates/lpnu_doc_templates/parts/header.tex}
+
+Набути уміння та навички розробки та опису програм з використанням
+обробки виняткових (виключних) ситуацій.
+
+\section*{Індивідуальне завдання}
+
+\subsection*{Завдання 1}
+
+4. Визначити обробник виняткової ситуації, яка виникає при перетворенні
+об’єкта класу у значення цілочисельного типу.
+
+\subsection*{Завдання 2}
+
+4. Скласти програму знаходження середнього арифметичного додатніх чисел  з
+використанням обробки виключних ситуацій для випадків коли додатні числа
+відсутні.
+
+\section*{Етапи розв'язку}
+
+\subsection*{Завдання 1}
+
+Для перехоплення такої виняткової ситуації використав
+функції бібліотеки boost
+
+\subsection*{Завдання 2}
+
+Вирішив зберігати числа у векторі.
+Спочатку реалізував цикл із перевіркою
+елементів вектора на наявність додатних
+чисел, а потім вирішив одразу їх додавати.
+Пізніше зробив так, щоб елементи вектора можна
+було вводити як аргументи через командний рядок.
+
+\section*{Коди програм}
+
+\subsection*{Код програми (завдання 1)}
+\inputminted{c++}{task_1/task1.cpp}
+\subsection*{Результат виконання програми}
+\verbatiminput{task_1/out}
+
+\subsection*{Код програми (завдання 2)}
+\inputminted{c++}{task_2/avg.cpp}
+\subsection*{тест}
+\inputminted{sh}{task_2/test}
+\subsection*{Результат виконання програми}
+\inputminted{sh}{task_2/out}
+
+\section*{Висновок}
+
+Розібрався з основами обробки виняткових ситуацій засобами
+мови c++.
+
+\section*{Відповіді на контрольні запитання}
+\begin{itemize}
+	\question Що таке виняткові ситуації?
+	\answer події, що призводять до ненормальної роботи програми (помилок)
+
+	\question Синтаксис виняткових ситуацій.
+	\answer У мові C++ передбачено три ключові слова для обробки виняткових ситуацій:
+		\begin{enumerate}
+		\item try (контролювати)
+		\item catch (ловити)
+		\item throw (генерувати, породжувати, кидати, посилати, формувати)
+		\end{enumerate}
+
+	\question Як контролюються виняткові ситуації
+	\answer Якщо виняткова ситуація (тобто помилка)
+виникає всередині блоку try, вона «збуджується» (ключове
+слово throw), перехоплюється (ключове слово catch) та обробляється.
+
+
+	\question Як відбувається перехват виняткових ситуацій.
+	\answer Код, який може викликати виключну ситуацію, вміщується в блок try, а блок catch містить код, який обробляє виняток. Також можна створити виключення за допомогою оператора throw.
+
+\end{itemize}
+
+\end{document}

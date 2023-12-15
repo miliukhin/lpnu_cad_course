@@ -1,0 +1,27 @@
+#!/bin/sh
+
+test_dir="tf"
+
+bf="\033[31;1;4m"
+bbf="\033[0m"
+
+echo -e $bf"syncing:"$bbf
+./task_2 -s "$test_dir/duh.txt"
+
+echo -e $bf"syncing:"$bbf
+./task_2 -s "$test_dir/duh.txt" "$test_dir/output.txt"
+
+echo -e $bf"( ):"$bbf
+./task_2 -c "$test_dir/hello.txt"
+
+echo -e $bf"( :"$bbf
+./task_2 -c "$test_dir/unbalanced"
+
+echo -e $bf"Пошук найдовшого слова в duh.txt:"$bbf
+./task_2 -l "$test_dir/duh.txt"
+
+echo -e $bf"Видалення слів лише з латинськими літерами в duh.txt:"$bbf
+./task_2 -d "$test_dir/duh.txt"
+
+echo -e $bf"Нічого:"$bbf
+./task_2

@@ -1,0 +1,33 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{
+	$\int \frac{x+1}{2x^2+x+1} \, dx$
+}
+\Solution
+
+\begin{equation}
+	\int \frac{x+1}{2x^2+x+1} \, dx
+\end{equation}
+\begin{equation}
+{x+1=\dfrac{1}{4}\,\left(4\,x+1\right)+\dfrac{3}{4}}
+\end{equation}
+\begin{dmath}
+	\dfrac{1}{4}\int{\dfrac{\cancel{4x+1}}{\cancel{(4x+1)}\underbrace{(2x^2+x+1)}_u}}{\,du}+\int{\dfrac{3}{4\,\left(2x^2+x+1\right)}}{\,dx}=
+	\frac{1}{4}\ln u + \frac{3}{8}\int\frac{1}{(x+\frac{1}{4})^2+\frac{7}{16}}\,d\left(x+\frac{1}{4}\right)+C =
+	\frac{1}{4}\ln\Big|2x^2+x+1\Big| - \frac{3}{8}*\frac{4}{\sqrt7}
+	\arctg\frac{4(x+1)}{\sqrt7} +C =
+	\frac{1}{4}\ln\Big|2x^2+x+1\Big| - \frac{3}{2\sqrt7}
+	\arctg\frac{4(x+1)}{\sqrt7} + C
+\end{dmath}
+
+\Answer{
+	$
+	\frac{1}{4}\ln\Big|2x^2+x+1\Big| - \frac{3}{2\sqrt7}
+	\arctg\frac{4(x+1)}{\sqrt7} + C
+	$
+}
+
+\end{document}
+end{document}

@@ -1,0 +1,43 @@
+\documentclass[../rgr1.tex]{subfiles}
+% (4x+2)/(x^4+4x^2)
+\begin{document}
+
+\Problem{
+	$
+	\int{\dfrac{4\,x+2}{{x}^{4}+4\,{x}^{2}}}{\;\mathrm{d}x}
+	$
+}
+\Solution
+
+\begin{equation}
+% \int{\dfrac{4\,x+2}{{x}^{2}\,\left({x}^{2}+4\right)}}{\;\mathrm{d}x}
+\dfrac{4\,x+2}{{x}^{2}\,\left({x}^{2}+4\right)}=\dfrac{A\,x+B}{{x}^{2}+4}+\dfrac{C}{x}+\dfrac{D}{{x}^{2}}
+=\dfrac{\left(C+A\right)\,{x}^{3}+\left(D+B\right)\,{x}^{2}+4\,C\,x+4\,D}{{x}^{2}\,\left({x}^{2}+4\right)}
+\end{equation}
+
+\begin{equation}
+\begin{gathered}x^{0}:\\x^{1}:\\x^{2}:\\x^{3}:\end{gathered}\left\{\begin{gathered}4\,D=2\\4\,C=4\\D+B=0\\C+A=0\end{gathered}\right.=\left\{\begin{gathered}A=-1\\B=-\dfrac{1}{2}\\C=1\\D=\dfrac{1}{2}\end{gathered}\right.
+\end{equation}
+\begin{dmath}
+	\int{\dfrac{-x-\dfrac{1}{2}}{{x}^{2}+4}+\dfrac{1}{x}+\dfrac{1}{2\,{x}^{2}}}{\;\mathrm{d}x}
+	=\int{-\dfrac{2\,x+1}{2\,\left({x}^{2}+4\right)}+\dfrac{1}{x}+\dfrac{1}{2\,{x}^{2}}}{\;\mathrm{d}x}
+	=-\dfrac{1}{2}\int{\dfrac{2\,x+1}{{x}^{2}+4}}{\;\mathrm{d}x}
+		+\int{\dfrac{1}{x}}{\;\mathrm{d}x}
+		+\dfrac{1}{2}\int{\dfrac{1}{{x}^{2}}}{\;\mathrm{d}x}
+	=-\dfrac{1}{2}\int{\dfrac{2\,x+1}{{x}^{2}+4}}{\;\mathrm{d}x}
+		+\ln |x| -\frac{1}{2}*\frac{1}{x} + C
+\end{dmath}
+
+\begin{equation}
+	\int{\dfrac{2\,x}{{x}^{2}+4}}{\;\mathrm{d}x}+\int{\dfrac{1}{{x}^{2}+4}}{\;\mathrm{d}x}
+	=\ln\left({x}^{2}+4\right)+\dfrac{\arctan\left(\frac{x}{2}\right)}{2} + C
+\end{equation}
+
+\Answer{
+	$
+	\ln\left(\left|x\right|\right)-\dfrac{\ln\left({x}^{2}+4\right)}{2}-\dfrac{1}{2\,x}-\dfrac{\arctan\left(\frac{x}{2}\right)}{4}+C
+	$
+}
+
+\end{document}
+end{document}

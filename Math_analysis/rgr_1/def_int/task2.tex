@@ -1,0 +1,26 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Використовуючи різні методи, обчислити інтеграл
+	$\int_1^2\frac{dx}{x\sqrt{1+\ln x}}$
+}
+\Solution
+
+\begin{dmath}
+	\int_1^2\frac{\overbrace{dx}^{e^tdt}}{\underbrace{x}_{e^t}\sqrt{1+\underbrace{\ln x}_t}}
+	= \int_{e^{\ln1}}^{e^{\ln2}}\frac{\cancel{e^t} dt}{\cancel{e^t}\sqrt{1+t}}
+	= \int_{e^{\ln1}}^{e^{\ln2}}\frac{1}{\sqrt{1+t}}
+	= 2 \sqrt{1+t}
+	= 2 \sqrt{1+\ln x}
+	= 2\sqrt{1+\ln 2} - 2
+\end{dmath}
+
+\Answer{
+	$
+	2\sqrt{1+\ln 2} - 2
+	$
+}
+
+\end{document}
+end{document}

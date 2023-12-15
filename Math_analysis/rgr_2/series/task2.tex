@@ -1,0 +1,60 @@
+\documentclass[../rgr_2.tex]{subfiles}
+
+\usepackage{paralist}
+
+\begin{document}
+
+\Problem{Дослідити на збіжність ряди
+}
+\Solution
+
+\begin{enumerate}
+	\item $\sum_{n=1}^\infty \frac{2^n}{n\cdot5^n}$
+	\begin{equation}
+		% \sum_{n=1}^\infty \frac{2^n}{n\cdot5^n}
+		\sum_{n=1}^\infty\frac{2^n}{5^n}
+		\text{~збіжний, отже~}
+		\sum_{n=1}^\infty\frac{2^n}{n\cdot5^n}
+		\text{~збіжний, адже~}
+		\frac{2^n}{5^n} \geq
+		\frac{2^n}{n\cdot5^n}
+		% \lim_{n\to\infty}\frac{2^n}{n\cdot5^n}=0
+		% \implies\text{ряд збіжний}
+	\end{equation}
+
+	\item $\sum_{n=1}^\infty \frac{n^n}{n!}$
+	\begin{equation}
+		\lim_{n\to\infty}\frac{n^n}{n!}=\infty
+		\implies\text{ряд розбіжний}
+	\end{equation}
+
+	\item $\sum_{n=1}^\infty \frac{1}{n^3-2n}$
+	% \begin{equation}
+	% 	\lim_{n\to\infty}\frac{1}{n^3-2n}
+	% 	=\lim_{n\to\infty}\frac{1}{n(n^2-2)}
+	% 	=0
+	% 	\implies\text{ряд збіжний}
+	% \end{equation}
+	% \begin{dmath}
+		% <++>
+		% \lim_{n\to\infty}\frac{n^3-2n}{(n+1)^3-2(n+1)}
+		% = \lim_{n\to\infty}\frac{n(n^2-2)}{(n+1)\left((n+1)^2-2\right)}
+		% = \lim_{n\to\infty}\frac{n(n^2-2)}{(n+1)(n^2+1)}
+		% = \lim_{n\to\infty}\frac{n(n-\sqrt2)(n+\sqrt2)}{(n+1)(n^2+1)}
+		% < 1
+		% \implies
+	% \end{dmath}
+	Цей ряд збіжний, бо $\frac{1}{n^3-2n}$ очевидно
+		менше за $\frac{1}{n^2}$
+\end{enumerate}
+
+\Answer{
+\begin{compactenum}
+	\item збіжний
+	\item розбіжний
+	\item збіжний
+\end{compactenum}
+}
+
+\end{document}
+end{document}

@@ -1,0 +1,92 @@
+	int Abonent::getNum ()
+	{
+		return phone_num ;
+	}
+	int Abonent::getContract ()
+	{
+		return contract_num ;
+	}
+	double Abonent::getRate () // ціна за хвилину
+	{
+		return min_rate ;
+	}
+	double Abonent::getBalance () // отримання суми коштів на рахунку
+	{
+		return balance ;
+	}
+	char Abonent::getFname () // ім'я
+	{
+		return fname ;
+	}
+	char Abonent::getLname () // прізвище
+	{
+		return Lname ;
+	}
+
+
+/*/=================================
+class Abonents {
+private:
+    static const int MAX_ABONENTS = 100;
+    Abonent abonents[MAX_ABONENTS];
+    int count;
+    int max_count;
+
+public:
+    Abonents() {
+        count = 0;
+        max_count = MAX_ABONENTS;
+    }
+
+    Abonents(int mc) {
+        count = 0;
+        max_count = mc;
+    }
+
+    void addAbonent(Abonent a) {
+        if (count < max_count) {
+            abonents[count++] = a;
+            cout << "Abonent added successfully." << endl;
+        }
+        else {
+            cout << "Unable to add abonent. Maximum capacity reached." << endl;
+        }
+    }
+
+    void editAbonent(int index) {
+        if (index < count) {
+            Abonent a = abonents[index];
+
+            string cn, sn, n, pn;
+            double cr, ab;
+
+            cout << "Enter contract number: ";
+            getline(cin, cn);
+            a.setContractNum(cn);
+
+            cout << "Enter surname: ";
+            getline(cin, sn);
+            a.setSurname(sn);
+
+            cout << "Enter name: ";
+            getline(cin, n);
+            a.setName(n);
+
+            cout << "Enter phone number: ";
+            getline(cin, pn);
+            a.setPhoneNum(pn);
+
+            cout << "Enter call rate: ";
+            cin >> cr;
+            a.setCallRate(cr);
+
+            cout << "Enter account balance: ";
+            cin >> ab;
+            a.setAccountBalance(ab);
+
+  //          abonents[index] = a; AAAAAAAA
+	}
+    }
+};
+
+//======================================*/

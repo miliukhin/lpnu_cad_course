@@ -1,0 +1,142 @@
+\documentclass[a4paper, 12pt, oneside]{extreport}
+
+\input{$HOME/Templates/lpnu_doc_templates/settings/preamble}
+%shell-escape
+%multline, split, align*, eqnarray
+\usepackage{etoolbox} % пакунок для розширеного програмування
+\usepackage{amssymb} % розширені математичні символи
+\usepackage{gnuplottex}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\usepackage{boxedminipage}
+\usepackage{varwidth}
+\fboxrule=1pt
+
+%	TODO:	REFACTORING	%
+\newtoggle{Report}
+\togglefalse{Report}
+
+\newtoggle{RGR}
+\toggletrue{RGR}
+\renewcommand\Department{ОМП}
+
+\newcommand\Type{\RGR}
+\newcommand\Number{1}
+\newcommand\Discipline{Математичний аналіз та диференційні рівняння}
+
+\newcommand\Class{студент групи \Group}
+\newcommand\Author{\Lname~\Initials}
+\newcommand\Position{доцент}
+\newcommand\Instructor{Пахолок Б. Б.}
+\newcommand\Variant{11}
+
+% зміни в лічильниках підсекцій
+\renewcommand{\thesubsection}{\thechapter .\arabic{subsection}}
+
+% \usepackage{macrolist}
+% \macronewlist{Answers}
+
+% ЗАВДАННЯ
+\newcommand{\Problem}{\subsection}
+% РОЗВ'ЯЗОК
+\newcommand{\Solution}{\subsubsection*{\centering \scshape Розв'язок:}}
+% ВІДПОВІДЬ
+\newcommand{\Answer}[1]{
+\medskip
+\null\hfill
+\begin{boxedminipage}{\textwidth}
+	\paragraph{Відповідь: }{#1}
+	% \macrolistadd{Answers}{#1}
+\end{boxedminipage}
+}
+
+\setcounter{secnumdepth}{2}
+
+\begin{document}
+
+\input{$HOME/Templates/lpnu_doc_templates/parts/titlepage.tex}
+
+\chapter{Границі, похідні та диференціали}
+
+\subfile{part_1/task1-3.tex}
+\subfile{part_1/task4.tex}
+\subfile{part_1/task5.tex}
+\subfile{part_1/task6-8.tex}
+\setcounter{subsection}{9}
+% \subfile{part_1/task9.tex}
+\subfile{part_1/task10.tex}
+\subfile{part_1/task11-12.tex}
+\setcounter{subsection}{13}
+% \subfile{part_1/task13.tex}
+\subfile{part_1/task14.tex}
+\subfile{part_1/task15.tex}
+\subfile{part_1/task16.tex}
+\subfile{part_1/task17.tex}
+\subfile{part_1/task18.tex}
+
+\chapter{Невизначений інтеграл}
+
+\section*{Знайти невизначені інтеграли}
+
+\subfile{integrals/task1.tex}
+\subfile{integrals/task2.tex}
+\subfile{integrals/task3.tex}
+\subfile{integrals/task4.tex}
+\subfile{integrals/task5.tex}
+
+\section*{Знайти інтеграли від функцій, які містять квадратний тричлен}
+
+\subfile{integrals/task6.tex}
+\subfile{integrals/task7.tex}
+\subfile{integrals/task8.tex}
+\subfile{integrals/task9.tex} % ЗАМІНИ НАЗАД, а також t-1
+
+\section*{Методом інтегрування частинами знайти інтеграли}
+
+\subfile{integrals/task10.tex}
+\subfile{integrals/task11.tex} %<++> дописати
+\subfile{integrals/task12.tex} %<++> дописати
+\setcounter{subsection}{13}
+
+\section*{Знайти інтеграли від дробово-раціональних функцій}
+
+\subfile{integrals/task14.tex}
+\subfile{integrals/task15.tex}
+\subfile{integrals/task16.tex}
+\subfile{integrals/task17.tex}
+\subfile{integrals/task18.tex}
+\subfile{integrals/task19.tex}
+\subfile{integrals/task20.tex}
+% sin^3x/cos^(3/5)x
+\subfile{integrals/task21.tex}
+
+% \setcounter{chapter}{3}
+\chapter{Визначений інтеграл}
+
+\subfile{def_int/task1.tex}
+\subfile{def_int/task2.tex}
+\subfile{def_int/task3.tex}
+\subfile{def_int/task4.tex}
+\subfile{def_int/task5.tex} % тут ше рисунок
+\subfile{def_int/task6.tex}
+\setcounter{subsection}{9}
+\subfile{def_int/task10.tex}
+\subfile{def_int/task11.tex}
+
+% \setcounter{chapter}{4}
+\chapter{Функції багатьох змінних}
+\setcounter{subsection}{2}
+
+\subfile{many_vars/task3.tex} %<++>
+\subfile{many_vars/task4.tex}
+\setcounter{subsection}{9}
+\subfile{many_vars/task10.tex}
+
+% \macrolistforeach{Answers}{\element}{We’re printing out \textbf{\element}. }
+% \macrolistjoin{Answers}{, }
+
+\end{document}

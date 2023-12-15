@@ -1,0 +1,94 @@
+\documentclass[../rgr1.tex]{subfiles}
+
+\begin{document}
+
+\Problem{Дослідити функцію на неперервність \label{continuity}
+}
+
+\paragraph{
+	а) $y = \ln |\cos x|$
+}
+
+\Solution
+
+Щоб дослідити функцію на неперервність, потрібно з'ясувати
+її ОДЗ та в разі розриву з'ясувати його рід.
+
+ОДЗ $\cos x: (-\infty; +\infty)$
+
+ОДЗ $\ln x: (0; +\infty)$
+
+Оскільки $\cos x$ береться за модулем, пропонована функція перетворює
+всі можливі значення $x$ на множині $\mathbb R,$ окрім точок, де
+$\cos x = 0.$ Множину цих точок можна записати так: $x \neq \frac{\pi}{2} \pm n\pi, n \in \mathbb Z.$
+
+\paragraph{
+	б) $y =
+	\begin{cases}
+		2x, & x < \pi/4 \\
+		\frac{\pi}{2}\tg x, & x \geq \pi/4
+	\end{cases}
+	$
+}
+
+\Solution
+
+% $$
+% x \in (-\infty; \frac{\pi}{4})
+% $$
+
+ОДЗ $\tg x$: $x \in \mathbb R~|~
+x \neq \pm \frac{\pi}{2} + n\pi, n \in \mathbb Z$.
+
+Знайдімо границі
+функції в точці $\frac{\pi}{2}$, аби визначити рід розриву.
+
+\begin{equation}
+	\lim_{x\to\frac{\pi}{2}+0}\frac{\pi}{2}\tg{x} =
+	\lim_{x\to\frac{\pi}{2}+0}\frac{\pi}{2}\frac{\sin x}{\cos x} =
+	\left\{ \frac{1}{-0} \right\} = -\infty.
+\end{equation}
+
+\begin{equation}
+	\lim_{x\to\frac{\pi}{2}-0}\frac{\pi}{2}\tg{x} =
+	\lim_{x\to\frac{\pi}{2}-0}\frac{\pi}{2}\frac{\sin x}{\cos x} =
+	\left\{ \frac{1}{+0} \right\} = +\infty.
+\end{equation}
+
+ Оскільки границі функції в точці дорівнють $\pm\infty$, у точці $\{\frac{\pi}{2}\}$ --- розрив 2-го роду.
+
+ % Розгляньмо точку $\{-\frac{\pi}{2}\}$:
+
+% \begin{equation}
+% 	\lim_{x\to-\frac{\pi}{2}+0}\frac{\pi}{2}\tg{x} =
+% 	\lim_{x\to-\frac{\pi}{2}+0}\frac{\pi}{2}\frac{\sin x}{\cos x} =
+% 	\left\{ \frac{1}{+0} \right\} = +\infty.
+% \end{equation}
+
+% \begin{equation}
+% 	\lim_{x\to-\frac{\pi}{2}-0}\frac{\pi}{2}\tg{x}
+% 	\lim_{x\to-\frac{\pi}{2}-0}\frac{\pi}{2}\frac{\sin x}{\cos x} =
+% 	\left\{ \frac{1}{+0} \right\} = -\infty.
+% \end{equation}
+
+% У точці $\{-\frac{\pi}{2}\}$ --- теж розрив 2-го роду.
+
+Оскільки $\tg$ --- функція з періодом $\pi$,
+такі розриви присутні у всіх точках
+$$
+x = \pm \frac{\pi}{2} + n\pi, n \in \mathbb Z.
+$$
+
+Згідно з умовою, до значення аргументу $\frac{\pi}{4}$ функція
+визначається як $2x$, тому в ній присутні тільки розриви в точках
+$x = \frac{\pi}{2} + n\pi, n \in \mathbb Z.$
+
+%$x \in (-\infty; \frac{\pi}{2})\cup{x \in e}$ <++>
+
+\Answer{
+	\paragraph{а)} $x \in \mathbb R |$ $x \neq \frac{\pi}{2} \pm n\pi, n \in \mathbb Z.$
+	\paragraph{б)} Функція визначена на множині $\mathbb R$, окрім
+	точок $x = \frac{\pi}{2} + n\pi, n \in \mathbb Z$, де
+	присутні розриви 2-го роду.
+}
+\end{document}
