@@ -1,0 +1,42 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  axis lines=center,
+  axis on top,
+  xlabel={$y$}, ylabel={$x$}, zlabel={$z$},
+  domain=-10:2,
+  y domain=2*pi:-2*pi,
+  xmin=-5.5, xmax=2,
+  ymin=-5.5, ymax=5.5, zmin=-4.0,
+  grid=major,
+  minor x tick num={4},
+  minor y tick num={4},
+%  mesh/interior colormap=
+%  	{blueblack}{color=(black) color=(blue)},
+  colormap/blackwhite,
+  samples=10,
+  samples y=40,
+  z buffer=sort,
+  y dir=reverse,
+ ]
+  \addplot3[surf,
+	  shader=interp,opacity=0.2]
+  	({x},{x*cos(deg(y))},{x*sin(deg(y))});
+%	({x^2-y^2},{x},{y});
+
+	\addplot3[surf,
+	  shader=interp,opacity=0.5]
+	({2},{y},{x});
+
+\end{axis}
+
+\fill [path fading=fade left,white]
+(current axis.south west) rectangle ([xshift=2cm]current axis.north west);
+\fill [path fading=fade right,white]
+([xshift=-2cm]current axis.south east) rectangle (current axis.north east);
+
+\end{tikzpicture}
+\end{document}

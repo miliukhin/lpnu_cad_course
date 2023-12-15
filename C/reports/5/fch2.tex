@@ -1,0 +1,86 @@
+\documentclass[a4paper,14pt]{extreport}
+\usepackage{tikz}
+\usepackage[english,ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\pagestyle{empty}
+\begin{document}
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+    %text width=6cm,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+}
+
+\begin{tikzpicture}
+\node[start-end] (start) {Початок};
+
+\node[below of=start,input](inp){Ввід стрічки для обернення};
+
+\node[below=3mm of inp,loop](revloop){i=0; i<=[sln]; i=i+1};
+
+\node[below=3mm of revloop,operation](rev){елемент$_{sln -1 -i}$ оберн. стр.
+	= елемент$_{i-1}$ введ. стр.};
+
+	\node [below=3mm of rev](ni){.};
+	\node [below left=2mm of rev](ta){.};
+\node[below of=ni,input](outrev){Вивід оберненої стрічки};
+
+\node[below of=outrev,input](inpcap){Ввід стрічки для капіталізації};
+
+\node[below=3mm of inpcap,decision](caploop){i<sln?};
+
+\node[below=3mm of caploop,operation](cap){капіталізація i-го елемента};
+	\node[right=5mm of cap](rcap){так};
+	\node[left=5mm of cap](lcap){ні};
+\node[below of=cap,input](capout){вивід i-го елемента};
+\node[below of=capout,start-end] (end) {Кінець};
+
+\node[right=35mm of revloop](lol){.};
+
+	\draw [thin] (start) -- (inp);
+	\draw [thin] (revloop) -- (inp);
+	%\draw [thin] (revloop) -- node[midway,above]{ні} (lol) |- (ni) [-latex] -- (outrev);
+	\draw [thin] (revloop) -- (lol) |- (ni) [-latex] -- (outrev);
+
+	\draw [thin] (rev) |- (ta) [-latex] |- (revloop);
+
+	\draw [thin] (revloop) -- (rev);
+	\draw [thin] (inpcap) -- (outrev);
+	\draw [thin] (inpcap) -- (caploop);
+	\draw [thin] (cap) -- (rcap) |- (caploop);
+	\draw [thin] (caploop) -| (lcap);
+	\draw [thin] (capout) -- (cap);
+	\draw [thin] (end) -| (lcap);
+
+\end{tikzpicture}
+
+\end{document}

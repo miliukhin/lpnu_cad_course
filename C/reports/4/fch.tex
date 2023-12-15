@@ -1,0 +1,86 @@
+\documentclass[a4paper,14pt]{extreport}
+\usepackage{tikz}
+\usepackage[english,ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\pagestyle{empty}
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+    text width=6cm,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+\node[start-end] (start) {Початок};
+\node[below=5mm of start,input](inp){Ввід};
+%\node[below of=inp,operation] (op0) {};
+	\node[below=5mm of inp,loop](gen){i = 0; i<N; i = i+1};
+	\node[below=5mm of gen,operation](genops){Генерація i-го елемента масиву};
+	\node[below=5mm of genops,input](genout){вивід цього елемента};
+
+	\node[below=5mm of genout,loop](count){i = 0; i<N; i = i+1};
+	\node[below=5mm of count,decision=4.9](countdec){Остача від ділення елемента
+	масиву на 2~--- нуль};
+	\node[below=5mm of countdec](tak1){так};
+	\node[below=5mm of tak1,operation](countopl){кількість парних чисел + 1};
+	\node[below=5mm of countopl,decision=4.9](countdec2){Остача від
+	ділення кількості парних чисел на 2 = 0};
+	\node[below=5mm of countdec2](tak2){так};
+	\node[below=5mm of tak2,operation](countop2){кількість пар + 1};
+	\node[below=5mm of countop2,input](countout){Кількість пар парних чисел};
+\node[below=5mm of countout,start-end] (end) {Кінець};
+	%\node[below=5mm of countdec,input](countopr){Кількість пар чисел, що
+	%діляться на 2};
+	%\node[below=5mm of countdec,input](outcount){Кількість пар чисел, що
+
+	\draw [thin] (start) -- (inp);
+	\draw [thin] (inp) -- (gen);
+	\draw [-latex] (gen) -- (5,-2.7) -- (5,-6.1) -- (0,-6.1) -- (count);
+	\draw [thin] (gen) -- (genops);
+	\draw [thin] (genops) -- (genout);
+	\draw [thin] (genout) -- (-4,-5.3) -- (-4,-2.7) -- (gen);
+	\draw [thin] (count) -- (countdec);
+%	\draw [thin] (6.5,-9.2) -- (6.5,-12);
+	\draw [thin] (countdec) -- (tak1);
+	\draw [thin] (tak1) -- (countopl);
+	\draw [thin] (countopl) -- (countdec2);
+	\draw [thin] (countdec2) -- (tak2);
+	\draw [thin] (tak2) -- (countop2);
+	\draw [thin] (countop2) -- (countout);
+	\draw [thin] (end) -- (countout);
+%	\draw [thin] (countop2) -- (countdec2);
+
+\end{tikzpicture}
+
+\end{document}

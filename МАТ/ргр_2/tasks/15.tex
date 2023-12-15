@@ -1,0 +1,64 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{boxedminipage}
+\usepackage{subfiles}
+
+\begin{document}
+
+\bigskip \textbf{Задача 15.} Скласти рівняння площини, що проходить
+через точки $M_1(1;1;-2)$ і $M_2(3;-2;1)$ паралельно до вектора
+$\vec{a}(0;3;5)$.\bigskip
+
+%\begin{wrapfigure}{l}{5.3cm}
+%	\centering
+%\subfile{../g/15.tex}
+%\caption{}
+%\end{wrapfigure}
+
+Складемо рівняння прямої, що проходить через $M_1$ та $M_2$:
+\begin{equation}
+	\frac{x-1}{2}=
+	\frac{y-1}{-3}=
+	\frac{z+2}{3}.
+\end{equation}
+Її напрямний вектор компланарний до $\vec a$, отже,
+їх мішаний добуток дорівнює нулю:
+\begin{equation}
+	\begin{aligned}
+	0=\begin{vmatrix}
+		x-1 & y-1 & z+2\\
+		2 & -3 & 3\\
+		0 & 3 & 5\\
+	\end{vmatrix}=
+	(x-1)\begin{vmatrix}
+		-3 & 3 \\ 0 & 3
+	\end{vmatrix}-
+	(y-1)\begin{vmatrix}
+		2 & 3 \\ 0 & 5
+	\end{vmatrix}-
+	(z+2)\begin{vmatrix}
+		2 & -3 \\ 0 & 3
+	\end{vmatrix}=\\
+	=-26x-10y+6z+48=0.
+	\end{aligned}
+\end{equation}
+\null\hfill
+\begin{boxedminipage}{0.5\textwidth}
+{Відповідь:} $-26x-10y+6z+48=0.$
+\end{boxedminipage}\\
+
+\end{document}

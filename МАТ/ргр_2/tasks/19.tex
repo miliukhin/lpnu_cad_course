@@ -1,0 +1,60 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{boxedminipage}
+\usepackage{subfiles}
+
+\begin{document}
+
+\bigskip \textbf{Задача 19.} Знайти точку $P'$, яка симетрична
+до точки $P(5;2;1)$ відносно площини $-x+2y-3z+10=0$. \bigskip
+
+%\begin{wrapfigure}{l}{5.3cm}
+%	\centering
+%\subfile{../g/19.tex}
+%\caption{}
+%\end{wrapfigure}
+
+Запишемо параметричні рівняння прямої, що проходить через $P$
+перпендикулярно до заданої площини та підставимо отримані
+значення $x, y, z$ у рівняння площини:
+\begin{equation}
+	x=5-t,~y=2+2t,~z=1-3t,
+\end{equation}
+\begin{equation}
+	-1(5-t)+2(2+2t)-3(1-3t)+10=0.
+\end{equation}
+
+Звідси $t=-\frac{3}{7},$ а координати точки $P_0$
+(проєкції $P$ на площину): $~x_{P_0}=5\frac{3}{7},
+~y_{P_0}=1\frac{1}{7}~,z=2\frac{2}{7}.$ Тепер можна
+знайти координати $P',$ застосувавши формулу
+середини відрізка:
+\begin{equation}
+	5\frac{3}{7}=\frac{5+x_{P'}}{2}\rightarrow
+	x_{P'}=\frac{41}{7},
+	1\frac{1}{7}=\frac{2+y_{P'}}{2}\rightarrow
+	y_{P'}=\frac{2}{7},~
+	2\frac{2}{7}=\frac{1+z_{P'}}{2}\rightarrow
+	z_{P'}=\frac{25}{7}.
+\end{equation}
+
+
+\null\hfill
+\begin{boxedminipage}{0.73\textwidth}
+	Відповідь: $P'(\frac{41}{7}, \frac{2}{7}, \frac{25}{7}).$
+\end{boxedminipage}
+
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass[a4paper,14pt]{extreport}
+\usepackage{tikz}
+\usepackage[english,ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\pagestyle{empty}
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+    text width=6cm,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+}
+
+\begin{document}
+
+\begin{tikzpicture}
+\node[start-end] (start) {Початок};
+%\node[below=5mm of start,input](inp){Ввід};
+%\node[below of=inp,operation] (op0) {};
+	\node[below=5mm of start,loop](gen){i = 0; i<N; i = i+1};
+	\node[below=5mm of gen,loop](genn){j = 0; j<N; j = j+1};
+	\node[below=5mm of genn,operation](genops){Генерація ij-го елемента масиву};
+	\node[below=5mm of genops,input](genout){ел$_{ij}$ в термінал та у файл F1.txt};
+	\node[below=2mm of genout,input](genl){символ переходу рядка};
+%	\node[below=10mm of genout,loop](count){i = 0; i<N; i = i+1};
+
+	\node[below=5mm of genl,loop](trans){i = 0; i<N; i = i+1};
+	\node[below=5mm of trans,loop](transs){j = 0; j<N; j = j+1};
+	\node[below=5mm of transs,input](transin){ввід ел$_{ji}$ з файлу F1.txt};
+	\node[below=3mm of transin,input](transnl){символ переходу рядка};
+
+	\node[below=5mm of transnl,loop](transp){i = 0; i<N; i = i+1};
+	\node[below=5mm of transp,loop](transpp){j = 0; j<N; j = j+1};
+	\node[below=5mm of transpp,operation](transpop)
+	{ел$_{ij}$ = ел$_{ji}$};
+	\node[below=5mm of transpop,input](transpout)
+	{запис елемента у файл F2.txt};
+	\node[below=3mm of transpout,input](transpnl){символ переходу рядка};
+%	\node[below=5mm of transs,operation](transops){Зчитування ij-го елемента масиву};
+
+	\node[below=5mm of transpnl,start-end] (end) {Кінець};
+	%\node[below=5mm of countdec,input](countopr){Кількість пар чисел, що
+	%діляться на 2};
+	%\node[below=5mm of countdec,input](outcount){Кількість пар чисел, що
+
+	\draw [thin] (start) -- (gen);
+	\draw [-latex] (gen) -- (5,-1.4) -- (5,-7.3) -- (0,-7.3) -- (trans);
+	\draw [thin] (genn) -- (genops);
+	\draw [thin] (gen) -- (genn);
+	\draw [-latex] (genn) -- (4.5,-3) -- (4.5,-6.69)
+	-- (genl) -- (-4.5,-6.69)
+	-- (-4.5,-1.38) -- (gen);
+	\draw [thin] (genops) -- (genout);
+	\draw [-latex] (genout) -- (-4,-5.7) -- (-4,-2.95) -- (genn);
+
+	\draw [thin] (trans) -- (transs);
+	\draw [-latex] (trans) -- (5,-8.1) -- (5,-12.8)
+	-- (0,-12.8) -- (transp);
+
+	\draw [-latex] (transs) -- (4.5,-9.65) -- (4.5,-12.2) --
+	(transnl) -- (-4.5,-12.2)
+	-- (-4.5,-8.05) -- (trans);
+	\draw [-latex] (transin) -- (-4,-11.1) -- (-4,-9.6) -- (transs);
+	\draw [thin] (transs) -- (transin);
+
+	\draw [thin] (transp) -- (transpp);
+	\draw [thin] (transpp) -- (transpop);
+	\draw [thin] (transpop) -- (transpout);
+
+	\draw[-latex] (transp) -- (5,-13.65) -- (5,-19.5)
+	-- (0,-19.5) -- (end);
+
+	\draw[-latex] (transpout) -- (-4.5,-17.8) -- (-4.5,-15.2)
+	-- (transpp);
+
+	\draw[-latex] (transpp) -- (4.5,-15.2) -- (4.5,-18.9) --
+	(transpnl) -- (-5,-18.9) -- (-5,-13.64) -- (transp);
+
+%	\draw [thin] () -- (end);
+%	\draw [thin] (6.5,-9.2) -- (6.5,-12);
+%	\draw [thin] (countop2) -- (countdec2);
+
+\end{tikzpicture}
+
+\end{document}

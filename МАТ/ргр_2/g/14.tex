@@ -1,0 +1,58 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{pgfplots}% loads the package tikz
+\pgfplotsset{compat=1.18}
+\usepackage[english,ukrainian]{babel}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+	\tikzset{
+	every pin/.style={rectangle,font=\tiny},
+	small dot/.style={fill=black,circle,scale=0.3}
+	}
+
+\begin{axis}[
+	xlabel={x},
+    xtick align=outside,
+    xmin=-6,
+    xmax=5,
+	ylabel={y},
+%	ylabel={$\varepsilon$ [с$^{-2}$]},
+%    ytick align=outside,
+    ymin=0,
+    ymax=10,
+    axis lines=center,
+%    grid=major,% <- changed
+%    grid style=dashed,
+%    minor x tick num={4},
+%    minor y tick num={4},
+	width=5cm,
+	height=5cm,
+]
+
+\addplot+ [black, no marks, point meta=explicit symbolic]
+	coordinates {
+
+	}
+;
+
+
+\addplot+ [black, no marks]
+	coordinates{
+
+	};
+	\addplot+ [black, no marks, label=$\vec N$]
+	coordinates{
+
+	};
+%	\begin{legend}
+%		{$T_1$,$T_2$}
+%	\end{legend}
+
+%\node[label=A, small dot,] at (axis cs: 3,5) {};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

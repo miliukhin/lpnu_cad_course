@@ -1,0 +1,72 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{boxedminipage}
+\usepackage{subfiles}
+
+\begin{document}
+
+\bigskip \textbf{Задача 18.} Знайти відстань від точки $P(1;-3;1)$
+до прямої $\frac{x}{5}=\frac{y+1}{2}=\frac{z-1}{1}.$\bigskip
+
+\begin{wrapfigure}{l}{5.3cm}
+	\centering
+\subfile{../g/18.tex}
+\caption{}
+\end{wrapfigure}
+
+Відстань від точки P до заданої прямої~--- довжина висоти паралелограма,
+побудованого на векторах $\vec{M_0P}=(1-0;-3+1;1-1)$ та $\vec s=(5;2;1)$.
+
+Знаючи, що площа паралелограма дорівнює модулю векторного добутку його
+сусідніх сторін, а також добутку його сторони на висоту, проведену до
+неї, отримаємо співвідношення:
+
+\begin{equation}
+	{|\vec s|}d=|[\vec{M_0P},\vec s]|;~
+	d=\frac{|[\vec{M_0P},\vec s]|}{|\vec s|}
+	\label{S}
+\end{equation}
+
+Виконаємо необхідні обчислення:
+
+\begin{equation}
+	[\vec{M_0P},\vec s]=
+	\begin{vmatrix}
+		\vec i & \vec j & \vec k \\
+		1 & -2 & 0 \\
+		5 & 2 & 1 \\
+	\end{vmatrix}=
+	-2\vec i -1\vec j -8\vec k  = (-2;-1;8).
+\end{equation}
+
+\begin{equation}
+	|[\vec{M_0P},\vec s]|=\sqrt{4+1+64}=\sqrt{69},~
+	|\vec s| = \sqrt{25+4+1}=\sqrt{30}
+\end{equation}
+
+підставивши ці значення у (\ref{S}), знайдемо відстань:
+
+\begin{equation}
+	d=\frac{\sqrt{69}}{\sqrt{30}}=\frac{\sqrt{69}\sqrt{30}}{30}=
+	\frac{\sqrt{46}}{10}.
+\end{equation}
+
+\null\hfill
+\begin{boxedminipage}{0.27\textwidth}
+	Відповідь: $d=\frac{\sqrt{46}}{10}.$
+\end{boxedminipage}
+
+\end{document}

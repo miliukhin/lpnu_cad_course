@@ -1,0 +1,52 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{pgfplots}% loads the package tikz
+\pgfplotsset{compat=1.18}
+\usepackage[english,ukrainian]{babel}
+\usetikzlibrary{intersections}
+
+\begin{document}
+\newcommand*{\ShowIntersection}[3]{
+\draw
+    [name intersections={of=#1 and #2, name=#3, total=\t}]
+    \foreach \s in {1,...,\t}{
+        (#3-\s) node[fill,red,circle,inner sep=0,minimum size=4pt]{}
+        (#3-\s |- current axis.north)--(#3-\s|-current axis.south)
+  };
+}
+\begin{tikzpicture}
+\begin{axis}[
+	xlabel={$m$},
+%    xtick align=outside,
+%    xmin=12,
+%    xmax=22,
+	ylabel={$r^2_m$, \textit{мм}},
+%    ytick align=outside,
+%    ymin=1.9,
+%    ymax=2.1,
+    axis lines=left,
+    grid=major,% <- changed
+    grid style=dashed,
+    minor x tick num={4},
+    minor y tick num={4}
+]
+\addplot+ [name path=t1, black, mark options={black},smooth]
+	coordinates {
+		(1,9)
+		(2,19.36)
+		(3,26.01)
+		(4,49)
+		(5,64)
+	}
+;
+%\addplot+ [name path=t2, black, mark options={black},smooth]
+	%coordinates {
+	%}
+%;
+%	\ShowIntersection{t1}{t2}{i}
+%-----------------------------------------------
+%	\begin{legend}
+%		{$r_m^2$}
+%	\end{legend}
+\end{axis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass[a4paper,12pt]{extreport}
+\usepackage{tikz}
+\usepackage[english,ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\pagestyle{empty}
+\begin{document}
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium left angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+    %text width=1.2cm,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+}
+
+\begin{tikzpicture}
+
+\node[start-end] (start) {Початок};
+\node[below of=start,input](inp){Ввід розміру буферу};
+\node[below of=inp,operation](op){виділення
+	введеного обсягу пам'яті};
+%\node[below=3mm of op, decision](decnull){виділення не відбулось};
+\node[below=3mm of op,input](line){Ввід стрічки для обробки};
+\node[below=3mm of line,loop](loop){i = 0; i<N; i = i+1};
+\node[below=3mm of loop,decision] (dec5) {Ел.=5?};
+\node[left=9mm of dec5,input] (out5) {містить 5};
+\node[below=4mm of dec5,decision] (dec7) {Ел.=7?};
+\node[left=9mm of dec7,input] (out7) {містить 7};
+\node[below=8mm of dec7, operation] (endop) {Очищення пам'яті};
+\node[below of=endop,start-end] (end) {Кінець};
+
+	\draw [thin] (start) -- (inp);
+	\draw [thin] (op) -- (inp);
+	\draw [thin] (op) -- (line);
+	\draw [thin] (loop) -- (line);
+	\draw [thin] (loop) -- (dec5);
+	\draw [thin] (out5) -- node[midway, above left, pos=1] {так}(dec5);
+	\draw [thin] (dec7) -- node[midway, above left, pos=0] {так} (out7);
+	\draw [thin] (dec5) -- node[midway, right, pos=0.5] {ні} (dec7);
+
+	\node[left=8mm of out7] (7turn) {$\cdot$};
+	\node[below=8mm of 7turn] (7turn1) {$\cdot$};
+	\node[left=5mm of out5] (5turn) {$\cdot$};
+	\node[below=7.5mm of 5turn] (5turn2) {$\cdot$};
+	\draw [thin] (dec7) --  (out7) -- (7turn) [-latex] |- (loop) ;
+	\draw [thin] (dec7) |- (7turn1) -- (7turn);
+	\draw [thin] (dec5) --  (out5) -- (5turn) -- (5turn2) [-latex] -| (dec7)  ;
+
+	\draw [thin] (loop) -- (line);
+
+	\node[right=5mm of loop] (lturn) {$\cdot$};
+	\draw [thin] (loop) -- (lturn);
+	\node[below=52mm of lturn] (lturn2) {$\cdot$};
+	\draw [thin] (lturn2) -- (lturn);
+	\draw [-latex] (lturn2) -| (endop);
+	\draw [thin] (loop) -- (line);
+
+	\draw [thin] (end) -- (endop);
+
+\end{tikzpicture}
+
+\end{document}

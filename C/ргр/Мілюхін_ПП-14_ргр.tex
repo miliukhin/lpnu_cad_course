@@ -1,0 +1,476 @@
+%xelatex
+\documentclass[14pt]{extreport}
+
+\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{mathspec}
+\usepackage{multicol}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{boxedminipage}
+\usepackage{wrapfig}
+\usepackage{subfiles}
+
+\begin{document}
+\pagestyle{empty}
+
+\subfile{title.tex}
+
+%\begin{multicols}{2}
+\subsection*{Переведіть числа з однієї системи числення в іншу }
+
+\subsubsection{1. З двійкової у вісімкову 1011010011011 }
+$1011010011011_2=1\cdot2^0+1\cdot2^1+0+1\cdot2^3+1\cdot2^4+
+0+0+1\cdot2^7+0+1\cdot2^9+1\cdot2^{10}+0+1\cdot2^{12}=5787_{10}$
+
+\bigskip
+
+\begin{tabular}{c|c|c}
+	5787 & 8 & 3 \\
+	\hline
+	723 & 8 & 3 \\
+	\hline
+	90 & 8 & 2 \\
+	\hline
+	11 & 8 & 3 \\
+	\hline
+	1 & 8 & 1 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$1011010011011_2=13233_8$
+
+\subsubsection{2. З двійкової у десяткову 1011010}
+$1011010_2=0+2^1+0+2^3+2^4+0+2^6=90_{10}$
+
+\subsubsection{3. З двійкової у шістнадцяткову 1011010011010}
+$1011010011010_2=0+2^1+0+2^3+2^4+0+0+2^7+0+2^9+2^{10}+0+2^{12}=
+5786_{10}$
+
+\bigskip
+\begin{tabular}{c|c|c}
+	5786 & 16 & 10 \\
+	\hline
+	361 & 16 & 9 \\
+	\hline
+	22 & 16 & 6 \\
+	\hline
+	1 & 16 & 1 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$1011010011010_2=169A_{16}$ \\
+
+\subsubsection{4. З вісімкової  у двійкову 537 }
+$537_8=7\cdot8^0+3\cdot8^1+5\cdot8^2=351_{10}$
+
+\bigskip
+\begin{tabular}{c|c|c}
+	351 & 2 & 1 \\
+	\hline
+	175 & 2 & 1 \\
+	\hline
+	87 & 2 & 1 \\
+	\hline
+	43 & 2 & 1 \\
+	\hline
+	21 & 2 & 1 \\
+	\hline
+	10 & 2 & 0 \\
+	\hline
+	5 & 2 & 1 \\
+	\hline
+	2 & 2 & 0 \\
+	\hline
+	1 & 2 & 1\\
+\end{tabular}
+\hspace{.1\textwidth}
+$537_8=101011111_2$
+
+\subsubsection{5. З вісімкової  у десяткову 164 }
+$164_8=4\cdot8^0+6\cdot8^1+1\cdot8^2=116_{10}$
+\subsubsection{6. З вісімкової  у шістнадцяткову 451 }
+$451_8=1\cdot8^0+5\cdot8^1+4\cdot8^2=297_{10}$
+
+\bigskip
+\begin{tabular}{c|c|c}
+	297 & 16  & 9 \\
+	\hline
+	18 & 16 & 2 \\
+	\hline
+	1 & 16 & 1 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$451_8=129_{16}$
+
+\subsubsection{7. З десяткової у двійкову 88 }
+\begin{tabular}{c|c|c}
+	88 & 2 & 0 \\
+	\hline
+	44 & 2 & 0 \\
+	\hline
+	22 & 2 & 0 \\
+	\hline
+	11 & 2 & 1 \\
+	\hline
+	5 & 2 & 1 \\
+	\hline
+	2 & 2 & 0 \\
+	\hline
+	1 & 2 & 1 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$88_{10}=1011000_2$
+\subsubsection{8. З десяткової у вісімкову 74 }
+\begin{tabular}{c|c|c}
+	74&8&2\\
+	\hline
+	9&8&1\\
+	\hline
+	1&8&1\\
+\end{tabular}
+\hspace{.1\textwidth}
+$74_{10}=112_8.$
+\subsubsection{9. З десяткової у шістнадцяткову 126 }
+\begin{tabular}{c|c|c}
+	126 & 16 & 14\\
+	\hline
+	7 & 16 & 7 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$126_{10}=7E_{16}$
+\subsubsection{10. З шістнадцяткової у двійкову 3C8 }
+$3C8_{16}=8\cdot16^0+12\cdot16^1+3\cdot16^2=968_{10}$
+
+\bigskip
+\begin{tabular}{c|c|c}
+	968 & 2 & 0 \\
+	\hline
+	484 & 2 & 0 \\
+	\hline
+	242 & 2 & 0 \\
+	\hline
+	121 & 2 & 1 \\
+	\hline
+	60 & 2 & 0 \\
+	\hline
+	30 & 2 & 0 \\
+	\hline
+	15 & 2 & 1 \\
+	\hline
+	7 & 2 & 1 \\
+	\hline
+	3 & 2 & 1 \\
+	\hline
+	1 & 2 & 1 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$3C8_{16}=1111001000_2$
+
+\subsubsection{11. З шістнадцяткової у вісімкову A36 }
+$A36_{16}=6\cdot16^0+3\cdot16^1+10\cdot16^2=2614_{10}$
+
+\bigskip
+\begin{tabular}{c|c|c}
+	2614 & 8 & 6 \\
+	\hline
+	326 & 8 & 6 \\
+	\hline
+	40 & 8 & 0 \\
+	\hline
+	5 & 8 & 5 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$A36_{16}=5066_8$
+
+\subsubsection{12. З шістнадцяткової у десяткову C9 }
+$C9_{16}=12\cdot16^1+9=201_{10}$
+
+\subsubsection{13. З двійкової у десяткову (дроби) 0.10100 }
+$0.10100_2=0\cdot2^0+1\cdot2^{-1}+0+1\cdot2^{-3}+0+0=0.625_{10}$
+\subsubsection{14. З десяткової у двійкову(дроби)~--- 4 дв. розр. 0.43}
+
+$0.43\cdot2=\underline{0}.86$
+
+$0.86\cdot2=\underline{1}.72$
+\hspace{.1\textwidth}
+$0.43_{10}=0.0110_2$
+
+$0.72\cdot2=\underline{1}.44$
+
+$0.44\cdot2=\underline{0}.88$
+
+%--------II--------%
+\subsection*{Виконати дії  і перевірку }
+\subsubsection{15. Переведіть з (2) у  (8)  систему числення 11011011.1010}
+Для початку переведемо число в десяткову систему численння:
+
+$11011011.1010_2=\frac{1}{2}+\frac{1}{8}+
+1+2+0+8+16+0+64+128=219\frac{5}{8}_{10}$
+
+Тепер переведемо цілу та дробову частини у вісімкову:
+
+\bigskip
+\begin{multicols}{2}
+\begin{tabular}{c|c|c}
+	219 & 8 & 3 \\
+	\hline
+	27 & 8 & 3 \\
+	\hline
+	3 & 8 & 3 \\
+\end{tabular}
+
+$219_{10}=333_8$
+
+$\frac{5}{8}\cdot8=5.0$
+
+$219\frac{5}{8}_{10}=333.5_8$
+
+\end{multicols}
+
+\textbf{Перевірка:}
+%$$\underbrace{110110}\underbrace{}\underbrace{1010}=333.5$$
+$$333.5_8=\frac{5}{8}+3\cdot(1+8+64)=219.625$$
+
+\begin{multicols}{2}
+\begin{tabular}{c|c|c}
+	219 & 2 & 1 \\
+	\hline
+	109 & 2 & 1 \\
+	\hline
+	54 & 2 & 0 \\
+	\hline
+	27 & 2 & 1 \\
+	\hline
+	13 & 2 & 1 \\
+	\hline
+	6 & 2 & 0 \\
+	\hline
+	3 & 2 & 1 \\
+	\hline
+	1 & 2 & 1 \\
+\end{tabular}
+
+$0.625\cdot2=\underline{1}.25$
+
+$0.25\cdot2=\underline{0}.5$
+
+$0.5\cdot2=\underline{1}.0$
+
+\bigskip
+Отже,
+$11011011.1010_2=333.5_8$
+
+\end{multicols}
+\bigskip
+
+\subsubsection{16. Переведіть з (2) у (10) систему числення 11011011.1010}
+$11011011.1010_2=\frac{1}{2}+\frac{1}{8}+
+1+2+0+8+16+0+64+128=219\frac{5}{8}_{10}$
+
+\bigskip
+\textbf{Перевірка:}
+\bigskip
+\begin{multicols}{2}
+\begin{tabular}{c|c|c}
+	219 & 2 & 1 \\
+	\hline
+	109 & 2 & 1 \\
+	\hline
+	54 & 2 & 0 \\
+	\hline
+	27 & 2 & 1 \\
+	\hline
+	13 & 2 & 1 \\
+	\hline
+	6 & 2 & 0 \\
+	\hline
+	3 & 2 & 1 \\
+	\hline
+	1 & 2 & 1 \\
+\end{tabular}
+
+$0.625\cdot2=\underline{1}.25$
+
+$0.25\cdot2=\underline{0}.5$
+
+$0.5\cdot2=\underline{1}.0$
+
+\end{multicols}
+
+Виконавши перевірку, переконалися, що $219\frac{5}{8}_{10}=11011011.1010_2$
+
+\subsubsection{17. Переведіть з (2) у (16) систему числення 11011011.1010}
+$11011011.1010_2=\frac{1}{2}+\frac{1}{8}+
+1+2+0+8+16+0+64+128=219\frac{5}{8}_{10}$
+
+\bigskip
+\begin{tabular}{c|c}
+	219 & 11 \\
+	\hline
+	13 & 13 \\
+\end{tabular}
+\hspace{.1\textwidth}
+$219_{10}=DB_{16}$
+
+\medskip
+$0.625\cdot16=10=A_{16}$
+
+$11011011.1010_2=DB.A_{16}$
+
+\bigskip
+\textbf{Перевірка (за таблицею):}
+
+$$\underbrace{1101}_D\underbrace{1011}_B.\underbrace{1010}_A=DB.A$$
+
+\noindent\textbf{18. Переведіть з (10) у (2) систему числення 164.70}
+\begin{multicols}{3}
+
+\begin{tabular}{c|c}
+	164 & 0 \\
+	\hline
+	82 & 0 \\
+	\hline
+	41 & 1 \\
+	\hline
+	20 & 0 \\
+	\hline
+	10 & 0 \\
+	\hline
+	5 & 1 \\
+	\hline
+	2 & 0 \\
+	\hline
+	1 & 1 \\
+\end{tabular}
+
+$0.70\cdot2=\underline{1}.4$
+
+$0.4\cdot2=\underline{0}.8$
+
+$0.8\cdot2=\underline{1}.6$
+
+$0.6\cdot2=\underline{1}.2$
+
+$0.2\cdot2=\underline{0}.4$
+
+\end{multicols}
+Визначивши період дробової частини,
+можемо записати остаточний результат:
+
+$$164.70_{10}=10100100.1(0110)_2$$
+
+\bigskip
+\textbf{Перевірка:}
+
+$10100100.1(0110)_2\approx\frac{1}{16}+\frac{1}{8}+\frac{1}{2}
++2^2+2^5+2^7\approx{164.6875}$
+
+\newpage
+\noindent\textbf{19.  Переведіть з (10) у (8) систему числення 165.71}
+\begin{multicols}{3}
+\begin{tabular}{c|c}
+	165 & 5 \\
+	\hline
+	20 & 4 \\
+	\hline
+	2 & 2 \\
+\end{tabular}
+
+\bigskip
+$165.71_{10}=245.$
+
+$0.71\cdot8=\underline{5}.68$
+
+$0.68\cdot8=\underline{5}.44$
+
+$0.44\cdot8=\underline{3}.52$
+
+$0.52\cdot8=\underline{4}.16$
+
+$0.16\cdot8=\underline{1}.28$
+
+$0.28\cdot8=\underline{2}.24$
+
+$0.24\cdot8=\underline{1}.92$
+
+$0.92\cdot8=\underline{7}.36$
+
+$0.36\cdot8=\underline{2}.88$
+
+$0.88\cdot8=\underline{7}.04$
+
+$0.04\cdot8=\underline{0}.32$
+
+$0.32\cdot8=\underline{2}.56$
+
+$0.56\cdot8=\underline{4}.48$
+
+$0.48\cdot8=\underline{3}.84$
+
+$0.84\cdot8=\underline{6}.72$
+
+$0.72\cdot8=\underline{5}.76$
+
+$0.76\cdot8=\underline{6}.08$
+
+$0.08\cdot8=\underline{0}.64$
+
+$0.64\cdot8=\underline{5}.12$
+
+$0.12\cdot8=\underline{0}.96$
+
+$0.96\cdot8=\underline{7}.68$
+
+$0.68\cdot8=\underline{5}.44$
+
+\end{multicols}
+
+%Період дробу~--- $553412172702436560507$, отже, число:
+Період дробової частини~--- $53412172702436560507$, отже, число:
+
+$$245.5(53412172702436560507)$$
+
+\subsubsection{20.  Переведіть з (10) у  (16)  систему числення 166.72}
+
+\begin{multicols}{2}
+	\begin{tabular}{c|c}
+		166 & 6 \\
+		\hline
+		10 & 10 \\
+	\end{tabular}
+
+	\bigskip
+	Ціла частина~---$A6.$ Перейдемо
+	до розрахунку дробової:
+
+	\bigskip
+
+$0.72\cdot16=\underline{11}.52$
+
+$0.52\cdot16=\underline{8}.32$
+
+$0.32\cdot16=\underline{5}.12$
+
+$0.12\cdot16=\underline{1}.92$
+
+$0.92\cdot16=\underline{14}.72$
+
+$0.72\cdot16=\underline{11}.52$
+
+\end{multicols}
+$$166.72_{10}=A6.(B851E)_{16}$$
+
+\bigskip
+\textbf{Перевірка:}
+
+$A6.(B851E)_{16}\approx6 \cdot 16^0+10 \cdot 16+11 \cdot 16^{-1}+8 \cdot 16^{-2}+5 \cdot 16^{-3}+16^{-4}+14 \cdot 16^{-5}
+%\approx\\
+\approx 166.71999931335449218750$
+\end{document}

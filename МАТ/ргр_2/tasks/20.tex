@@ -1,0 +1,75 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{boxedminipage}
+\usepackage{subfiles}
+
+\begin{document}
+
+\bigskip \textbf{Задача 20.} Знайти проекцію точки $M(0;2;-3)$
+на пряму
+$\frac{x}{5}=\frac{y-1}{7}=\frac{z-2}{1}.$\bigskip
+
+%\begin{wrapfigure}{l}{5.3cm}
+%	\centering
+%\subfile{../g/20.tex}
+%\caption{}
+%\end{wrapfigure}
+
+Проведемо площину $\alpha$, що проходить через точку $M$
+перпендикулярно до прямої
+$\frac{x}{5}=\frac{y-1}{7}=\frac{z-2}{1}.$
+Її нормальний вектор $\vec n(5;7;1)$
+~--- напрямний для прямої:
+\begin{equation}
+	5(x-0)+7(y-2)+(z+3)=0, \text{або}~
+	5x+7y+z-11=0.
+\end{equation}
+
+Точка, яка є шуканою проєкцією, повинна належати
+і цій площині, і прямій, тому складемо систему
+рівнянь та розв'яжемо її, перевівши рівняння прямої
+в параметричне:
+\begin{equation}
+\begin{cases}
+	\frac{x}{5}=\frac{y-1}{7}=\frac{z-2}{1};\\
+	5x+7y+z-11=0.
+\end{cases}\to
+\begin{cases}
+	x=5t;\\
+	y=7t+1;\\
+	z=t+2.\\
+	25t+49t+7+t+2-11=0;\\
+\end{cases}\to
+\begin{cases}
+	x=\frac{10}{75};\\
+	y=1\frac{14}{75};\\
+	z=2\frac{2}{75}.\\
+\end{cases}
+\end{equation}
+
+Отже, $(\frac{10}{75};
+	1\frac{14}{75};
+	2\frac{2}{75})$~---
+координати проєкції точки $M$ на дану пряму.
+
+\null\hfill
+\begin{boxedminipage}{0.32\textwidth}
+	Відповідь:~$(\frac{10}{75};
+	1\frac{14}{75};
+	2\frac{2}{75})$.
+\end{boxedminipage}
+
+\end{document}

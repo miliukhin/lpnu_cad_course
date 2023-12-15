@@ -1,0 +1,76 @@
+%elatex
+\documentclass[14pt]{extreport}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{caption}
+%\usepackage{mathspec}
+%\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{boxedminipage}
+\usepackage{wrapfig}
+\usepackage{subfiles}
+
+\usetikzlibrary{fadings}
+\begin{tikzfadingfrompicture}[name=fade left]
+\shade[left color=transparent!00,right color=transparent!100] (-3,-3) rectangle (-1,3);
+\end{tikzfadingfrompicture}
+\begin{tikzfadingfrompicture}[name=fade right]
+\shade[left color=transparent!100,right color=transparent!00] (1,-3) rectangle (3,3);
+\end{tikzfadingfrompicture}
+
+\begin{document}
+\pagestyle{empty}
+
+\subfile{title}
+\subfile{tasks/12.tex}
+
+\subfile{tasks/13.tex}
+
+\subfile{tasks/14.tex}
+
+\subfile{tasks/15.tex}
+
+\subfile{tasks/16.tex}
+
+\subfile{tasks/17.tex}
+
+\newpage
+\subfile{tasks/18.tex}
+
+\subfile{tasks/19.tex}
+
+\newpage
+\subfile{tasks/20.tex}
+
+\bigskip \textbf{Задача 26.} Дослідити та побудувати поверхні. \bigskip
+
+\begin{wrapfigure}{r}{4in}
+	\centering
+\subfile{g/26.tex}
+\caption{конус, обмежений площиною $y=2$}
+\label{cone}
+\end{wrapfigure}
+
+$x^2+z^2-y^2=0, y=2$.
+\medskip
+
+Рівнянням заданий конус 2-го порядку
+(рис. \ref{cone}),
+який утворюють параболи, що обертаються
+навколо осі $Oy$. Його
+обмежує площина $y=2$.
+
+%Канонічне рівняння цього конуса має вигляд
+%$$\frac{x^2}{1}+\frac{z^2}{1}-\frac{y^2}{1}=0.$$
+
+
+\end{document}

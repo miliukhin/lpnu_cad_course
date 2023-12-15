@@ -1,0 +1,140 @@
+%xelatex
+\documentclass[14pt]{extreport}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+%\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning}
+\usepackage{subfiles}
+
+\begin{document}
+\pagestyle{empty}
+
+\subfile{title}
+
+\subsubsection*{Мета роботи}
+
+Мета роботи – ознайомитись на практиці з основними поняттями
+мереж, потоків у мережах, навчитись знаходити максимальний потік у
+мережі.
+
+\begin{center}\bf Варіант 12\end{center}
+
+\subsection*{Побудувати повний потік,
+а потім скорегувати його до найбільшого
+(дуги спрямовані зліва направо)}
+\begin{figure}[h]
+	\subfile{0.tex}
+\end{figure}
+
+\subsection*{Побудова повного потоку}
+
+Покрокова побудова
+повного потоку
+відображена на
+рис. \ref{startfull}-\ref{endfull}.
+Його значення:
+
+$$V=14+4+6+1+3+2+1+3+2=36.$$
+
+%	\subfile{1.tex}
+%
+%	\subfile{2.tex}
+%
+%	\subfile{3.tex}
+%
+%	\subfile{4.tex}
+%
+%	\subfile{5.tex}
+%
+%	\subfile{6.tex}
+%
+%	\subfile{7.tex}
+%
+%	\subfile{8.tex}
+%
+%	\subfile{9.tex}
+
+\begin{figure}[h]
+	\centering
+	\subfile{1.tex}
+	\caption{\Delta=14}
+	\label{startfull}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{2.tex}
+	\caption{\Delta=4}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{3.tex}
+	\caption{\Delta=6}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{4.tex}
+	\caption{\Delta=1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{5.tex}
+	\caption{\Delta=3}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{6.tex}
+	\caption{\Delta=2}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{7.tex}
+	\caption{\Delta=1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{8.tex}
+	\caption{\Delta=3}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\subfile{9.tex}
+	\caption{\Delta=2}
+	\label{endfull}
+\end{figure}
+
+
+\subsection*{Побудова максимального потоку}
+
+Коригуючий шлях для
+максимального потоку
+зображений на рис. \ref{max}.
+Величина максимального потоку~---41.
+
+
+\begin{figure}[h]
+	\centering
+	\subfile{corr.tex}
+	\caption{\Delta=5}
+	\label{max}
+\end{figure}
+
+\subsection*{Висновок}
+
+Виконання цієї практичної роботи дозволило
+мені краще зрозуміти алгоритм побудови повного
+та максимального потоків у мережах.
+
+В заданому графі не було чітко видно вагу ребра 5-6, тому я обрав її як 4.
+
+\end{document}

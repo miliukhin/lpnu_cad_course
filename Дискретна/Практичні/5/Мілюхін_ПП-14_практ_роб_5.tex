@@ -1,0 +1,175 @@
+%xelatex
+\documentclass[14pt]{extreport}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{caption}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{boxedminipage}
+\usepackage{wrapfig}
+\usepackage{subfiles}
+
+\begin{document}
+\pagestyle{empty}
+
+\subfile{title}
+
+\subsection*{Мета роботи}
+
+Мета роботи – ознайомитись на практиці з основними поняттями та
+законами логіки висловлювань, навчитись доводити логічні твердження шляхом
+побудови таблиць істинності і використовувати закони логіки.
+
+\begin{center}\bf Варіант 12\end{center}
+%\begin{itemize}
+%	\item $\neg,~\bar p - \text{заперечення};$
+%	\item $p \lor q \vee - \text{диз'юнкція (АБО, тобто одне з них правильне то ок)};$
+%	\item $p \land q \wedge,~p\&q - \text{кон'юнкція (І, обидва мають бути вірними)};$
+%	\item $p \oplus q - \text{альтернативне "або" ($p$ та $q$ мають різні значення,
+%		тоді воно правильне)}$
+%	\item $	p \rightarrow q - \text{імплікація, хибна тільки тоді, коли $p=1, q=0$}$
+%		\\``[...] достатньо для [...]''; ``Якщо p, то q'', але необов'язково p, бо трава буває мокра без дощу
+%	\item $	p \sim q - \text{еквівалентність, істинна за однакових значень.
+%	``тоді й лише тоді''}$
+%\end{itemize}
+%
+%n-місна формула – це формула, що містить n атомів.
+%Вона має 2n інтерпретацій (наборів), тобто існує 2n
+%способів надати значення істинності її атомам.
+%
+%\smallskip
+%
+%Виконувана (здійснення) формула – це формула, яка має
+%принаймні одну інтерпретацію, у якій вона набуває значення істинності.
+%
+%\begin{itemize}
+%	\item Тавтологія – формула, що виконується у всіх інтерпретаціях.
+%
+%	\item Протиріччя – формула, що не виконується у жодній інтерпретації.
+%В інших випадках формулу називають ані істинною, ані хибною.
+%\end{itemize}
+%
+%\subsubsection*{Закони логіки висловлювань у визначенні
+%еквівалентності формул}
+%
+%\begin{enumerate}
+%	\item Вилучити імплікації, еквівалентонсті та альтернативне або:\begin{itemize}
+%			\item $p\sim q = (p\rightarrow q)\land(q\rightarrow p);$
+%			\item $(p\rightarrow q) = \neg p \lor q;$
+%			\item $p \oplus q = \bar{p\sim q}.$
+%		\end{itemize}
+%	\item Позбутися знаків заперечень над великими виразами (де Морган, подвійне заперечення)
+%	\item Спростити.
+%\end{enumerate}
+%
+\subsubsection*{1. Записати у вигляді формули дане твердження, позначаючи прості
+висловлення буквами.}
+
+Чотирикутник $ABCD$~--- квадрат тоді, коли він є прямокутником.
+%$\widehat{\dbinom{\odot_\text{v}\odot}{\wr}}$
+
+Розіб'ємо висловлювання на атоми і позначимо їх:
+\begin{itemize}
+	\item ``$ABCD$ є квадратом''~--- $p$,
+	\item ``$ABCD$ є прямокутником''~--- $q$.
+\end{itemize}
+$$p\to q$$
+
+\subsubsection*{2. Побудувати таблицю істинності для висловлювання}
+$(a\rightarrow b)\rightarrow((a\land b)\rightarrow b)$
+
+\medskip
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	$a$ & $b$ & $a\rightarrow b$ & $(a\land b)$ &
+	$(a\land b)\rightarrow b$ &
+	$(a\rightarrow b)\rightarrow((a\land b)\rightarrow b)$\\
+	\hline
+	0 & 0 & 1 & 0 & 1 & 1 \\
+	\hline
+	0 & 1 & 1 & 0 & 1 & 1 \\
+	\hline
+	1 & 0 & 0 & 0 & 1 & 1 \\
+	\hline
+	1 & 1 & 1 & 1 & 1 & 1 \\
+	\hline
+\end{tabular}
+
+\medskip
+Висловлювання виявилося тавтологією.
+
+\subsubsection*{3. Побудовою таблиць істинності вияснити чи є висловлювання тавтологією чи запереченням чи виконуваною формулою:}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	$p$ & $q$ & $\bar q$ & $p\to q=a$ & $q\to \bar q = b$
+	& $a \land b$ & $(a\land b)\sim p $\\
+	\hline
+	0 & 0 & 1 & 1 & 1 & 1 & 0 \\
+	\hline
+	0 & 1 & 0 & 1 & 0 & 0 & 1 \\
+	\hline
+	1 & 0 & 1 & 0 & 1 & 0 & 0 \\
+	\hline
+	1 & 1 & 0 & 1 & 0 & 0 & 0 \\
+	\hline
+\end{tabular}
+\end{center}
+
+$$
+((p\to q)\land(q\to \bar q))\sim p =
+((\bar p \lor q) \land (\bar q \lor \bar q))\sim p =
+$$
+$$
+(((\bar p \lor q) \land \bar q)\to p) \land
+(p \to ((\bar p \lor q) \land \bar q))=
+$$
+$$
+(\overline{(\bar p \lor q) \land \bar q)}\lor p) \land
+(\bar p \lor ((\bar p \lor q)\land \bar q))=
+$$
+$$
+(\overline{(\bar p \lor q)} \lor q)\lor p) \land
+(\bar p \lor ((\bar p \land \bar q)\lor (q \land \bar q))=
+$$
+$$
+((p \land \bar q) \lor q)\lor p) \land
+(\bar p \lor ((\bar p \land \bar q)\lor 0)=
+$$
+$$
+(((p\lor q) \land (\bar q \lor q))\lor p) \land
+(\bar p \lor (\bar p \land \bar q)=
+$$
+$$
+(((p\lor q) \land 1)\lor p) \land
+\bar p =
+$$
+$$
+((p\lor q) \lor p) \land
+\bar p =
+(p\lor q) \land \bar p=
+$$
+$$
+(p\land \bar p) \lor (q\land \bar p)=0\lor(q\land\bar p).
+$$
+
+Висловлювання є виконуваною формулою.
+
+\subsection*{Висновок}
+
+Виконавши цю практичну роботу, я закріпив свої знання
+основ математичної логіки, зокрема логічних операцій
+та побудови таблиць істинності.
+
+\end{document}

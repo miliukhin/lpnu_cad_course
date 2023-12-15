@@ -1,0 +1,266 @@
+%xelatex
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage{fontspec}
+\setmainfont{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{subfiles}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  breaklines=true,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\color{red}$\hookrightarrow$\space}
+}
+
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+}
+
+\begin{document}
+
+\pagestyle{empty}
+\begin{center}
+
+	{\fontsize{14}{24}\selectfont МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ
+
+	НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ «ЛЬВІВСЬКА ПОЛІТЕХНІКА»
+
+	Інститут комп'ютерних наук та інформаційних технологій
+
+	}
+
+	\vspace{90.4pt} %120.4+16.1
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=6.5cm,keepaspectratio]{../../../lpnu.png}
+	\end{figure}
+
+	{\fontsize{18}{29}\selectfont{Звіт}
+
+	{до лабораторної роботи № 3}
+
+	{на тему:}
+
+	{``Програмування алгоритмів розгалуженої структури''}
+
+	{З дисципліни}
+
+	{``Алгоритмізація та програмування, частина 1''}
+
+	}
+\end{center}
+
+\vspace{12.1pt} %30.1pt
+	{\fontsize{14}{22.4}\selectfont
+\begin{flushright}
+	\textit{Виконав:}
+
+	\textit{студент групи ПП-14}
+
+	\textit{Мілюхін Олександр}
+
+	\textit{Прийняв:}
+
+	\textit{професор Василів К. М.}
+\end{flushright}
+\vspace{37.4pt} %100.4
+\begin{center}
+\textit{Львів-2022}
+\vspace{37.4pt} %100.4
+\end{center}
+	}
+%{\fontsize{18}{20.7}\selectfont \textbf{Лабораторна робота №1}}
+{\fontsize{14}{16.1}\selectfont
+\textbf{Мета:}
+
+Розробити схему алгоритму і програмний код для обчислення функцій:
+
+\begin{enumerate}
+	\item $\alpha = \ln(y^{-\sqrt{|x|}}) \cdot (x-y/2)+sin^2\arctg(z)$
+	\item $y = x - \lg(x+2.5) + 3\cdot(e^x-e^{-x})$
+\end{enumerate}
+
+У схемі алгоритму та програмному коді врахувати ситуації з можливими
+невизначеностями, які можуть бути спричинені певними значеннями вхідних даних
+або проміжних результатів обчислення.
+Вхідні дані ввести з консолі, вихідні - вивести на консоль.
+Для програмування розгалужень застосувати оператор умовного переходу if та
+тринарний оператор.
+
+\bigskip
+
+Схема алгоритму зображена на рисунку 1:
+
+}
+
+\subfile{fch.tex}
+
+\section{Програмний код до першого завдання}
+
+\begin{lstlisting}[frame=single]
+
+#include <stdio.h>
+#include <math.h>
+
+double x, y, z, i, r;
+
+int main(){
+	printf("Введіть значення x:\n");
+	while(scanf("%lf",&x)==0){
+		double x1;
+		while((x1=getchar())!='\n' && x1!=EOF);
+		printf("Неприйнятні дані (x має бути числом):");
+	}
+
+	printf("Введіть значення y:\n");
+	while(scanf("%lf",&y)==0){
+		double y1;
+		while((y1=getchar())!='\n' && y1!=EOF);
+		printf("Неприйнятні дані (y має бути числом):");
+	}
+
+	printf("Введіть значення z:\n");
+	while(scanf("%lf",&z)==0){
+		double z1;
+		while((z1=getchar())!='\n' && z1!=EOF);
+		printf("Неприйнятні дані (z має бути числом):");
+	}
+
+	i=pow(y,-sqrt(fabs(x)));
+
+	if(i<=0){
+		printf("Функція невизначена!\n");
+	}
+
+	else{
+		r=log(i)*(x-y/2)+pow(sin(atan(z)),2); printf("%lf\n",r); }
+	return 0;
+}
+
+\end{lstlisting}
+
+{\fontsize{14}{16.1}\selectfont
+Вивід:}
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+\section{Програмний код до другого завдання}
+
+\begin{lstlisting}[frame=single]
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+double x,y,z,i,r,num;
+int func2(){
+	printf("Введіть значення z:\nz = ");
+	scanf("%lf",&z);
+
+	x=(z>=-1)?fabs(z):-z/3;
+
+	if(x==-2.5){
+		printf("x = -2.5, функція невизначена (логарифм нуля)\n");
+		exit(0);
+
+	}
+
+	r=x-log(x+2.5)+3*(exp(x)-exp(-x));
+	printf("Результат обчислень: %lf\n",r);
+
+	return 0;
+}
+
+int func1(){
+	printf("Введіть значення x:\n");
+	scanf("%lf",&x);
+
+	printf("Введіть значення y:\n");
+	scanf("%lf",&y);
+
+	printf("Введіть значення z:\n");
+	scanf("%lf",&z);
+
+	i=pow(y,-sqrt(fabs(x)));
+
+	if(i<=0){
+		printf("Функція невизначена!\n");
+		exit(0);
+	}
+
+	else{
+	r=log(i)*(x-y/2)+pow(sin(atan(z)),2);
+	printf("%lf\n",r);
+	}
+
+	return 0;
+}
+
+int main(){
+	printf("Номер функції для подальшої роботи (1 або 2): ");
+	scanf("%lf",&num);
+
+	if(num==1)
+		func1();
+	if(num==2)
+		func2();
+}
+
+\end{lstlisting}
+
+{\fontsize{14}{16.1}\selectfont
+Вивід:}
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+{\fontsize{14}{16.1}\selectfont
+\textbf{Висновок:}
+
+Висновок: виконуючи цю лабораторну роботу, я застосував оператори умовного переходу на
+практиці та краще зрозумів програмування алгоритмів розгалуженої структури.
+
+}
+
+\end{document}

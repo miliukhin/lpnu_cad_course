@@ -1,0 +1,86 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{subfiles}
+\usepackage{spalign}
+\usepackage{boxedminipage}
+
+\begin{document}
+
+\bigskip \textbf{Задача 13.} Знайти відстань між паралельними
+прямими $x+3y-5=0,~x+3y+7=0$; написати рівняння прямої, що знаходиться на
+однаковій відстані від даних прямих. \bigskip
+
+\begin{wrapfigure}{l}{5.3cm}
+	\centering
+	\subfile{../g/13.tex}
+	\caption{}
+\end{wrapfigure}
+
+Для знаходження відстані між прямими візьмемо довільну
+точку $M_0$ на одній із них та знайдемо відстань $d$
+від неї до другої прямої.
+
+\begin{equation}
+	d=\left|\frac{A{x_0}+B{y_0}+C}{\pm\sqrt{A^2+B^2)}}\right|=
+	\left|\frac{1\cdot(-7)+3\cdot0-5}{\pm\sqrt{1^2+3^2)}}\right|=
+	\frac{12}{\sqrt{10}}
+\end{equation}
+
+Рівняння рівновіддаленої від них прямої: знормуємо
+рівняння прямих, поділивши на довжину їх нормальних векторів
+
+\begin{equation}
+	-(\frac{x}{\sqrt{10}}+\frac{3y}{\sqrt{10}}+\frac{7}{\sqrt{10}})=0
+\end{equation}
+
+Відстань від початку координат до шуканої прямої:
+
+$$\frac{p-|p_2|}{2}=\frac{\frac{7-5}{\sqrt{10}}}{2}=\frac{1}{\sqrt{10}}$$
+
+$$-\frac{x}{\sqrt{10}}-\frac{3y}{\sqrt{10}}-\frac{1}{\sqrt{10}}=0$$
+
+%\begin{equation}
+%	\frac{x-x_0}{1}=\frac{y-y_0}{3};~
+%	\frac{x+7}{1}=\frac{y-0}{3};
+%\end{equation}
+
+%Тепер знайдемо точку, в якій ця пряма перетнеться
+%з другою прямою, записавши систему рівнянь:
+%
+%\begin{equation}
+%	\left\{\begin{aligned}
+%		& \frac{x+7}{1}=\frac{y-0}{3} \rightarrow y=3(x+7)\\
+%		& x + 3y - 5 = 0 \rightarrow y = \frac{5-x}{3}
+%	\end{aligned}\right.\\
+%\end{equation}
+%
+%\begin{equation}
+%	3(x+7)=\frac{5-x}{3} \rightarrow 5-x=9x+63 \rightarrow
+%	10x=-58 \rightarrow x=-5.8.\\
+%\end{equation}
+%
+%\begin{equation}
+%	y=\frac{5-5.8}{3}=\frac{0.8}{3}=\frac{4}{15}
+%\end{equation}
+
+\null\hfill
+\begin{boxedminipage}{0.23\textwidth}
+Відповідь:\\
+$d=\frac{12}{\sqrt{10}};$\\
+$-x-3y-1=0$
+\end{boxedminipage}
+
+\end{document}

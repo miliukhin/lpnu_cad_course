@@ -1,0 +1,88 @@
+\documentclass[a4paper,14pt]{extreport}
+\usepackage{tikz}
+\usepackage[english,ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\pagestyle{empty}
+\usepackage{subfiles}
+\begin{document}
+
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+%    	text width=4cm,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+    %text width=6cm,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+    process rectangle outer width/.initial=0.15cm,
+    predefined process/.style={
+        rectangle,
+        draw,
+        append after command={
+        \pgfextra{
+          \draw
+          ($(\tikzlastnode.north west)-(0,0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.north west)-(\pgfkeysvalueof{/tikz/process rectangle outer width},0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south west)+(-\pgfkeysvalueof{/tikz/process rectangle outer width},+0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south west)+(0,0.5\pgflinewidth)$);
+          \draw
+          ($(\tikzlastnode.north east)-(0,0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.north east)+(\pgfkeysvalueof{/tikz/process rectangle outer width},-0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south east)+(\pgfkeysvalueof{/tikz/process rectangle outer width},0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south east)+(0,0.5\pgflinewidth)$);
+        }
+        },
+        %text width=#1,
+    %	text width=4cm,
+        align=center
+    },
+    predefined process/.default=5.75cm,
+}
+
+\begin{tikzpicture}
+\node[start-end] (start) {Початок};
+%\node[below of=start,input](inp){Файл};							%read
+\node[below=2mm of start,predefined process](pp){Перенесення даних			%construct
+	із файлу в структуру};
+\node[below=2mm of pp,predefined process](sp){визначення кількості дівчат у кожній групі};	%count
+\node[below=2mm of sp,predefined process](ep){визначення групи, де найбільше дівчат};	%sort
+\node[below=2mm of ep,input](out){група, де найбільше};					%read
+\node[below of=out,start-end] (end) {Кінець};
+
+%	\draw [thin] (start) -- (inp);
+	\draw [thin] (pp) -- (start);
+	\draw [thin] (pp) -- (sp);
+	\draw [thin] (ep) -- (sp);
+	\draw [thin] (ep) -- (out);
+	\draw [thin] (out) -- (end);
+
+\end{tikzpicture}
+
+\end{document}

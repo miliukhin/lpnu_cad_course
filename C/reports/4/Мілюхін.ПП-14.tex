@@ -1,0 +1,308 @@
+%xelatex
+\documentclass[14pt]{extreport}
+%\documentclass[14pt]{extreport}
+
+\usepackage{listings}
+%\usepackage{verbatim}
+\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\usepackage{indentfirst}
+\usepackage{moreverb}
+\usepackage{subfiles}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  breaklines=true,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\color{red}$\hookrightarrow$\space}
+}
+
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+}
+
+\begin{document}
+
+\pagestyle{empty}
+\begin{center}
+
+	{\fontsize{14}{24}\selectfont МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ
+
+	НАЦІОНАЛЬНИЙ УНІВЕРСИТЕТ «ЛЬВІВСЬКА ПОЛІТЕХНІКА»
+
+	Інститут комп'ютерних наук та інформаційних технологій
+
+	}
+
+	\vspace{90.4pt} %120.4+16.1
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=6.5cm,keepaspectratio]{../../../lpnu.png}
+	\end{figure}
+
+	{\fontsize{18}{29}\selectfont{Звіт}
+
+	{до лабораторної роботи № 4}
+
+	{З дисципліни}
+
+	{``Алгоритмізація та програмування, частина 1''}
+
+	{на тему:}
+
+	{``Масиви і файли в мові програмування C''}
+
+	}
+\end{center}
+
+\vspace{12.1pt} %30.1pt
+	{\fontsize{14}{22.4}\selectfont
+\begin{flushright}
+	\textit{Виконав:}
+
+	\textit{студент групи ПП-14}
+
+	\textit{Мілюхін Олександр}
+
+	\textit{Прийняв:}
+
+	\textit{професор Василів К. М.}
+\end{flushright}
+\vspace{37.4pt} %100.4
+\begin{center}
+\textit{Львів-2022}
+\vspace{37.4pt} %100.4
+\end{center}
+	}
+%{\fontsize{18}{20.7}\selectfont \textbf{Лабораторна робота №1}}
+%{\fontsize{14}{16.1}\selectfont
+\subsubsection*{Мета роботи:}
+
+Навчитися використовувати масиви та файли при розв’язанні задач.
+
+\bigskip
+
+
+\subsubsection*{Завдання № 1}
+Дано натуральне число N (задати довільно, як константу препроцесора)
+і одновимірний масив A0, A1, …, AN-1 цілих чисел (згенерувати додатні
+та від’ємні
+елементи випадковим чином, за допомогою функції бібліотеки <stdlib.h>
+rand()). Визначити число пар двох однакових додатних чисел, наприклад, чотири
+числа утворюють дві пари.
+
+Схема алгоритму зображена на рис. 1.
+
+\begin{figure}[h]
+	\centering
+	\subfile{fch.tex}
+	\caption{Схема алгоритму для першого завдання}
+\end{figure}
+
+\subsubsection*{Програмний код до першого завдання}
+
+\begin{lstlisting}[frame=single]
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#define N 4
+
+int m [N]={1,2,2,3};
+
+int main(){
+
+	srand(time(NULL));
+
+	printf("Array items:\n");
+
+	for(int i = 0; i<N; i++){
+		int n = rand() % 9;
+		if (n > 4)
+			m[i] = -rand() % 10;
+		else
+			m[i] = rand() % 10;
+
+			printf("%d\t", m[i] );
+	}
+			printf("\n\n");
+
+	int count, paircount;
+
+	for(int i = 0; i<N; i++){
+	if(fmod(m[i],2) == 0){
+		count++;
+		if(fmod(count,2) == 0)
+			paircount++;
+		}
+	}
+			printf("even number pairs :\t%d\n", paircount);
+
+
+}
+
+\end{lstlisting}
+
+Вивід:
+\begin{lstlisting}
+Array items:
+5       6       -3      -9
+
+even number pairs :     0
+\end{lstlisting}
+
+\subsubsection*{Завдання № 2}
+
+У файл F1.txt попередньо записати матрицю цілих чисел А(N,N)
+(згенерувати випадковим чином, N задати довільно, як константу
+препроцесора). Прочитати матрицю з файлу, виконати описані нижче дії, їх
+результати записати в файл F2.txt.
+
+Схема алгоритму зображена на рис. \ref{task2}
+
+\begin{figure}[h]
+	\centering
+	\subfile{fch2.tex}
+%	\includegraphics[width=.7\textwidth]{~/pic-selected-221205-1221-56.png}
+	\caption{Схема алгоритму для другого завдання}
+	\label{task2}
+\end{figure}
+
+\subsubsection*{Програмний код до другого завдання}
+
+\begin{lstlisting}[frame=single]
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#define N 4
+
+int m [N][N], m2 [N][N], i, j;
+
+int gen(){
+	srand(time(NULL));
+
+	printf("Array items:\n");
+
+	FILE *fp = fopen("F1.txt", "w");
+
+	for(i = 0; i<N; i++){
+		for(j = 0; j<N; j++){
+			int n = rand() % 9;
+			if (n > 4)
+				m[i][j] = -rand() % 10;
+			else
+				m[i][j] = rand() % 10;
+			fprintf(fp, "%d\t", m[i][j]);
+			printf("%d\t", m[i][j]);
+		}
+			fprintf(fp, "\n");
+			printf("\n");
+
+	}
+			printf("\n");
+
+	fclose(fp);
+	}
+
+int transpose(){
+	printf("\n");
+
+	FILE *f1 = fopen("F1.txt", "r");
+
+	for(i = 0; i<N; i++){
+		for(j = 0; j<N; j++){
+			fscanf(f1, "%d\t", &m[i][j] );
+			printf("%d\t", m[i][j] );
+		}
+			printf("\n");
+	}
+
+	fclose(f1);
+
+	printf("Transposed:\n");
+
+	FILE *f2 = fopen("F2.txt", "w");
+
+	for(i = 0; i<N; i++){
+		for(j = 0; j<N; j++){
+			m2[i][j]=m[j][i];
+			fprintf(f2, "%d\t", m2[i][j] );
+			printf("%d\t", m2[i][j] );
+		}
+			fprintf(f2, "\n");
+			printf("\n");
+	}
+
+	fclose(f2);
+}
+
+int main(){
+	gen();
+	transpose();
+	return 0;
+}
+
+\end{lstlisting}
+
+Вивід:
+\begin{lstlisting}
+The matrix:
+-1      -4      6       -7
+-1      -7      4       7
+2       -6      -9      9
+-2      2       9       -8
+
+Transposed:
+-1      -1      2       -2
+-4      -7      -6      2
+6       4       -9      9
+-7      7       9       -8
+\end{lstlisting}
+
+\subsubsection*{Висновок:}
+
+Виконавши цю лабораторну роботу, я
+застосував на практиці та закріпив
+здобуті знання про роботу
+з масивами у мові C.
+
+
+
+\end{document}

@@ -1,0 +1,58 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{pgfplots}% loads the package tikz
+\pgfplotsset{compat=1.18}
+\usepackage[english,ukrainian]{babel}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+	\tikzset{
+	every pin/.style={rectangle,font=\tiny},
+	small dot/.style={fill=black,circle,scale=0.3}
+	}
+
+\begin{axis}[
+	xlabel={$y$}, ylabel={$x$}, zlabel={$z$},
+  	y dir=reverse,
+    xtick align=outside,
+%	ylabel={$\varepsilon$ [с$^{-2}$]},
+%    ytick align=outside,
+    axis lines=center,
+    axis on top,
+%    grid=major,% <- changed
+%    grid style=dashed,
+%    minor x tick num={4},
+%    minor y tick num={4},
+	width=5cm,
+	height=5cm,
+  z buffer=sort,
+]
+
+\addplot3 [black, ->, no marks, ]
+	coordinates {
+	(0,0,0)
+	(5,2,1)
+	}
+;
+
+\addplot3 [black, ->, no marks, ]
+	coordinates {
+	(0,0,0)
+	(1,-2,0)
+	}
+;
+
+\node[label=$\vec s$, ] at (axis cs: 1.6,0.4,0.16) {};
+\node[label=$\vec{M_0P}$, ] at (axis cs: 1,-2,0) {};
+
+%	\begin{legend}
+%		{$T_1$,$T_2$}
+%	\end{legend}
+
+%\node[label=A, small dot,] at (axis cs: 3,5) {};
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

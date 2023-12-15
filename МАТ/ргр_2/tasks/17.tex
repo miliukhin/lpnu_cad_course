@@ -1,0 +1,87 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{boxedminipage}
+\usepackage{subfiles}
+
+\begin{document}
+
+\bigskip \textbf{Задача 17.} Звести загальне рівняння прямої
+$\begin{cases}
+	4x+y+z+2=0\\
+	2x-y-3z-8=0\\
+\end{cases}$
+до канонічного вигляду і записати її параметричне
+рівняння.\bigskip
+
+%\begin{wrapfigure}{l}{5.3cm}
+%	\centering
+%\subfile{../g/17.tex}
+%\caption{}
+%\end{wrapfigure}
+
+Знайдемо напрямний вектор $\vec s$ цієї прямої
+як векторний добуток нормальних векторів площин,
+що задають цю пряму:
+\begin{equation}
+	\vec s = \begin{vmatrix}
+		\vec i & \vec j & \vec k\\
+		4 & 1 & 1\\
+		2 & -1 & -3\\
+	\end{vmatrix}
+	=(-2;14;-6).
+\end{equation}
+
+Пряма проходить через $M_0(x_0=0;y_0;z_0),$
+знайдемо інші координати цієї точки:
+
+\begin{equation}
+\begin{cases}
+	y+z+2=0\\
+	-y-3z-8=0\\
+\end{cases}
+\to
+\begin{cases}
+	y-3+2=0\to y=1\\
+	-2z-6=0\to z=-3\\
+\end{cases}
+\end{equation}
+
+Отже, канонічне рівняння цієї прямої має вигляд:
+\begin{equation}
+	\frac{x}{-2}=\frac{y-1}{14}=\frac{z+3}{-6},
+\end{equation}
+а параметричне~---
+\begin{equation}
+	\begin{cases}
+		\frac{x-x_0}{m}=t\to x=x_0+mt=0-2t;\\
+		\frac{y-y_0}{m}=t\to y=y_0+mt=1+14t;\\
+		\frac{z-z_0}{m}=t\to z=z_0+mt=3-6t.\\
+	\end{cases}
+\end{equation}
+
+\null\hfill
+\begin{boxedminipage}{0.34\textwidth}
+	Відповідь:
+	$
+	\begin{cases}
+		x=0-2t;\\
+		y=1+14t;\\
+		z=3-6t.\\
+	\end{cases}
+	$
+\end{boxedminipage}
+
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{pgfplots}% loads the package tikz
+\pgfplotsset{compat=1.18}
+\usepackage[english,ukrainian]{babel}
+\usetikzlibrary{intersections}
+
+\begin{document}
+\newcommand*{\ShowIntersection}[3]{
+\draw
+    [name intersections={of=#1 and #2, name=#3, total=\t}]
+    \foreach \s in {1,...,\t}{
+        (#3-\s) node[fill,red,circle,inner sep=0,minimum size=4pt]{}
+        (#3-\s |- current axis.north)--(#3-\s|-current axis.south)
+  };
+}
+\begin{tikzpicture}
+\begin{axis}[
+	xlabel={М [Н $\cdot$ м]},
+%    xtick align=outside,
+    xmin=0,
+    xmax=0.1,
+	ylabel={$\varepsilon$ [с$^{-2}$]},
+%    ytick align=outside,
+    ymin=0,
+    ymax=1.3,
+    axis lines=left,
+    grid=major,% <- changed
+    grid style=dashed,
+    minor x tick num={4},
+    minor y tick num={4}
+]
+
+\addplot+ [error bars/.cd,
+	y dir=both,
+	y explicit]
+	coordinates {
+		(0.03966,0.6024) +- (0,0.04867)
+		(0.0546,0.8845) +- (0,0.03029)
+		(0.06952,1.1116) +- (0,0.04268)
+		%(0.002,0)
+	}
+;
+
+\addplot+ [black, no marks]
+	coordinates {
+		(0.1,1.61)
+		(0.0012,0)
+	}
+;
+%	\ShowIntersection{t1}{t2}{i}
+
+%	\begin{legend}
+%		{$T_1$,$T_2$}
+%	\end{legend}
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

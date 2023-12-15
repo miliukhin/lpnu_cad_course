@@ -1,0 +1,71 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{subfiles}
+\usepackage{boxedminipage}
+
+\begin{document}
+
+\textbf{Задача 12.} Написати рівняння медіани і висоти, які
+проведені в трикутнику ABC з вершини B. \medskip
+
+\begin{wrapfigure}{l}{5.3cm}
+	\centering
+\subfile{../g/12.tex}
+\caption{}
+\end{wrapfigure}
+
+$A(3;5),~B(3;1),~C(-5;7).$\medskip
+
+Рівняння медіани можна записати в канонічному вигляді,
+узявши як напрямний вектор від вершини B до середини
+протилежної їй сторони, $AC$, $M_0$, координати якої:
+
+\begin{equation}
+	x_{M_0}=\frac{3-5}{2}=-1,~
+	y_{M_0}=\frac{5+7}{2}=6,
+\end{equation}
+
+а координати напрямного вектора $\vec{S}(m,n)=\vec{BM_0}=(-1-3;6-1)=(-4;5)$.
+Отже, рівняння виглядатиме так:
+\begin{equation}
+	\frac{x-x_0}{m}=\frac{y-y_0}{n},~\text{або}~
+	\frac{x+1}{-4}=\frac{y-6}{5}.
+\end{equation}
+
+Рівняння висоти отримаємо таким самим способом, узявши
+за її напрямний вектор $\vec{S'}$~--- нормальний для прямої
+$\vec{AC}$, рівняння якої:
+
+\begin{equation}
+	\frac{x-3}{-8}=\frac{y-5}{2} \rightarrow
+	x-3=-4y+20 \rightarrow x+4y-23=0.
+\end{equation}
+
+Отже, (1,4) - координати шуканого вектора $\vec{S'}$. Рівняння висоти:
+
+\begin{equation}
+	\frac{x-3}{1}=\frac{y-1}{4}
+\end{equation}
+
+\medskip
+
+\null\hfill
+\begin{boxedminipage}{0.73\textwidth}
+Відповідь: р-ня медіани - $\frac{x+1}{-4}=\frac{y-6}{5},$
+р-ня висоти: $\frac{x-3}{1}=\frac{y-1}{4}.$
+\end{boxedminipage}
+
+\end{document}

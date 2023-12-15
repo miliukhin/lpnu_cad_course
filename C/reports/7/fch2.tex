@@ -1,0 +1,97 @@
+\documentclass[a4paper,14pt]{extreport}
+\usepackage{tikz}
+\usepackage[english,ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\pagestyle{empty}
+\begin{document}
+\tikzset{
+    start-end/.style={
+        draw,
+        rounded rectangle,
+%        rounded corners,
+    },
+    input/.style={ % requires library shapes.geometric
+        draw,
+        trapezium,
+        trapezium left angle=60,
+        trapezium right angle=120,
+    	text width=4cm,
+    },
+    operation/.style={
+        draw,
+        rectangle
+    },
+    loop/.style={ % requires library shapes.misc
+        draw,
+        chamfered rectangle,
+        chamfered rectangle xsep=2cm
+    },
+    decision/.style={ % requires library shapes.geometric
+        draw,
+        diamond,
+    %text width=6cm,
+        aspect=#1
+    },
+    decision/.default=1,
+    print/.style={ % requires library shapes.symbols
+        draw,
+        tape,
+        tape bend top=none
+    },
+    process rectangle outer width/.initial=0.15cm,
+    predefined process/.style={
+        rectangle,
+        draw,
+        append after command={
+        \pgfextra{
+          \draw
+          ($(\tikzlastnode.north west)-(0,0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.north west)-(\pgfkeysvalueof{/tikz/process rectangle outer width},0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south west)+(-\pgfkeysvalueof{/tikz/process rectangle outer width},+0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south west)+(0,0.5\pgflinewidth)$);
+          \draw
+          ($(\tikzlastnode.north east)-(0,0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.north east)+(\pgfkeysvalueof{/tikz/process rectangle outer width},-0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south east)+(\pgfkeysvalueof{/tikz/process rectangle outer width},0.5\pgflinewidth)$)--
+          ($(\tikzlastnode.south east)+(0,0.5\pgflinewidth)$);
+        }
+        },
+        %text width=#1,
+    	text width=4cm,
+        align=center
+    },
+    predefined process/.default=5.75cm,
+}
+
+\begin{tikzpicture}
+\node[start-end] (start) {Початок};
+
+\node[below=5mm of start,input](inp){Ввід назви файлу, методу його відкриття};
+
+%\node[below=5mm of inp,predefined process](func){Зчитування даних із файлу,
+%	обчислення к-сті символів без урахування пробілів};
+	\node[below=5mm of inp,predefined process](func){Функція (в)};
+
+%\node[below=5mm of func,predefined process](funccount){Обчислення к-сті символів
+%	без пробілів у тексті файлу};
+	\node[below=5mm of func,predefined process](funccount){Функція (б)};
+
+\node[below=5mm of funccount,predefined process](funcwritewo){вивід к-сті символів
+	без пробілів};
+
+\node[below=5mm of funcwritewo,predefined process](funcwrite){вивід к-сті символів
+	із пробілами};
+
+\node[below=5mm of funcwrite,start-end] (end) {Кінець};
+
+	\draw [thin] (start) -- (inp);
+	\draw [thin] (func) -- (inp);
+	\draw [thin] (func) -- (funccount);
+	\draw [thin] (funcwritewo) -- (funccount);
+	\draw [thin] (funcwritewo) -- (funcwrite);
+	\draw [thin] (end) -- (funcwrite);
+
+\end{tikzpicture}
+
+\end{document}

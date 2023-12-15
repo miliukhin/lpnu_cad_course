@@ -1,0 +1,80 @@
+%xelatex
+\documentclass[14pt,draft]{extreport}
+
+%\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+%\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.8}
+\usepackage{indentfirst}
+\usepackage{wrapfig}
+\usepackage{boxedminipage}
+\usepackage{spalign}
+\usepackage{subfiles}
+
+\begin{document}
+
+\bigskip \textbf{Задача 14.} Знайти півосі, фокуси, ексцентриситет,
+координати центра та рівняння директрис $5x^2+3y^2-10x-6y-7=0.$\bigskip
+
+%\begin{wrapfigure}{l}{5.3cm}
+%	\centering
+%\subfile{../g/14.tex}
+%\caption{}
+%\end{wrapfigure}
+\begin{equation}
+\begin{aligned}
+5x^2+3y^2-10x-6y-7=0;\\
+	5(x^2-2x+1)-5+3(y^2-2y+1)-3-7=0;\\
+	5(x-1)^2+3(y-1)^2=15;\\
+	\frac{(x-1)^2}{\frac{15}{5}}+\frac{(y-1)^2}{\frac{15}{3}}=1
+	\rightarrow
+	\frac{(x-1)^2}{3}+\frac{(y-1)^2}{5}=1\\
+\end{aligned}
+\end{equation}
+
+Таким чином отримали канонічне рівняння еліпса.
+Його мала піввісь $a=\sqrt{3},$
+а велика~--- $b=\sqrt{5}$. Координати центра~---
+$(1;1).$
+
+Знайдемо половину відстані між фокусами:
+
+\begin{equation}
+	b^2-c^2=a^2\to c=\sqrt{b^2-a^2}=\sqrt{5-3}=\sqrt{2}
+\end{equation}
+
+Тоді самі фокуси мають координати:
+$$F_1=(1-\sqrt{2};1),~F_2=(1+\sqrt{2};1).$$
+
+Ексцентриситет даного еліпса дорівнює:
+
+\begin{equation}
+	\varepsilon=\frac{c}{a}=\frac{\sqrt{2}}{\sqrt{3}}
+\end{equation}
+
+%\begin{equation}
+%	\frac{r}{d}=\varepsilon=\frac{\sqrt{2}}{\sqrt{3}}
+%\end{equation}
+
+Звідси рівняння директрис:
+\begin{equation}
+	x=\pm\frac{a}{\varepsilon}=\pm\frac{\sqrt{3}}
+	{\frac{\sqrt{2}}{\sqrt{3}}}=\pm\frac{3}{\sqrt{2}}.
+\end{equation}
+
+\null\hfill
+\begin{boxedminipage}{0.4\textwidth}
+	Відповідь: $b=\sqrt{5}, a=\sqrt{3};\\
+	$Центр еліпса~--- $O(1;1);$\\
+	$F_1=(1-\sqrt{2};1),~F_2=(1+\sqrt{2};1).$\\
+	$\varepsilon=\frac{\sqrt{2}}{\sqrt{3}}$\\
+	Рівняння директрис: $x=\pm\frac{3}{\sqrt{2}}.$
+\end{boxedminipage}
+
+\end{document}

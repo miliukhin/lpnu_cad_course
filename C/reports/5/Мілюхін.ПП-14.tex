@@ -1,0 +1,145 @@
+%xelatex
+\documentclass[12pt]{extreport}
+%\documentclass[14pt]{extreport}
+
+\usepackage{listings}
+%\usepackage{verbatim}
+\usepackage[T2A]{fontenc}
+\usepackage[english,ukrainian]{babel}
+\usepackage{mathspec}
+\setallmainfonts{Nimbus Roman}
+\usepackage{graphicx}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning,shapes.geometric,shapes.symbols,shapes.misc}
+\usepackage{indentfirst}
+\usepackage{moreverb}
+\usepackage{subfiles}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  breaklines=true,
+  postbreak=\raisebox{0ex}[0ex][0ex]{\color{red}$\hookrightarrow$\space}
+}
+
+\begin{document}
+
+\subfile{title.tex}
+
+%{\fontsize{18}{20.7}\selectfont \textbf{Лабораторна робота №1}}
+%{\fontsize{14}{16.1}\selectfont
+\subsubsection*{Мета роботи}
+Навчитися використовувати символьні масиви для розв’язання задач
+роботи зі стрічками.
+\bigskip
+
+
+\subsubsection*{Завдання № 1}
+Ввести з клавіатури своє прізвище, ім'я та по батькові як одне текстове
+дане. Вивести ім'я та кількість букв у прізвищі.
+
+\bigskip
+Схема алгоритму зображена на рис. 1.
+
+\begin{figure}[h]
+	\centering
+	\subfile{fch.tex}
+	\caption{Схема алгоритму для першого завдання}
+\end{figure}
+
+\subsubsection*{Програмний код до першого завдання}
+
+\begin{lstlisting}[frame=single]
+#include <stdio.h>
+#include <string.h>
+
+char fns[128];
+int n;
+
+int main(){
+
+	printf(">");
+	fgets(fns, 128, stdin);
+	char* fn = strtok(fns, " ");
+	char* mn = strtok(NULL, " ");
+	char* ln = strtok(NULL, " ");
+	printf("%s\n", fn);
+	printf("%d\n", strlen(ln)-1);
+
+	return 0;
+}
+\end{lstlisting}
+
+Вивід:
+
+\begin{lstlisting}
+>Oleksandr Pavlovych Miliukhin
+Oleksandr
+9
+\end{lstlisting}
+
+\subsubsection*{Завдання № 2}
+
+Символьні рядки S1 та S2 довжиною до 100 символів вводити з клавіатури.
+Змінити порядок символів у S1 на зворотній. Замінити усі маленькі
+приголосні S2 на великі.
+
+\bigskip
+Схема алгоритму зображена на рис. \ref{task2}
+
+\begin{figure}[h]
+	\centering
+	\subfile{fch2.tex}
+%	\includegraphics[width=.7\textwidth]{~/pic-selected-221205-1221-56.png}
+	\caption{Схема алгоритму для другого завдання;
+	sln~--- довжина введеної стрічки}
+	\label{task2}
+\end{figure}
+
+\subsubsection*{Програмний код до другого завдання}
+
+\begin{lstlisting}[frame=single]
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+char s1[100], s2[100], s1rev[100];
+
+int main()
+{
+	printf(">");
+	fgets(s1, 100, stdin);
+
+	for(int i=0;i<=strlen(s1);i++){
+            	s1rev[strlen(s1)-1-i] = s1[i-1];
+	}
+		s1rev[strlen(s1)-1]=s1[strlen(s1)-1]; // nepeHeceHHR "\0"
+
+	fputs(s1rev,stdout);
+
+	printf(">");
+	fgets(s2, 100, stdin);
+	int i=0;
+	while(i<strlen(s1)) {
+      		putchar (toupper(s2[i]));
+      		i++;
+   	}
+	return 0;
+}
+\end{lstlisting}
+
+Вивід:
+
+\begin{lstlisting}
+>some text
+txet emos
+>some more text
+SOME MORE TEXT
+\end{lstlisting}
+
+\subsubsection*{Висновок:}
+Виконанням цієї лабораторної роботи я закріпив свої знання
+про роботу з символьними рядками у мові C.
+
+\end{document}
