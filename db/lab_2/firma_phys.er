@@ -1,0 +1,33 @@
+[customer]
+	*cust_id	{label: "INT"}
+	company		{label: "VARCHAR"}
+	country?		{label: "VARCHAR"}
+	address		{label: "INT"}
+[order_sheet]
+	*order_id		{label: "INT"}
+	+cust_id 		{label: "INT"}
+	+product_id 		{label: "INT"}
+	+manufacturer_id	{label: "INT"}
+	unit		{label: "VARCHAR"}
+	qty		{label: "INT"}
+[payment]
+	*pay_notice	{label: "INT"}
+	+order_id	{label: "INT"}
+	+cust_id	{label: "INT"}
+	date		{label: "DATETIME"}
+	amount			{label: "FLOAT"}
+[product]
+	*product_id		{label: "INT"}
+	+manufacturer_id	{label: "INT"}
+	description		{label: "VARCHAR"}
+	price			{label: "FLOAT"}
+[manufacturer]
+	*manufacturer_id	{label: "INT"}
+	country		{label: "VARCHAR"}
+	address		{label: "INT"}
+customer +--+ order_sheet
+customer 1--+ payment
+order_sheet +--+ product
+order_sheet +--+ manufacturer
+payment +--+ order_sheet
+product +--+ manufacturer

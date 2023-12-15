@@ -1,0 +1,29 @@
+ graph {
+    graph [rankdir=LR];
+    node [label="\N",
+        shape=plaintext
+    ];
+    edge [color=gray50,
+        minlen=2,
+        style=dashed
+    ];
+
+"матеріал" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">матеріал</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><FONT>назва</FONT></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>id_матеріалу</FONT></u></TD></TR></TABLE></FONT>>];
+"товар" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">товар</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>id_товару</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>+id_виробника</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>назва</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>кількість</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>ціна</FONT></TD></TR></TABLE></FONT>>];
+"гітара" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">гітара</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>модель_гітари</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>+id_матеріалу_корпуса</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+id_матеріалу_грифа</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>к-сть_струн</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>к-сть_ладів</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>довжина</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>ширина</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>мензура</FONT></TD></TR></TABLE></FONT>>];
+"смичковий" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">смичковий</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>модель_смичкового</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>+id_матеріалу</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>розмір</FONT></TD></TR></TABLE></FONT>>];
+"виробник" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">виробник</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>ID</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>адреса</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>номер_телефону</FONT></TD></TR></TABLE></FONT>>];
+"працівник" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">працівник</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>ID</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>ПІБ</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>ЗП</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>посада</FONT></TD></TR></TABLE></FONT>>];
+"покупець" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">покупець</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>ID</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>ПІБ</FONT></TD></TR></TABLE></FONT>>];
+"замовлення" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">замовлення</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_замовлення</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>дата</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+ID_покупця</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+ID_продавця</FONT></TD></TR></TABLE></FONT>>];
+"деталі_замовлення" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">деталі_замовлення</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>id_деталей</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>+№_замовлення</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+id_товару</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>кількість_товару</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>сума</FONT></TD></TR></TABLE></FONT>>];
+"матеріал" -- "гітара" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>складається</FONT>>,headlabel=<<FONT>1</FONT>>];
+"матеріал" -- "смичковий" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>складається</FONT>>,headlabel=<<FONT>1</FONT>>];
+"виробник" -- "товар" [taillabel=<<FONT>1</FONT>>,label=<<FONT>виробляє</FONT>>,headlabel=<<FONT>1..N</FONT>>];
+"покупець" -- "замовлення" [taillabel=<<FONT>1</FONT>>,label=<<FONT>створює</FONT>>,headlabel=<<FONT>1..N</FONT>>];
+"працівник" -- "замовлення" [taillabel=<<FONT>1</FONT>>,label=<<FONT>обробляє</FONT>>,headlabel=<<FONT>0..N</FONT>>];
+"товар" -- "гітара" [taillabel=<<FONT>1</FONT>>,label=<<FONT>є</FONT>>,headlabel=<<FONT>{0,1}</FONT>>];
+"товар" -- "смичковий" [taillabel=<<FONT>1</FONT>>,label=<<FONT>є</FONT>>,headlabel=<<FONT>{0,1}</FONT>>];
+"деталі_замовлення" -- "замовлення" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>описують</FONT>>,headlabel=<<FONT>1</FONT>>];
+"деталі_замовлення" -- "товар" [taillabel=<<FONT>1</FONT>>,label=<<FONT>містяться</FONT>>,headlabel=<<FONT>1..N</FONT>>];
+}

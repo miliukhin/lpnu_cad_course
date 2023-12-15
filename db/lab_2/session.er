@@ -1,0 +1,37 @@
+[student]
+    *id_stud
+    name
+    +id_group
+[group]
+    *id_group
+    name
+[teacher]
+    *id_teacher
+    name
+    position
+    +id_dep
+    +id_sub
+[department]
+    *id_dep
+    name
+    phone
+[subject]
+    *id_sub
+    semester
+    name
+[session]
+    *id_session
+    +id_stud
+    +id_sub
+    point
+    grade
+    date
+    +id_teacher
+student +--1 group
+student *--+ subject
+student *--* session
+teacher *--1 department
+teacher +--+ subject
+teacher +--+ student
+teacher *--* session
+session +--* subject

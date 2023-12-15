@@ -1,0 +1,5 @@
+http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file1.html # just connect
+http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file2.html # refresh
+http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file3.html # big doc
+http://gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file4.html # embedded objects
+http://gaia.cs.umass.edu/wireshark-labs/protected_pages/HTTP-wireshark-file5.html # auth

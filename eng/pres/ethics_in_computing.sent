@@ -1,0 +1,256 @@
+Національний універитет "Львівська Політехніка"
+...............................................
+┏━╸╺┳╸╻ ╻╻┏━╸┏━┓   ╻┏┓╻
+┣╸  ┃ ┣━┫┃┃  ┗━┓   ┃┃┗┫
+┗━╸ ╹ ╹ ╹╹┗━╸┗━┛   ╹╹ ╹
+┏━╸┏━┓┏┳┓┏━┓╻ ╻╺┳╸╻┏┓╻┏━╸
+┃  ┃ ┃┃┃┃┣━┛┃ ┃ ┃ ┃┃┗┫┃╺┓
+┗━╸┗━┛╹ ╹╹  ┗━┛ ╹ ╹╹ ╹┗━┛
+...............................................
+               Presented by Oleksandr Miliukhin
+               Lviv 2023
+
+# https://tools.suckless.org/sent/
+
+Goals
+  - showcase problems
+  - find solutions
+
+Outline
+  1. Piracy
+  2. Digital Restrictions Management
+  3. Proprietary software
+  4. Conclusion
+
+
+PIRACY 🏴☠️
+
+Digital piracy != real piracy
+
+@pirate.jpg
+it's not like these guys are going to
+come and take over your dev office
+
++ 🍎 → . vs 🍎 → 🍎🍎🍎🍎🍎
++ piracy increases popularity
+
+It still may seem unethical, until
+we look at piracy mitigation
+
+DRM
+
+DRM limits what
+people can do
+with digital media
+
+@toilet.png
+
+Examples of DRM
+
+1. Amazon deleted 1984
+ebook from people's devices
+
+2. Windows media player stopping
+when users started a program that
+could record audio.
+
+Sony and friends are
+suing Internet Archive now.
+                Guess why?
+
+@sinatra.webp
+he didn't die, he became a part of sony legal team
+posting of thousands of old songs
+and recordings online amounts to
+“wholesale theft” of
+copyright-protected music.
+
+3. game DRM
+   No internet (earlier CD)
+   → no single player? 🤔
+
+4. Cars nowadays
+   - Paid seat heating
+   - software speed limit
+
+5. Netflix restricting
+   accounts to 1 IP
+
+6. Movies, music, games, alright!
+But SCIENCE?
+
+Why ever make a study
+inaccessible?
+
+researchers *don't*
+earn from paywalls
+
+So piracy
+may be unethical,
+but DRM is the devil.
+
+DRM is
+overengineering
+
+How to give back?
+
+Buy merch
+support the author
+# not spotify charts
+
+Seed, please 🌱
+so others feed
+
+SCRAPING 🕷️
+
+Scraping is gathering
+info from websites
+(often automated)
+
+@scraping.png
+it is common practice,
+and often has a good purpose,
+even if site owners don't like it.
+
++ search engine indexing
++ data preservation
++ efficient use of the web
+
+scraping GOOD
+
+When you're
+scraping
+
+Totally ethical:
+- don't switch user agents / IPs
+- describe your doing
+
+Easy to block
+
+then, a resource
+goes down
+
+and with
+no scraping...
+
+⬜
+
+PROPRIETARY
+SOFTWARE 🚫
+
+Non-libre software
+doesn't respect users
+
+what is
+freedom
+   ?
+
+@0.png
+Let's look at software freedoms
+to better get why.
+
+@1.png
+
+@2.png
+
+@3.png
+
+0. Run.
+1. Study and modify.
+2. Redistribute.
+3. Modify + Redistribute.
+
+but with
+non-free software...
+
+Users ⇒ Uses
+
+- users are often tracked for 💰
+- and tricked
+- face security issues
+- rely on the developer
+- ...
+
+And these proprietary software
+companies often use dark patterns
+and sneaky marketing
+
+like google
+sabotaging firefox
+
+@trackers.png
+definitely privacy settings!
+
+But can they really
+be turned off?
+
+November 2020 → malware sending
+(unencrypted) reports what user
+opens what program to Apple.
+
+It also gives
+Apple power to
+sabotage users' computing.
+
+Is THIS ethical?
+
+What if
+the web ran
+on this ?
+
+@babiichuk-devil-eula.svg
+Unfortunately, user space
+is plagued with it, but
+
+gnu.org
+
+@gnu-and-penguin-color-300x276.jpg
+
+Conclusion
+
+1. There are many
+injustices in the
+digital world
+
+2. Sometimes physical
+world rules
+           don't apply
+
+3. There are
+solutions
+
+OK Computer
+
+https://sneak.berlin/20201112/your-computer-isnt-yours/
+https://www.techspot.com/news/79672-google-accused-sabotaging-firefox-again.html
+
+https://www.defectivebydesign.org/
+there's a guide that lists
+services without DRM
+
+Are these ethical?
+
+unethical
+cracking
+
+client-side
+execution
+on the web
+
+HR
+?
+
+software
+bloat
+
+EARN IT
+Act
+
+yeah please
+ban encryption
+
+DNS
+
+commercial AI
+trained on copyrighted
+material
