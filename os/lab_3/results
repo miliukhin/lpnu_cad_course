@@ -1,0 +1,30 @@
+[sasha@penumbra ~d/uni/os/lab_3]$ ./script
+turn on the machine
+start the program
+request the option
+end the program
+turn off the machine
+-rw-r--r-- 1 sasha sasha 94 Sep 19 21:23 oleksandr1
+[sasha@penumbra ~d/uni/os/lab_3]$ tree
+.
+├── _minted-input
+│   ├── 3EE57743555B3F8F34A4438F78A16C31CA09AA0689B3D747DC4DAA1E6623C687.pygtex
+│   ├── 90A65B3B20C2412645191E4D4D5C0E762B3000CF0CD98EE2CCE2C7DBCEF4AEF5.pygtex
+│   ├── 9B0F9BF38041C9A5B6AAACD4C58192582B3000CF0CD98EE2CCE2C7DBCEF4AEF5.pygtex
+│   ├── C61A35F6880C4AC1E9EA857A9131AC92CA09AA0689B3D747DC4DAA1E6623C687.pygtex
+│   └── trac.pygstyle
+├── man.md
+├── man.md.~1~
+├── miliukhin2
+│   ├── common_lines
+│   ├── oleksandr
+│   ├── oleksandr2
+│   └── oleksandr3
+├── output
+├── script
+├── typescript
+├── Мілюхін_ПП-24_lab_3.md
+└── Мілюхін_ПП-24_lab_3.pdf
+
+3 directories, 16 files
+[sasha@penumbra ~d/uni/os/lab_3]$

@@ -1,0 +1,33 @@
+[customer]
+	*cust_id
+	company
+	country?
+	address
+[order_sheet]
+	*order_id
+	+cust_id
+	+product_id
+	+manufacturer_id
+	unit
+	qty
+[payment]
+	*pay_notice
+	+order_id
+	+cust_id
+	date
+	amount
+[product]
+	*product_id
+	+manufacturer_id
+	description
+	price
+[manufacturer]
+	*manufacturer_id
+	country
+	address
+customer +--1 order_sheet
+customer 1--+ payment
+order_sheet 1--+ product
+order_sheet 1--+ manufacturer
+payment +--1 order_sheet
+product +--+ manufacturer

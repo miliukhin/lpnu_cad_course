@@ -1,0 +1,58 @@
+[material]
+	name
+	*id_material
+[product]
+	*product_id
+	+manufacturer_id
+	name
+	number
+	price
+[guitar]
+	*guitar_model
+	+product_id
+	number_of_strings
+	frets
+	length
+	width
+	scaled_length
+[bowed]
+	*bowed_model
+	+product_id
+	size
+[manufacturer]
+	*ID
+	address
+	phone number
+[employee]
+	*ID
+	first_name
+	middle_name
+	last_name
+	salary
+	position
+[buyer]
+	*ID
+	first_name
+	middle_name
+	last_name
+[order]
+	*order_number
+	date
+	+buyer_id
+	+seller_id
+[order_details]
+	*id_details
+	+order_number
+	+product_id
+	quantity_of_goods
+	sum
+
+material *--* product
+manufacturer 1--+ product
+buyer 1--+ order
+employee 1--* order
+
+product 1--? guitar
+product 1--? bowed
+order_details +--1 order
+order_details 1--+ product

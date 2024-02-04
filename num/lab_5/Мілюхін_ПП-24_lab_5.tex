@@ -1,0 +1,152 @@
+%xelatex
+%-shell-escape для minted
+\documentclass[a4paper, 12pt, oneside]{extarticle}
+\input{$UNI/.templates/settings/preamble.tex}
+\input{$UNI/.templates/settings/font_styles.tex}
+\input{$UNI/.templates/settings/minted_settings.tex}
+\addbibresource{~/Documents/uni/bibliography.bib}
+
+\usepackage[explicit]{titlesec}
+% \usepackage[svgnames]{xcolor}
+
+\renewcommand\Variant{$x^2 + 1,08 x - 0,144$}
+% \newcommand\Date{DAY.MONTH.\the\year}
+\newcommand\Type{\Lab} % \Lab \Pract \RGR
+\Work{num}
+% \newcommand\Number{NUMBER}
+\newcommand\Topic{
+	Чисельне розв’язування \\
+нелінійного рівняння (№ 5)
+}
+
+\usepackage[breakable]{tcolorbox}
+
+\usepackage{blindtext}
+
+\titleformat{\section}
+[display]
+{\color{black}\normalfont\bfseries}
+{}
+{0pt}
+{\begin{tcolorbox}[arc=0mm, colback=blue!10!white, boxrule=0.2mm, beforeafter skip=0pt, boxsep=0mm]{ #1}\end{tcolorbox}}
+
+\titleformat{\subsection}
+[display]
+{\color{black}\normalfont\bfseries}
+{}
+{0pt}
+{\begin{tcolorbox}[arc=0mm, colback=blue!10!white, boxrule=0.2mm, beforeafter skip=0pt, boxsep=0mm]{ #1}\end{tcolorbox}}
+
+\titlespacing*{\section}{0pt}{0ex}{-4ex}
+\titlespacing*{\subsection}{0pt}{0ex}{-4ex}
+
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{tabularx}
+
+% \setlength{\textfloatsep}{12pt}
+\newcommand\tcobx[1]{
+\begin{tcolorbox}[breakable, arc=0mm, colback=white, boxrule=0.2mm, beforeafter skip=0pt]
+	#1
+\end{tcolorbox}
+}
+
+\begin{document}
+\Margins
+
+\input{../header.tex}
+% мета
+\tcobx{
+	Розв’язати нелінійне рівняння методом половинного ділення та методом Ньютона.
+}
+
+\section*{Завдання}
+\tcobx{
+	1. Згідно із варіантом, одержати нелінійне рівняння f(x).
+
+2. Визначити аналітично корені нелінійного рівняння f(x) = 0 та вираз похідної df(x) / dx.
+
+3. Скласти програму, яка визначає додатній корінь рівняння f(x) = 0 на основі методу половинного
+ділення та методу Ньютона.
+
+4. Запустити програму на виконання та одержати результат через консоль.
+
+5. Звести результатами обчислення до таблиць та побудувати
+
+– для методу половинного ділення графік зміни меж і значення поточного наближення кореня
+
+– для методу Ньютона графік зміни значення поточного наближення залежно від номера ітерації.
+}
+
+\section*{Дані згідно з варіантом}
+
+\tcobx{
+	\Variant
+}
+
+\section*{ Аналітичні вирази }
+
+\subsection*{ Корені рівняння }
+\tcobx{
+$$
+D = 1.08^2+4*0.144 = 1.7424
+$$
+
+$$
+x_1 = \frac{-1.08+\sqrt{1.7424}}{2} = 0.12,
+x_2 = \frac{-1.08-\sqrt{1.7424}}{2}  = -1.2
+$$
+}
+
+\subsection*{ Похідна функції }
+\tcobx {
+$$
+f'(x) = x + 1.08
+$$
+}
+
+\section*{ Код програми}
+
+\tcobx {
+	\inputminted{python}{trans.c}
+}
+
+\section*{ Вивід}
+
+\tcobx {
+	\verbatiminput{out}
+}
+
+\section*{ Результати обчислення}
+
+\subsection*{ Таблиця з результатами обчислення кореня методом половинного ділення}
+
+\tcobx {
+\csvautolongtable{bi.csv}
+}
+
+\subsection*{ Таблиця з результатами обчислення кореня методом Ньютона}
+
+\tcobx {
+\csvautolongtable{new.csv}
+}
+
+\subsection*{ Графік  зміни меж і поточного наближення кореня для методу половинного ділення}
+\tcobx {
+\includegraphics[width=\textwidth]{bi.pdf}
+}
+
+\subsection*{ Графік зміни поточного наближення кореня для методу Ньютона}
+\tcobx {
+	\includegraphics[width=.9\textwidth]{new.pdf}
+}
+
+\section*{ Висновок}
+
+\tcobx {
+	У лабораторній роботі розв’язано нелінійне рівняння методом половинного ділення та методом
+Ньютона. Програму складено мовою C, а графіки побудовані за допомогою gnuplot. Для квадратного
+рівняння \Variant корінь --- 0.12
+}
+
+\end{document}

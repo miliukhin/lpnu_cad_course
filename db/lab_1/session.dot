@@ -1,0 +1,25 @@
+ graph {
+    graph [rankdir=LR];
+    node [label="\N",
+        shape=plaintext
+    ];
+    edge [color=gray50,
+        minlen=2,
+        style=dashed
+    ];
+
+"студент" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">студент</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_заліковки</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>ПІБ</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+№_групи</FONT></TD></TR></TABLE></FONT>>];
+"група" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">група</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_групи</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>назва</FONT></TD></TR></TABLE></FONT>>];
+"викладач" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">викладач</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_викладача</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>ПІБ</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>посада</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+№_кафедри</FONT></TD></TR></TABLE></FONT>>];
+"кафедра" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">кафедра</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_кафедри</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>назва</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>телефон</FONT></TD></TR></TABLE></FONT>>];
+"дисципліна" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">дисципліна</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_дисципліни</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>семестр</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>назва</FONT></TD></TR></TABLE></FONT>>];
+"сесія" [label=<<FONT FACE="Helvetica"><TABLE BORDER="0" CELLBORDER="1" CELLPADDING="4" CELLSPACING="0"><TR><TD><B><FONT POINT-SIZE="16">сесія</FONT></B></TD></TR><TR><TD ALIGN="LEFT"><u><FONT>№_сесії</FONT></u></TD></TR><TR><TD ALIGN="LEFT"><FONT>+№_заліковки</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+№_дисципліни</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>бал</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>оцінка</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>дата_здачі</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT>+№_викладача</FONT></TD></TR></TABLE></FONT>>];
+"студент" -- "група" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>належить</FONT>>,headlabel=<<FONT>1</FONT>>];
+"студент" -- "дисципліна" [taillabel=<<FONT>0..N</FONT>>,label=<<FONT>вивчає</FONT>>,headlabel=<<FONT>1..N</FONT>>];
+"студент" -- "сесія" [taillabel=<<FONT>0..N</FONT>>,label=<<FONT>складає</FONT>>,headlabel=<<FONT>0..N</FONT>>];
+"викладач" -- "кафедра" [taillabel=<<FONT>0..N</FONT>>,label=<<FONT>працює</FONT>>,headlabel=<<FONT>1</FONT>>];
+"викладач" -- "дисципліна" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>викладає</FONT>>,headlabel=<<FONT>1..N</FONT>>];
+"викладач" -- "студент" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>навчає</FONT>>,headlabel=<<FONT>1..N</FONT>>];
+"викладач" -- "сесія" [taillabel=<<FONT>0..N</FONT>>,label=<<FONT>проводить</FONT>>,headlabel=<<FONT>0..N</FONT>>];
+"сесія" -- "дисципліна" [taillabel=<<FONT>1..N</FONT>>,label=<<FONT>відбувається</FONT>>,headlabel=<<FONT>0..N</FONT>>];
+}

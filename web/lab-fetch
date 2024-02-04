@@ -1,0 +1,13 @@
+#!/bin/sh
+
+max=16
+x=1
+
+while [ $x -lt $max ]
+do
+	mkdir -vp "lab_$x"
+	curl -L "https://www.victoria.lviv.ua/library/students/wd/work$x.html" | html2text > "lab_$x/man.md"
+	sed -i -n '/^#[1-9]/,$p' "lab_$x/man.md" && sed -i '/footer-logo/,$d' "lab_$x/man.md" ## remove header and footer
+	# sed -i '0,/Лабораторні КН-21з/d' "lab_$x/man.md"
+	true $(( x=x+1 ))
+done
