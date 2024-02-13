@@ -1,44 +1,0 @@
-Script started on 2023-09-19 21:43:10+03:00 [TERM="st-256color" TTY="/dev/pts/2" COLUMNS="116" LINES="52"]
-[5 q[1m[7m%[27m[1m[0m                                                                                                                    [0m[27m[24m[J[1m[31m[[33msasha[32m@[34mpenumbra [35m~d/uni/os/lab_3[31m][00m$[0m [K[5 q[5 q[?2004h[32mh[39m[1m[31mh[1m[31me[0m[39m[0m[32mh[39m[0m[39m [?2004l
-[5 q[0m[01;34m.aMule[0m         [01;34m.shared-ringdb[0m  .bash_logout                      kol.md
-[01;34m.abook[0m         [01;34m.sqlworkbench[0m   .bash_profile                     meth.md
-[01;34m.cabal[0m         [01;34m.ssh[0m            .bashrc                           monero-wallet-cli.log
-[01;34m.cache[0m         [37;44m.texlive[0m        .gitconfig                        [01;32moleksandr1[0m
-[01;34m.config[0m        [01;34mBooks[0m           .gitmodules                       pic-full-230918-2023-59.png
-[01;34m.dbus[0m          [01;34mDocuments[0m       [01;36m.gtkrc-2.0[0m                        pic-selected-230918-0747-38.png
-[01;34m.dotnet[0m        [01;34mDownloads[0m       .mariadb_history                  pic-selected-230918-0747-41.png
-[01;34m.git[0m           [01;34mMusic[0m           [01;36m.msmtprc[0m                          pl.ini
-[01;34m.gnupg[0m         [01;34mPascal[0m          .viminfo                          pol.md
-[01;34m.gradle[0m        [01;34mPictures[0m        [01;36m.xprofile[0m                         session.mwb
-[01;34m.java[0m          [01;34mPrograms[0m        [01;36m.zprofile[0m                         session.sql
-[01;34m.librewolf[0m     [01;34mVideos[0m          L 2++.pdf                         [01;32msessionstore.jsonlz4[0m
-[01;34m.local[0m         [01;34mcracks[0m          Unity_Introduces_Runtime_Fee.txt  test.sql
-[01;34m.mysql[0m         [01;34mgxrecord[0m        architect.log                     track.md
-[01;34m.nuget[0m         [01;34mtamgamp.lv2[0m     audio-230916-2247-04.flac         track.wav
-[01;34m.openjfx[0m       [01;34mvms[0m             bash                              vk.sql
-[01;34m.pki[0m           .Xauthority     dir.txt                           ОСНОВНІ ПОНЯТТЯ ТА ПРИНЦИПИ КОМБІНАТОРИКИ.pdf
-[01;34m.screenlayout[0m  .bash_history   [01;32mfile1[0m
-[1m[7m%[27m[1m[0m                                                                                                                    [0m[27m[24m[J[1m[31m[[33msasha[32m@[34mpenumbra [35m~[31m][00m$[0m [K[5 q[5 q[?2004h[32mm[39m[1m[31mm[1m[31ma[0m[39m[0m[32mm[0m[32ma[32mn[39m [31mh[39m[?2004l
-[5 qNo manual entry for h
-[1m[7m%[27m[1m[0m                                                                                                                    [0m[27m[24m[J[1m[31m[[33msasha[32m@[34mpenumbra [35m~[31m][00m$[0m [K[5 q[5 q[?2004h[32mh[39m[32mh[39m [36m-[39m[36m-[36mh[39m[?2004l
-[5 q[0m[01;34m.aMule[0m         [01;34m.shared-ringdb[0m  .bash_logout                      kol.md
-[01;34m.abook[0m         [01;34m.sqlworkbench[0m   .bash_profile                     meth.md
-[01;34m.cabal[0m         [01;34m.ssh[0m            .bashrc                           monero-wallet-cli.log
-[01;34m.cache[0m         [37;44m.texlive[0m        .gitconfig                        [01;32moleksandr1[0m
-[01;34m.config[0m        [01;34mBooks[0m           .gitmodules                       pic-full-230918-2023-59.png
-[01;34m.dbus[0m          [01;34mDocuments[0m       [01;36m.gtkrc-2.0[0m                        pic-selected-230918-0747-38.png
-[01;34m.dotnet[0m        [01;34mDownloads[0m       .mariadb_history                  pic-selected-230918-0747-41.png
-[01;34m.git[0m           [01;34mMusic[0m           [01;36m.msmtprc[0m                          pl.ini
-[01;34m.gnupg[0m         [01;34mPascal[0m          .viminfo                          pol.md
-[01;34m.gradle[0m        [01;34mPictures[0m        [01;36m.xprofile[0m                         session.mwb
-[01;34m.java[0m          [01;34mPrograms[0m        [01;36m.zprofile[0m                         session.sql
-[01;34m.librewolf[0m     [01;34mVideos[0m          L 2++.pdf                         [01;32msessionstore.jsonlz4[0m
-[01;34m.local[0m         [01;34mcracks[0m          Unity_Introduces_Runtime_Fee.txt  test.sql
-[01;34m.mysql[0m         [01;34mgxrecord[0m        architect.log                     track.md
-[01;34m.nuget[0m         [01;34mtamgamp.lv2[0m     audio-230916-2247-04.flac         track.wav
-[01;34m.openjfx[0m       [01;34mvms[0m             bash                              vk.sql
-[01;34m.pki[0m           .Xauthority     dir.txt                           ОСНОВНІ ПОНЯТТЯ ТА ПРИНЦИПИ КОМБІНАТОРИКИ.pdf
-[01;34m.screenlayout[0m  .bash_history   [01;32mfile1[0m
-[1m[7m%[27m[1m[0m                                                                                                                    [0m[27m[24m[J[1m[31m[[33msasha[32m@[34mpenumbra [35m~[31m][00m$[0m [K[5 q[5 q[?2004h[?2004l
-
-Script done on 2023-09-19 21:43:28+03:00 [COMMAND_EXIT_CODE="0"]
