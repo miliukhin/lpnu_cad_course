@@ -1,3 +1,4 @@
+pp/*
 **/*.DOC*
 **/*.doc*
 **/*.ppt*
@@ -19,6 +20,7 @@
 **/*.trash
 **/*minted-*
 **/*.bak
+**/*.RData
 
 **/*_Debug
 **/*.cache
