@@ -1,0 +1,6 @@
+<++>
+
+configure terminal
+ip route 0.0.0.0 0.0.0.0 s 2/0
+exit
+copy running-config startup-config
