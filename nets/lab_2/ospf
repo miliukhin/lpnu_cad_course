@@ -1,0 +1,39 @@
+conf t
+router ospf 1
+router-id <++>
+network 0.0.0.0 255.255.255.255 area 0
+end
+wr
+
+HQ(config)#router ospf 1
+HQ(config-router)#router-id 1.1.1.1
+HQ(config-router)#network 0.0.0.0 255.255.255.255 area 0
+HQ(config-router)#end
+HQ#
+*Mar  1 00:05:33.595: %SYS-5-CONFIG_I: Configured from console by console
+
+BRANCH4#sh ip ospf neigh
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+1.1.1.6           0   FULL/  -        00:00:38    192.37.12.1     Serial0/1
+1.1.1.3           0   FULL/  -        00:00:33    192.37.11.1     Serial0/0
+
+
+PC4 : 192.37.0.2 255.255.255.0 gateway 192.37.0.1
+
+PC4>
+
+
+PC3 : 192.37.9.2 255.255.255.0 gateway 192.37.9.1
+
+PC3>
+
+PC4> ping 192.37.9.2
+
+192.37.9.2 icmp_seq=1 timeout
+84 bytes from 192.37.9.2 icmp_seq=2 ttl=60 time=14.955 ms
+84 bytes from 192.37.9.2 icmp_seq=3 ttl=60 time=19.009 ms
+84 bytes from 192.37.9.2 icmp_seq=4 ttl=60 time=17.195 ms
+84 bytes from 192.37.9.2 icmp_seq=5 ttl=60 time=17.463 ms
+
+PC4>
