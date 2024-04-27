@@ -28,7 +28,7 @@ pp/*
 
 2-сем/Ukr/essay/essay.md
 
-**/*.gnuplot
+# **/*.gnuplot
 **/*.table
 **/*.ipynb_checkpoints
 __pycache__
