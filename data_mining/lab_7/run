@@ -1,0 +1,2 @@
+#!/bin/sh
+Rscript script.r > output && pdfseparate Rplots.pdf "plot_%d.pdf"

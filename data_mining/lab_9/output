@@ -1,0 +1,71 @@
+
+Naive Bayes Classifier for Discrete Predictors
+
+Call:
+naiveBayes.default(x = X, y = Y, laplace = laplace)
+
+A-priori probabilities:
+Y
+    setosa versicolor  virginica 
+ 0.3333333  0.3333333  0.3333333 
+
+Conditional probabilities:
+            Sepal.Length
+Y                [,1]      [,2]
+  setosa     5.016667 0.3097088
+  versicolor 5.916667 0.5414434
+  virginica  6.740000 0.5763141
+
+            Sepal.Width
+Y                [,1]      [,2]
+  setosa     3.456667 0.3490710
+  versicolor 2.750000 0.3202908
+  virginica  3.033333 0.2928261
+
+            Petal.Length
+Y                [,1]      [,2]
+  setosa     1.466667 0.1881550
+  versicolor 4.220000 0.4373904
+  virginica  5.680000 0.5019960
+
+            Petal.Width
+Y                [,1]       [,2]
+  setosa     0.220000 0.08051558
+  versicolor 1.303333 0.20924055
+  virginica  2.063333 0.29182344
+
+            y_pred
+             setosa versicolor virginica
+  setosa         20          0         0
+  versicolor      0         20         0
+  virginica       0          2        18
+Confusion Matrix and Statistics
+
+            y_pred
+             setosa versicolor virginica
+  setosa         20          0         0
+  versicolor      0         20         0
+  virginica       0          2        18
+
+Overall Statistics
+                                          
+               Accuracy : 0.9667          
+                 95% CI : (0.8847, 0.9959)
+    No Information Rate : 0.3667          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.95            
+                                          
+ Mcnemar's Test P-Value : NA              
+
+Statistics by Class:
+
+                     Class: setosa Class: versicolor Class: virginica
+Sensitivity                 1.0000            0.9091           1.0000
+Specificity                 1.0000            1.0000           0.9524
+Pos Pred Value              1.0000            1.0000           0.9000
+Neg Pred Value              1.0000            0.9500           1.0000
+Prevalence                  0.3333            0.3667           0.3000
+Detection Rate              0.3333            0.3333           0.3000
+Detection Prevalence        0.3333            0.3333           0.3333
+Balanced Accuracy           1.0000            0.9545           0.9762
